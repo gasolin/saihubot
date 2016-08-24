@@ -74,6 +74,44 @@ bot: Hello World!
 
 ![Imgur](http://i.imgur.com/Ljjf0Fw.png)
 
+
+After 0.4, Saihubot provide Search plugins, you can include via:
+
+```html
+<script defer src="saihubot-search.js"></script>
+```
+
+Check the [Search Demo](https://gasolin.github.io/saihubot/search).
+
+### Google plugin:
+
+```
+me: g saihubot
+bot: Search saihubot via Google
+me: google saihubot
+bot: Search saihubot via Google
+me: search saihubot
+bot: Search saihubot via Google
+```
+
+### Wikipedia plugin:
+
+```
+me: wiki saihubot
+bot: Search saihubot via Wikipedia
+me: wikipedia saihubot
+bot: Search saihubot via Wikipedia
+```
+
+### Google Translate plugin
+
+```
+me: translate hello
+bot: Translate hello via Google Translate
+me: tr saihubot
+bot: Translate hello via Google Translate
+```
+
 ## Developer
 
 ### Make an plugin
@@ -119,6 +157,7 @@ Saihubot use MIT License
 
 ## ChangeLog
 
+* 0.4 2016/8/24 return matched result for message instead of the origin string, add google analytics, add search plugin
 * 0.3 2016/8/17 rename from HuohuBot to Saihubot, turn Saihubot to constructor, separate saihubot-dialog.js from addon
 * 0.2 2016/8/6 change to robot.send method in plugin, add plugin and addon examples
 * 0.1 2016/8/5 init version
