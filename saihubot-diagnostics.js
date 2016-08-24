@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }});
   SaihuBot.prototype.responses.push(
     { name: 'echo [string]', rule: /ECHO (.*)$/i, action: function(robot, msg) {
-      robot.send(msg);
+      robot.send(msg[0]);
     }});
   SaihuBot.prototype.responses.push(
     { name: 'time', rule: /TIME$/i, action: function(robot, msg) {

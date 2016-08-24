@@ -45,9 +45,10 @@ SaihuBot.prototype = {
   processListeners: function(msg) {
     var len = this.chatHistory.length;
     this.responses.forEach((item) => {
-      if (item.rule.test(msg)) {
+      var matchedMsg = msg.match(item.rule);
+      if (matchedMsg) {
         console.log('matched!');
-        item.action(this, msg);
+        item.action(this, matchedMsg);
       }
     });
 
