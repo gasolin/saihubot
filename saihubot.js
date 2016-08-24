@@ -75,10 +75,20 @@ SaihuBot.prototype = {
     this.message.focus();
   },
 
+  // send text message
   send: function(msg, role) {
     var charactor = role ? role : this.botAlias;
     var sendMsg = document.createElement('p');
     sendMsg.textContent = charactor + ': ' + msg;
+    this.chatHistory.push(sendMsg);
+  },
+
+  // send html element with bot
+  sendHTML: function(msg, role) {
+    var sendMsg = document.createElement('p');
+    var charactor = role ? role : this.botAlias;
+    sendMsg.textContent = charactor + ': ';
+    sendMsg.appendChild(msg);
     this.chatHistory.push(sendMsg);
   }
 };
