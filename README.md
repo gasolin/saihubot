@@ -3,7 +3,7 @@ Compact Chat bot runs in the Browser, you can add new vary kinds of dialect via 
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-Saihubot's API is very similar to [hubot]((https://github.com/github/hubot/)'s API, so developer could port hubot-plugins to Saihubot-plugins with less effort.
+Saihubot's API is very similar to [hubot]((https://github.com/github/hubot/) 's API, so developer could port hubot-plugins to Saihubot-plugins with less effort.
 
 saihu (`師傅`) means `master` in Taiwanese, its origin goal is provide a code sample that make learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier.
 
