@@ -34,21 +34,40 @@ Clone the project, then drag index.html to your browser, now you have a working 
 
 ### Embed in your web site
 
-Clone the project then include the `saihubot.js` in your html file with 2 extra tags:
+Clone the project then include the `saihubot.js` in your html file with a div tag for message history and the input field:
 
 ```html
-<div id="history"></div>
-<input id="message"><button id="send">Send</button>
-<script defer src="saihubot.js"></script>
-<script defer src="plugins/saihubot-diagnostics.js"></script>
+<body>
+  <div id="history"></div>
+  <input id="message"><button id="send">Send</button>
+  <script>
+    new window.SaihuBot({});
+  </script>
+</body>
 ```
 
+The script is used to bootstrap the Saihubot.
+
+```js
+new window.SaihuBot({});
+```
+
+You can pass some parameters into it to quickly customize the bot.
+
+Make sure to include related libraries in header
+
+```html
+<head>
+  <script src="saihubot.js"></script>
+  <script src="plugins/saihubot-diagnostics.js"></script>
+</header>
+```
 ## Usage
 
 Saihubot provide 3 default plugins `ping`, `time`, `echo` that you can include via:
 
 ```html
-<script defer src="plugins/saihubot-diagnostics.js"></script>
+<script src="plugins/saihubot-diagnostics.js"></script>
 ```
 
 ### Ping plugin
@@ -75,10 +94,10 @@ bot: Hello World!
 ![Imgur](http://i.imgur.com/Ljjf0Fw.png)
 
 
-After 0.4, Saihubot provide Search plugins, you can include via:
+Saihubot also provide Search plugins, you can include it via:
 
 ```html
-<script defer src="plugins/saihubot-search.js"></script>
+<script src="plugins/saihubot-search.js"></script>
 ```
 
 Check the [Search Demo](https://gasolin.github.io/saihubot/samples/search).

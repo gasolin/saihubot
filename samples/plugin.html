@@ -6,6 +6,8 @@
   <meta name="description" content="client side chatbot that can be embedded in any web site.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Saihubot plugin</title>
+  <script src="../saihubot.js"></script>
+  <script src="../plugins/saihubot-diagnostics.js"></script>
 </head>
 
 <body>
@@ -16,8 +18,6 @@
     >> type `ping`, `time`, or `echo [message]` to see what's happened<br> >> type `bye` and you'll got message from bot <br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script defer src="../saihubot.js"></script>
-  <script defer src="../plugins/saihubot-diagnostics.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       SaihuBot.prototype.responses.push({
@@ -28,6 +28,8 @@
         }
       });
     });
+
+    new window.SaihuBot({});
   </script>
   <script defer src="ga.js"></script>
 </body>

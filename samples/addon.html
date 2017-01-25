@@ -5,6 +5,9 @@
   <meta name="description" content="client side chatbot that can be embedded in any web site.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Saihubot addon</title>
+  <script src="../saihubot.js"></script>
+  <script src="../plugins/saihubot-dialog.js"></script>
+  <script src="../plugins/saihubot-diagnostics.js"></script>
 </head>
 <body>
   <div id="history"></div>
@@ -16,9 +19,6 @@
     >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script defer src="../saihubot.js"></script>
-  <script defer src="../plugins/saihubot-dialog.js"></script>
-  <script defer src="../plugins/saihubot-diagnostics.js"></script>
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     // plugins that use confirm dialog addon
@@ -44,6 +44,8 @@
         );
       }});
   });
+
+  new window.SaihuBot({});
   </script>
   <script defer src="ga.js"></script>
 </body>

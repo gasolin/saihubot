@@ -100,4 +100,4 @@ SaihuBot.prototype = {
   }
 };
 
-var saihubot = new SaihuBot({});
+// var saihubot = new SaihuBot({});
