@@ -1,13 +1,18 @@
 'use strict';
 
-function SaihuBot() {
-  this.myAlias = 'me';
-  this.botAlias = 'bot';
-  this.messageHistoryElement = 'history';
-  this.inputElement = 'message';
-  this.sendButtonElement = 'send';
-  this.defaultMessage = document.createElement('p');
-  this.defaultMessage.textContent = this.botAlias + ': type something to chat with me';
+function SaihuBot(config) {
+  this.myAlias = config.user || 'me';
+  this.botAlias = config.bot || 'bot';
+  this.messageHistoryElement = config.historyContainer || 'history';
+  this.inputElement = config.inputElement || 'message';
+  this.sendButtonElement = config.sendButtonElement || 'send';
+  if (config.welcomeMessage) {
+    this.welcomeMessage = config.welcomeMessage;
+  } else {
+    this.welcomeMessage = document.createElement('p');
+    this.welcomeMessage.textContent = this.botAlias + ': type something to chat with me';
+  }
+  this.notFoundMessages = config.notFoundMessages || ['what do you say?', 'Please make your order clear'];
 
   this.init();
 }
@@ -15,14 +20,13 @@ function SaihuBot() {
 SaihuBot.prototype = {
   responses: [],
 
-  catchAll: {
-    action: function(robot, msg) {
-      robot.send('what do you say?');
-    }
+  catchAll: function(msg) {
+    var msgLen = this.notFoundMessages.length;
+    this.send(this.notFoundMessages[Math.floor(Math.random() * msgLen)]);
   },
 
   init: function() {
-    this.chatHistory = [this.defaultMessage];
+    this.chatHistory = [this.welcomeMessage];
 
     this.history = document.getElementById(this.messageHistoryElement);
     this.message = document.getElementById(this.inputElement);
@@ -57,7 +61,7 @@ SaihuBot.prototype = {
 
     if (len === this.chatHistory.length) {
       console.log('wildcard');
-      this.catchAll.action(this, msg);
+      this.catchAll(msg);
     }
     this.render();
   },
@@ -96,4 +100,4 @@ SaihuBot.prototype = {
   }
 };
 
-var saihubot = new SaihuBot();
+var saihubot = new SaihuBot({});

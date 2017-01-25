@@ -157,7 +157,7 @@ Saihubot use MIT License
 
 ## ChangeLog
 
-* 0.5 2017/1/25 structured plugins and demo pages
+* 0.5 2017/1/25 structured plugins and demo pages, support config, changed catchAll API and support multiple `no command found` responses
 * 0.4 2016/8/24 return matched result for message instead of the origin string, add google analytics, add search plugin
 * 0.3 2016/8/17 rename from HuohuBot to Saihubot, turn Saihubot to constructor, separate saihubot-dialog.js from addon
 * 0.2 2016/8/6 change to robot.send method in plugin, add plugin and addon examples
