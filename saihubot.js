@@ -99,5 +99,3 @@ SaihuBot.prototype = {
     this.chatHistory.push(sendMsg);
   }
 };
-
-// var saihubot = new SaihuBot({});
