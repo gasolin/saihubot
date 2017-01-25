@@ -40,7 +40,7 @@ Clone the project then include the `saihubot.js` in your html file with 2 extra 
 <div id="history"></div>
 <input id="message"><button id="send">Send</button>
 <script defer src="saihubot.js"></script>
-<script defer src="saihubot-diagnostics.js"></script>
+<script defer src="plugins/saihubot-diagnostics.js"></script>
 ```
 
 ## Usage
@@ -48,7 +48,7 @@ Clone the project then include the `saihubot.js` in your html file with 2 extra 
 Saihubot provide 3 default plugins `ping`, `time`, `echo` that you can include via:
 
 ```html
-<script defer src="saihubot-diagnostics.js"></script>
+<script defer src="plugins/saihubot-diagnostics.js"></script>
 ```
 
 ### Ping plugin
@@ -78,10 +78,10 @@ bot: Hello World!
 After 0.4, Saihubot provide Search plugins, you can include via:
 
 ```html
-<script defer src="saihubot-search.js"></script>
+<script defer src="plugins/saihubot-search.js"></script>
 ```
 
-Check the [Search Demo](https://gasolin.github.io/saihubot/search).
+Check the [Search Demo](https://gasolin.github.io/saihubot/samples/search).
 
 ### Google plugin:
 
@@ -121,7 +121,7 @@ Plugin denotes rules and responses that the bot use to match and respond to the 
 Open browser's devtool and you can start manipulate `Saihubot` object.
 Plugins are located in `Saihubot.responses`, and that is the place all you need to deal with.
 
-Check [Plugin Demo](https://gasolin.github.io/saihubot/plugin) for example.
+Check [Plugin Demo](https://gasolin.github.io/saihubot/samples/plugin) for example.
 
 ![Imgur](http://i.imgur.com/mbhTwf6.png)
 
@@ -147,7 +147,7 @@ then include the js file after `saihubot.js`.
 <script defer src="saihubot-addonName.js"></script>
 ```
 
-Check [Addon Demo](https://gasolin.github.io/saihubot/addon) for example.
+Check [Addon Demo](https://gasolin.github.io/saihubot/samples/addon) for example.
 
 ![Imgur](http://i.imgur.com/qYCES6M.png)
 
