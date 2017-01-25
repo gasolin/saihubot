@@ -1,4 +1,5 @@
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -6,26 +7,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Saihubot plugin</title>
 </head>
+
 <body>
   <div id="history"></div>
   <input id="message"><button id="send">Send</button>
 
   <p>
-    >> type `ping`, `time`, or `echo [message]` to see what's happened<br>
-    >> type `bye` and you'll got message from bot <br>
-    >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
+    >> type `ping`, `time`, or `echo [message]` to see what's happened<br> >> type `bye` and you'll got message from bot <br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
   <script defer src="saihubot.js"></script>
   <script defer src="saihubot-diagnostics.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      SaihuBot.prototype.responses.push(
-        { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
+      SaihuBot.prototype.responses.push({
+        name: 'bye',
+        rule: /BYE$/i,
+        action: function(robot, msg) {
           robot.send('see ya');
-        }});
+        }
+      });
     });
   </script>
   <script defer src="ga.js"></script>
 </body>
+
 </html>
