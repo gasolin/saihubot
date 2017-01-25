@@ -1,3 +1,4 @@
+/* globals SaihuBot */
 'use strict';
 // addon that provide confirm dialog function
 document.addEventListener('DOMContentLoaded', function() {

@@ -1,4 +1,5 @@
 'use strict';
+
 function SaihuBot() {
   this.myAlias = 'me';
   this.botAlias = 'bot';
@@ -14,9 +15,11 @@ function SaihuBot() {
 SaihuBot.prototype = {
   responses: [],
 
-  catchAll: { action: function(robot, msg) {
-    robot.send('what do you say?');
-  }},
+  catchAll: {
+    action: function(robot, msg) {
+      robot.send('what do you say?');
+    }
+  },
 
   init: function() {
     this.chatHistory = [this.defaultMessage];
@@ -31,7 +34,7 @@ SaihuBot.prototype = {
   },
 
   onKeydown: function(e) {
-    if(e.keyCode == 13) { // enter
+    if (e.keyCode == 13) { // enter
       this.onReceive();
     }
   },
