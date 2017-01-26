@@ -6,6 +6,7 @@
   <meta name="description" content="client side chatbot that can be embedded in any web site.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Saihubot</title>
+  <link rel="stylesheet" href="samples/chat.css">
   <script src="saihubot.js"></script>
   <script src="adapters/saihubot-adapter-basic.js"></script>
   <script src="plugins/saihubot-diagnostics.js"></script>
@@ -13,8 +14,14 @@
 </head>
 
 <body>
-  <div id="history"></div>
-  <input id="message"><button id="send">Send</button>
+  <div class="chat-frame">
+    <div class="chat-content">
+      <div id="history"></div>
+    </div>
+    <div class="chat-footer">
+      <input id="message"><button id="send">Send</button>
+    </div>
+  </div>
 
   <p>
     >> type `ping`, `time`, or `echo [message]` to see what's happened<br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>

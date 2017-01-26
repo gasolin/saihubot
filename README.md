@@ -181,6 +181,7 @@ Saihubot use MIT License
 
 ## ChangeLog
 
+* 0.7 2017/1/27 add reference chat UI style and make sure the last message always scroll into view
 * 0.6 2017/1/26 provide run, close, send, render function by swappable adapter
 * 0.5 2017/1/25 structured plugins and demo pages, support config, changed catchAll API and support multiple `no command found` responses
 * 0.4 2016/8/24 return matched result for message instead of the origin string, add google analytics, add search plugin
