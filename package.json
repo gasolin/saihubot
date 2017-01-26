@@ -1,0 +1,24 @@
+{
+  "name": "saihubot",
+  "version": "0.7.0",
+  "description": "Client side chatb ot that can be embedded in any web site",
+  "main": "saihubot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/saihubot.git"
+  },
+  "keywords": [
+    "saihubot",
+    "hubot",
+    "webbybot"
+  ],
+  "author": "Fred Lin <gasolin+saihubot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gasolin/saihubot/issues"
+  },
+  "homepage": "https://github.com/gasolin/saihubot"
+}
