@@ -25,6 +25,9 @@ var basicAdapter = {
     this.robot.chatHistory.forEach((element) => {
       this.robot.history.appendChild(element);
     });
+    if (this.robot.chatHistory.length > 1) {
+      this.robot.chatHistory[this.robot.chatHistory.length - 1].scrollIntoView();
+    }
   },
 
   // supportive functions
