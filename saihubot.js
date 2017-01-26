@@ -1,8 +1,8 @@
 'use strict';
 
-var dumbAdapter = {
+var dummyAdapter = {
   // essential functions
-  name: 'dumb',
+  name: 'dummy',
   run: function(robot) {
     console.log('go pick an adapter instead!');
     this.robot = robot;
@@ -10,9 +10,8 @@ var dumbAdapter = {
   close: function() {
     console.log('close dumb adapter');
   },
-  // send text message
   send: function(msg, role) {
-    console.log('send message');
+    console.log('send text message');
   },
   render: function() {
     console.log('render!');
@@ -33,8 +32,7 @@ function SaihuBot(config) {
   }
   this.notFoundMessages = config.notFoundMessages || ['what do you say?', 'Please make your order clear'];
   // provide run, close, send, render function by adapter
-  this.adapter = config.adapter || dumbAdapter;
-
+  this.adapter = config.adapter || dummyAdapter;
   this.run();
 }
 
@@ -93,7 +91,6 @@ SaihuBot.prototype = {
     this.render();
   },
 
-  // send text message via adapter
   send: function(msg, role) {
     this.adapter.send(msg, role);
   },
