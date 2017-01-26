@@ -1,50 +1,23 @@
 'use strict';
 
-var basicAdapter = {
+var dumbAdapter = {
   // essential functions
+  name: 'dumb',
   run: function(robot) {
+    console.log('go pick an adapter instead!');
     this.robot = robot;
   },
-
   close: function() {
-    console.log('close basic adapter');
+    console.log('close dumb adapter');
   },
-
   // send text message
   send: function(msg, role) {
-    var charactor = role ? role : this.robot.botAlias;
-    var sendMsg = document.createElement('p');
-    sendMsg.textContent = charactor + ': ' + msg;
-    this.robot.chatHistory.push(sendMsg);
+    console.log('send message');
   },
-
   render: function() {
     console.log('render!');
-    this.cleanUp();
-    this.robot.chatHistory.forEach((element) => {
-      this.robot.history.appendChild(element);
-    });
   },
-
-  // supportive functions
-
-  // send html element with bot
-  sendHTML: function(msg, role) {
-    var sendMsg = document.createElement('p');
-    var charactor = role ? role : this.robot.botAlias;
-    sendMsg.textContent = charactor + ': ';
-    sendMsg.appendChild(msg);
-    this.robot.chatHistory.push(sendMsg);
-  },
-
-  cleanUp: function() {
-    while (this.robot.history.firstChild) {
-      this.robot.history.removeChild(this.robot.history.firstChild);
-    }
-    this.robot.message.value = '';
-    this.robot.message.focus();
-  },
-}
+};
 
 function SaihuBot(config) {
   this.myAlias = config.user || 'me';
@@ -60,7 +33,7 @@ function SaihuBot(config) {
   }
   this.notFoundMessages = config.notFoundMessages || ['what do you say?', 'Please make your order clear'];
   // provide run, close, send, render function by adapter
-  this.adapter = config.adapter || basicAdapter;
+  this.adapter = config.adapter || dumbAdapter;
 
   this.run();
 }
@@ -74,6 +47,7 @@ SaihuBot.prototype = {
   },
 
   run: function() {
+    console.log('run with', this.adapter.name, 'adapter');
     this.adapter.run(this);
     this.chatHistory = [this.welcomeMessage];
 

@@ -42,7 +42,7 @@ Clone the project then include the `saihubot.js` in your html file with a div ta
   <input id="message"><button id="send">Send</button>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      new window.SaihuBot({});
+      new window.SaihuBot({adapter: window.basicAdapter});
     });
   </script>
 </body>
@@ -63,6 +63,7 @@ And don't forget to include related libraries in the header
 ```html
 <head>
   <script src="saihubot.js"></script>
+  <script src="adapters/saihubot-adapter-basic.js"></script>
   <script src="plugins/saihubot-diagnostics.js"></script>
 </header>
 ```
