@@ -1,5 +1,51 @@
 'use strict';
 
+var basicAdapter = {
+  // essential functions
+  run: function(robot) {
+    this.robot = robot;
+  },
+
+  close: function() {
+    console.log('close basic adapter');
+  },
+
+  // send text message
+  send: function(msg, role) {
+    var charactor = role ? role : this.robot.botAlias;
+    var sendMsg = document.createElement('p');
+    sendMsg.textContent = charactor + ': ' + msg;
+    this.robot.chatHistory.push(sendMsg);
+  },
+
+  render: function() {
+    console.log('render!');
+    this.cleanUp();
+    this.robot.chatHistory.forEach((element) => {
+      this.robot.history.appendChild(element);
+    });
+  },
+
+  // supportive functions
+
+  // send html element with bot
+  sendHTML: function(msg, role) {
+    var sendMsg = document.createElement('p');
+    var charactor = role ? role : this.robot.botAlias;
+    sendMsg.textContent = charactor + ': ';
+    sendMsg.appendChild(msg);
+    this.robot.chatHistory.push(sendMsg);
+  },
+
+  cleanUp: function() {
+    while (this.robot.history.firstChild) {
+      this.robot.history.removeChild(this.robot.history.firstChild);
+    }
+    this.robot.message.value = '';
+    this.robot.message.focus();
+  },
+}
+
 function SaihuBot(config) {
   this.myAlias = config.user || 'me';
   this.botAlias = config.bot || 'bot';
@@ -13,8 +59,10 @@ function SaihuBot(config) {
     this.welcomeMessage.textContent = this.botAlias + ': type something to chat with me';
   }
   this.notFoundMessages = config.notFoundMessages || ['what do you say?', 'Please make your order clear'];
+  // provide run, close, send, render function by adapter
+  this.adapter = config.adapter || basicAdapter;
 
-  this.init();
+  this.run();
 }
 
 SaihuBot.prototype = {
@@ -22,10 +70,11 @@ SaihuBot.prototype = {
 
   catchAll: function(msg) {
     var msgLen = this.notFoundMessages.length;
-    this.send(this.notFoundMessages[Math.floor(Math.random() * msgLen)]);
+    this.adapter.send(this.notFoundMessages[Math.floor(Math.random() * msgLen)]);
   },
 
-  init: function() {
+  run: function() {
+    this.adapter.run(this);
     this.chatHistory = [this.welcomeMessage];
 
     this.history = document.getElementById(this.messageHistoryElement);
@@ -37,6 +86,10 @@ SaihuBot.prototype = {
     this.render();
   },
 
+  shutdown: function() {
+    this.adapter.close();
+  },
+
   onKeydown: function(e) {
     if (e.keyCode == 13) { // enter
       this.onReceive();
@@ -45,7 +98,7 @@ SaihuBot.prototype = {
 
   onReceive: function() {
     var receivedMsg = this.message.value;
-    this.send(receivedMsg, this.myAlias);
+    this.adapter.send(receivedMsg, this.myAlias);
     this.processListeners(receivedMsg);
   },
 
@@ -66,36 +119,12 @@ SaihuBot.prototype = {
     this.render();
   },
 
-  render: function() {
-    console.log('render!');
-    this.cleanUp();
-    this.chatHistory.forEach((element) => {
-      this.history.appendChild(element);
-    });
-  },
-
-  cleanUp: function() {
-    while (this.history.firstChild) {
-      this.history.removeChild(this.history.firstChild);
-    }
-    this.message.value = '';
-    this.message.focus();
-  },
-
-  // send text message
+  // send text message via adapter
   send: function(msg, role) {
-    var charactor = role ? role : this.botAlias;
-    var sendMsg = document.createElement('p');
-    sendMsg.textContent = charactor + ': ' + msg;
-    this.chatHistory.push(sendMsg);
+    this.adapter.send(msg, role);
   },
 
-  // send html element with bot
-  sendHTML: function(msg, role) {
-    var sendMsg = document.createElement('p');
-    var charactor = role ? role : this.botAlias;
-    sendMsg.textContent = charactor + ': ';
-    sendMsg.appendChild(msg);
-    this.chatHistory.push(sendMsg);
+  render: function() {
+    this.adapter.render();
   }
 };

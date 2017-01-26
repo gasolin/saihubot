@@ -41,7 +41,9 @@ Clone the project then include the `saihubot.js` in your html file with a div ta
   <div id="history"></div>
   <input id="message"><button id="send">Send</button>
   <script>
-    new window.SaihuBot({});
+    document.addEventListener('DOMContentLoaded', function() {
+      new window.SaihuBot({});
+    });
   </script>
 </body>
 ```
@@ -52,9 +54,11 @@ The script is used to bootstrap the Saihubot.
 new window.SaihuBot({});
 ```
 
+Wrap that script in `DOMContentLoaded` event to make sure contents are loaded before running scripts.
+
 You can pass some parameters into it to quickly customize the bot.
 
-Make sure to include related libraries in header
+And don't forget to include related libraries in the header
 
 ```html
 <head>
@@ -176,6 +180,7 @@ Saihubot use MIT License
 
 ## ChangeLog
 
+* 0.6 2017/1/26 provide run, close, send, render function by swappable adapter
 * 0.5 2017/1/25 structured plugins and demo pages, support config, changed catchAll API and support multiple `no command found` responses
 * 0.4 2016/8/24 return matched result for message instead of the origin string, add google analytics, add search plugin
 * 0.3 2016/8/17 rename from HuohuBot to Saihubot, turn Saihubot to constructor, separate saihubot-dialog.js from addon

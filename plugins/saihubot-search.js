@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.href = url;
       let linkText = document.createTextNode('Search ' + msg[2] + ' via google');
       link.appendChild(linkText);
-      robot.sendHTML(link);
+      robot.adapter.sendHTML(link);
       window.open(url, '_blank');
     }
   });
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.href = url;
       let linkText = document.createTextNode('Search ' + msg[2] + ' via wikipedia');
       link.appendChild(linkText);
-      robot.sendHTML(link);
+      robot.adapter.sendHTML(link);
       window.open(url, '_blank');
     }
   });
@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
       link.href = url;
       let linkText = document.createTextNode('Translate ' + msg[2] + ' via google translate');
       link.appendChild(linkText);
-      robot.sendHTML(link);
+      robot.adapter.sendHTML(link);
       window.open(url, '_blank');
     }
   });
