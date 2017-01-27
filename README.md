@@ -44,7 +44,7 @@ Clone the project then include the `saihubot.js` in your html file with a div ta
   <input id="message"><button id="send">Send</button>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      new window.SaihuBot({adapter: window.basicAdapter});
+      new SaihuBot({adapter: basicAdapter});
     });
   </script>
 </body>
@@ -53,7 +53,7 @@ Clone the project then include the `saihubot.js` in your html file with a div ta
 The script is used to bootstrap the Saihubot.
 
 ```js
-new window.SaihuBot({});
+new SaihuBot({});
 ```
 
 Wrap that script in `DOMContentLoaded` event to make sure contents are loaded before running scripts.
