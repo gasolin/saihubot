@@ -1,0 +1,42 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="client side chatbot that can be embedded in any web site.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Saihubot persistent log with localForage Brain</title>
+  <link rel="stylesheet" href="chat.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.4.3/localforage.min.js"></script>
+  <script src="../saihubot.js"></script>
+  <script src="../adapters/saihubot-adapter-basic.js"></script>
+  <script src="../plugins/saihubot-diagnostics.js"></script>
+  <script src="../plugins/saihubot-brain-localForage.js"></script>
+</head>
+
+<body>
+  <div class="chat-frame">
+    <div class="chat-content">
+      <div id="history"></div>
+    </div>
+    <div class="chat-footer">
+      <input id="message"><button id="send">Send</button>
+    </div>
+  </div>
+
+  <p>
+    >> type `ping`, `time`, or `echo [message]`, then reload the page to see what's happened<br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
+  </p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      new SaihuBot({
+        adapter: basicAdapter,
+        brain: localforageBrain,
+      });
+    });
+  </script>
+  <script src="ga.js"></script>
+</body>
+
+</html>

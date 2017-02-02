@@ -1,0 +1,89 @@
+/* globals localForage */
+'use strict';
+
+// this brain do a trick to chatLog to save html as string and
+// convert it back when restored
+var localforageBrain = {
+  name: "localforage",
+  run: function(robot, callback) {
+    this.data = {
+      _private: {},
+    };
+    localforage.getItem('data').then((value) => {
+      if (value) {
+        var template = document.createElement('template');
+        value._private.chatLog = value._private.chatLog.map(function(html) {
+          template.innerHTML = html;
+          return template.content.firstChild;
+        });
+        // console.log('restored', value);
+        console.log('data restored');
+        this.data = value;
+        callback();
+      } else {
+        console.log('go save data');
+        this.save();
+      }
+    });
+  },
+  close: function() {
+    console.log('close localforage brain');
+    this.save();
+  },
+  /**
+   * Public: Store key-value pair under the private namespace and extend
+   * existing @data before emitting the 'loaded' event.
+   *
+   * Returns the instance for chaining.
+   */
+  set: function(key, value) {
+    var pair = {};
+    if (key === Object(key)) {
+      pair = key;
+    } else {
+      pair[key] = value;
+    }
+    // extend this.data._private
+    Object.assign(this.data._private, pair);
+    return this;
+  },
+  /**
+   * Public: Get value by key from the private namespace in this.data
+   * or return null if not found.
+   *
+   * Returns the value.
+   */
+  get: function(key) {
+    return this.data._private[key] || null;
+  },
+  /**
+   * Public: Remove value by key from the private namespace in this.data
+   * if it exists.
+   *
+   * Returns the instance for chaining.
+   */
+  remove: function(key) {
+    if (this.data._private.hasOwnProperty(key)) {
+      delete this.data._private[key];
+    }
+    return this;
+  },
+  /**
+   * Public: Emits the 'save' event so that 'brain' scripts can handle
+   * persisting.
+   *
+   * Returns nothing.
+   */
+  save: function() {
+    this.data._private.chatLog = this.data._private.chatLog.map(function(ele) {
+      // assume all elments are are HTMLElement
+      return ele.outerHTML;
+    });
+    localforage.setItem('data', this.data).then(function(value) {
+    //   console.log('data saved to localforage', value);
+      console.log('data saved to localforage');
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
+};

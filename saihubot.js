@@ -20,10 +20,11 @@ var dummyAdapter = {
 
 var dummyBrain = {
   name: "dummy",
-  run: function(robot) {
+  run: function(robot, callback) {
     this.data = {
       _private: {},
     }
+    callback();
   },
   close: function() {
     console.log('close dummy brain');
@@ -84,17 +85,20 @@ SaihuBot.prototype = {
 
   run: function() {
     console.log('run with', this.brain.name, 'brain and', this.adapter.name, 'adapter');
-    this.brain.run(this);
-    this.adapter.run(this);
-    this.chatHistory = this.brain.get('chatLog') || [this.welcomeMessage];
+    function restore() {
+      this.adapter.run(this);
+      this.chatHistory = this.brain.get('chatLog') || [this.welcomeMessage];
 
-    this.history = document.getElementById(this.messageHistoryElement);
-    this.message = document.getElementById(this.inputElement);
-    this.btn = document.getElementById(this.sendButtonElement);
+      this.history = document.getElementById(this.messageHistoryElement);
+      this.message = document.getElementById(this.inputElement);
+      this.btn = document.getElementById(this.sendButtonElement);
 
-    this.btn.addEventListener('click', this.onReceive.bind(this));
-    this.message.addEventListener('keydown', this.onKeydown.bind(this));
-    this.render();
+      this.btn.addEventListener('click', this.onReceive.bind(this));
+      this.message.addEventListener('keydown', this.onKeydown.bind(this));
+      this.render();
+    }
+
+    this.brain.run(this, restore.bind(this));
 
     if (window) {
       window.addEventListener('beforeunload', this.shutdown.bind(this));
@@ -102,11 +106,16 @@ SaihuBot.prototype = {
   },
 
   shutdown: function() {
-    if (this.saveChatLog) {
-      this.brain.set('chatLog', this.chatHistory);
+    function saveChanges() {
+      if (this.saveChatLog) {
+        this.brain.set('chatLog', this.chatHistory).close();
+      } else {
+        this.brain.close();
+      }
+      this.adapter.close();
     }
-    this.adapter.close();
-    this.brain.close();
+
+    setTimeout(saveChanges.bind(this), 0);
   },
 
   onKeydown: function(e) {
