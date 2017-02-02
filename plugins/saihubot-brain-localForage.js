@@ -75,10 +75,12 @@ var localforageBrain = {
    * Returns nothing.
    */
   save: function() {
-    this.data._private.chatLog = this.data._private.chatLog.map(function(ele) {
-      // assume all elments are are HTMLElement
-      return ele.outerHTML;
-    });
+    if (this.data._private && this.data._private.chatLog) {
+      this.data._private.chatLog = this.data._private.chatLog.map(function(ele) {
+        // assume all elments are are HTMLElement
+        return ele.outerHTML;
+      });
+    }
     localforage.setItem('data', this.data).then(function(value) {
     //   console.log('data saved to localforage', value);
       console.log('data saved to localforage');
