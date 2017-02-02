@@ -8,7 +8,7 @@ var dummyAdapter = {
     this.robot = robot;
   },
   close: function() {
-    console.log('close dumb adapter');
+    console.log('close dummy adapter');
   },
   send: function(msg, role) {
     console.log('send text message');
@@ -16,6 +16,42 @@ var dummyAdapter = {
   render: function() {
     console.log('render!');
   },
+};
+
+var dummyBrain = {
+  name: "dummy",
+  run: function(robot) {
+    this.data = {
+      _private: {},
+    }
+  },
+  close: function() {
+    console.log('close dummy brain');
+    this.save();
+  },
+  set: function(key, value) {
+    var pair = {};
+    if (key === Object(key)) {
+      pair = key;
+    } else {
+      pair[key] = value;
+    }
+    // extend this.data._private
+    Object.assign(this.data._private, pair);
+    return this;
+  },
+  get: function(key) {
+    return this.data._private[key] || null;
+  },
+  remove: function(key) {
+    if (this.data._private.hasOwnProperty(key)) {
+      delete this.data._private[key];
+    }
+    return this;
+  },
+  save: function() {
+    console.log('save', this.data);
+  }
 };
 
 function SaihuBot(config) {
@@ -31,7 +67,9 @@ function SaihuBot(config) {
     this.welcomeMessage.textContent = this.botAlias + ': type something to chat with me';
   }
   this.notFoundMessages = config.notFoundMessages || ['what do you say?', 'Please make your order clear'];
+  this.saveChatLog = config.saveChatLog || true;
   // provide run, close, send, render function by adapter
+  this.brain = config.brain || dummyBrain;
   this.adapter = config.adapter || dummyAdapter;
   this.run();
 }
@@ -45,9 +83,10 @@ SaihuBot.prototype = {
   },
 
   run: function() {
-    console.log('run with', this.adapter.name, 'adapter');
+    console.log('run with', this.brain.name, 'brain and', this.adapter.name, 'adapter');
+    this.brain.run(this);
     this.adapter.run(this);
-    this.chatHistory = [this.welcomeMessage];
+    this.chatHistory = this.brain.get('chatLog') || [this.welcomeMessage];
 
     this.history = document.getElementById(this.messageHistoryElement);
     this.message = document.getElementById(this.inputElement);
@@ -56,14 +95,22 @@ SaihuBot.prototype = {
     this.btn.addEventListener('click', this.onReceive.bind(this));
     this.message.addEventListener('keydown', this.onKeydown.bind(this));
     this.render();
+
+    if (window) {
+      window.addEventListener('beforeunload', this.shutdown.bind(this));
+    }
   },
 
   shutdown: function() {
+    if (this.saveChatLog) {
+      this.brain.set('chatLog', this.chatHistory);
+    }
     this.adapter.close();
+    this.brain.close();
   },
 
   onKeydown: function(e) {
-    if (e.keyCode == 13) { // enter
+    if (e.keyCode == 13) { // enter key
       this.onReceive();
     }
   },
