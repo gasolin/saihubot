@@ -9,32 +9,40 @@ FYR, Saihu means `master` in Taiwanese(`師傅`), its origin goal is provide a c
 
 ## Features
 
-* Tiny size (the init version has just 80 lines that bundle with 3 plugins)
-* Written in plain Javascript
-* Chat bot works in your browser without setup a server, which won't send private message elsewhere.
+* Chat bot works in your browser, without server setup.
+* Written in plain Javascript, compatible with most browsers
 * Structure is inspired by [hubot](https://github.com/github/hubot/)
   * Regex based message matching
-  * Could write Adapters to fully customize your saihubot's presentation
+  * Could write adapter to fully cooperate with your web UI
+  * Could swap brain to support different backends
   * Provide plugin architecture that able to expand functions
-  * Plugin callbacks are extremely flexible, you can control in-page elements, execute local command, fetch remote data, trigger remote actions...
   * Can extend bot functionality by import addons
+* Tiny size, easy to learn (the init version has just 80 lines that bundle with 3 plugins)
+* Each message can be customized with any HTML elements
 * Reference chat UI style is included
+* Plugin callbacks are extremely flexible, you can control in-page elements, execute local command, fetch remote data, trigger remote actions...
 
 ## How to use
 
-### Try online
+### Try Saihubot samples online
 
 If you just want to try how the saihubot looks like, Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-### Try on github
+### Try Saihubot on github
 
 Fork the project, edit index.html with github editor, save it and see the result on https://[yourname].github.io/saihubot
 
-### Modify locally
+### Try Saihubot locally
 
-Clone the project, then drag `index.html` to your browser, now you have a working bot!
+Clone the project with command
 
-### Embed in your web site
+```
+git clone https://github.com/gasolin/saihubot.git
+```
+
+Then drag `index.html` to your browser, now you have a working bot!
+
+### Bootstrap Saihubot
 
 Clone the project then include the `saihubot.js` in your html file with a div tag for message history and the input field:
 
@@ -69,6 +77,7 @@ And don't forget to include related libraries in the header
   <script src="plugins/saihubot-diagnostics.js"></script>
 </header>
 ```
+
 ## Usage
 
 Saihubot provide 3 default plugins `ping`, `time`, `echo` that you can include via:
@@ -138,44 +147,9 @@ me: tr saihubot
 bot: Translate hello via Google Translate
 ```
 
-## Developer
+## Want to learn more?
 
-### Make an plugin
-
-Plugin denotes rules and responses that the bot use to match and respond to the user.
-
-Open browser's devtool and you can start manipulate `Saihubot` object.
-Plugins are located in `Saihubot.responses`, and that is the place all you need to deal with.
-
-Check [Plugin Demo](https://gasolin.github.io/saihubot/samples/plugin) for example.
-
-![Imgur](http://i.imgur.com/mbhTwf6l.png)
-
-### Make an addon
-
-Addon denotes extra function that can expand Saihubot's functionality.
-
-You can extend Saihubot's functionality by import extra `saihubot-[addonName].js`:
-
-```js
-document.addEventListener('DOMContentLoaded', function() {
-  Saihubot.prototype.addonName = {
-    ...
-  };
-});
-```
-
-then include the js file after `saihubot.js`.
-
-```html
-...
-<script defer src="saihubot.js"></script>
-<script defer src="saihubot-addonName.js"></script>
-```
-
-Check [Addon Demo](https://gasolin.github.io/saihubot/samples/addon) for example.
-
-![Imgur](http://i.imgur.com/qYCES6Ml.png)
+Check the [docs](https://github.com/gasolin/saihubot/tree/gh-pages/docs) section.
 
 ## License
 
@@ -183,7 +157,7 @@ Saihubot use MIT License
 
 ## ChangeLog
 
-* 0.8 2017/2/3  add swappable brain, provide `saihubot-brain-localforage` plugin and [sample](http://gasolin.idv.tw/saihubot/samples/brain.html)
+* 0.8 2017/2/3  add swappable brain, provide `saihubot-brain-localforage` plugin with [sample](http://gasolin.idv.tw/saihubot/samples/brain.html)
 * 0.7 2017/1/27 add reference chat UI style and make sure the last message always scroll into view
 * 0.6 2017/1/26 provide run, close, send, render function by swappable adapter
 * 0.5 2017/1/25 structured plugins and demo pages, support config, changed catchAll API and support multiple `no command found` responses
