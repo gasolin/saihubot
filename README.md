@@ -1,5 +1,5 @@
 # Saihubot [![NPM version][npm-image]][npm-url] 
-Framework to build message/chat bots in the **Browser**, you can add new bot skills and extend its cability via Javascript addons.
+Framework to build message/chat bots in the **Browser**, you can add new skills to bot via new skills to bot via plugins and extend its ability via addons. All in javascript.
 
 Saihubot's API is very similar to [hubot](https://github.com/github/hubot/)'s API, so developer who have learned hubot-plugins could learn saihu-plugins very quickly.
 
@@ -98,7 +98,7 @@ me: echo Hello World!
 bot: Hello World!
 ```
 
-![Imgur](http://i.imgur.com/Ljjf0Fw.png)
+![Imgur](http://i.imgur.com/Ljjf0Fwl.png)
 
 
 Saihubot also provide Search plugins, you can include it via:
@@ -149,7 +149,7 @@ Plugins are located in `Saihubot.responses`, and that is the place all you need 
 
 Check [Plugin Demo](https://gasolin.github.io/saihubot/samples/plugin) for example.
 
-![Imgur](http://i.imgur.com/mbhTwf6.png)
+![Imgur](http://i.imgur.com/mbhTwf6l.png)
 
 ### Make an addon
 
@@ -175,7 +175,7 @@ then include the js file after `saihubot.js`.
 
 Check [Addon Demo](https://gasolin.github.io/saihubot/samples/addon) for example.
 
-![Imgur](http://i.imgur.com/qYCES6M.png)
+![Imgur](http://i.imgur.com/qYCES6Ml.png)
 
 ## License
 
