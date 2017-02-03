@@ -73,6 +73,7 @@ function SaihuBot(config) {
   this.saveChatLog = config.saveChatLog || true;
   // provide run, close, send, render function by adapter
   this.brain = config.brain || dummyBrain;
+  this.brainConfig = config.brainConfig;
   this.adapter = config.adapter || dummyAdapter;
   this.run();
 }
@@ -93,7 +94,7 @@ SaihuBot.prototype = {
       this.render();
     }
 
-    this.brain.run(this, restore.bind(this));
+    this.brain.run(this, restore.bind(this), this.brainConfig);
 
     if (window) {
       window.addEventListener('beforeunload', this.shutdown.bind(this));

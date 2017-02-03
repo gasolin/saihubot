@@ -1,14 +1,21 @@
 /* globals localForage */
 'use strict';
 
-// this brain do a trick to chatLog to save html as string and
-// convert it back when restored
+/**
+ * This brain do a trick to chatLog to save html as string and
+ * convert it back when restored.
+ *
+ * Allowed configs:
+ * - messageSize: limit saved chatLog size
+ */
 var localforageBrain = {
   name: "localforage",
-  run: function(robot, callback) {
+  run: function(robot, callback, config) {
     this.data = {
       _private: {},
     };
+
+    this.MESSAGE_SIZE = config && config.messageSize ? config.messageSize : 10;
     localforage.getItem('data').then((value) => {
       if (value) {
         var template = document.createElement('template');
@@ -78,7 +85,9 @@ var localforageBrain = {
    */
   save: function() {
     if (this.data._private && this.data._private.chatLog) {
-      this.data._private.chatLog = this.data._private.chatLog.map(function(ele) {
+      var arr = this.data._private.chatLog.slice(-this.MESSAGE_SIZE);
+      console.log('saved', arr.length);
+      this.data._private.chatLog = arr.map(function(ele) {
         // assume all elments are are HTMLElement
         return ele.outerHTML;
       });
