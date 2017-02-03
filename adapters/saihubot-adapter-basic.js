@@ -5,6 +5,18 @@ var basicAdapter = {
   name: 'basic',
   run: function(robot) {
     this.robot = robot;
+    this.ui = robot.ui;
+
+    this.messageHistoryElement = this.ui.historyContainer || 'history';
+    this.inputElement = this.ui.inputElement || 'message';
+    this.sendButtonElement = this.ui.sendButtonElement || 'send';
+
+    this.history = document.getElementById(this.messageHistoryElement);
+    this.message = document.getElementById(this.inputElement);
+    this.btn = document.getElementById(this.sendButtonElement);
+
+    this.btn.addEventListener('click', this.onReceive.bind(this));
+    this.message.addEventListener('keydown', this.onKeydown.bind(this));
   },
 
   close: function() {
@@ -19,19 +31,6 @@ var basicAdapter = {
     this.robot.chatHistory.push(sendMsg);
   },
 
-  render: function() {
-    console.log('render!');
-    this.cleanUp();
-    this.robot.chatHistory.forEach((element) => {
-      this.robot.history.appendChild(element);
-    });
-    if (this.robot.chatHistory.length > 1) {
-      this.robot.chatHistory[this.robot.chatHistory.length - 1].scrollIntoView();
-    }
-  },
-
-  // supportive functions
-
   // send html element with bot
   sendHTML: function(msg, role) {
     var sendMsg = document.createElement('p');
@@ -41,11 +40,35 @@ var basicAdapter = {
     this.robot.chatHistory.push(sendMsg);
   },
 
-  cleanUp: function() {
-    while (this.robot.history.firstChild) {
-      this.robot.history.removeChild(this.robot.history.firstChild);
+  render: function() {
+    console.log('render!');
+    this.cleanUp();
+    this.robot.chatHistory.forEach((element) => {
+      this.history.appendChild(element);
+    });
+    if (this.robot.chatHistory.length > 1) {
+      this.robot.chatHistory[this.robot.chatHistory.length - 1].scrollIntoView();
     }
-    this.robot.message.value = '';
-    this.robot.message.focus();
+  },
+
+  // supportive functions
+  onKeydown: function(e) {
+    if (e.keyCode == 13) { // enter key
+      this.onReceive();
+    }
+  },
+
+  onReceive: function() {
+    var receivedMsg = this.message.value;
+    this.send(receivedMsg, this.robot.myAlias);
+    this.robot.processListeners(receivedMsg);
+  },
+
+  cleanUp: function() {
+    while (this.history.firstChild) {
+      this.history.removeChild(this.history.firstChild);
+    }
+    this.message.value = '';
+    this.message.focus();
   },
 };

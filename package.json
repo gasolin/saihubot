@@ -1,6 +1,6 @@
 {
   "name": "saihubot",
-  "version": "0.8.0",
+  "version": "0.8.1",
   "description": "Client side chatb ot that can be embedded in any web site",
   "main": "saihubot.js",
   "scripts": {

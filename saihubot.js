@@ -13,6 +13,9 @@ var dummyAdapter = {
   send: function(msg, role) {
     console.log('send text message');
   },
+  sendHTML: function(msg, role) {
+    console.log('send html message');
+  },
   render: function() {
     console.log('render!');
   },
@@ -58,11 +61,7 @@ var dummyBrain = {
 function SaihuBot(config) {
   this.myAlias = config.user || 'me';
   this.botAlias = config.bot || 'bot';
-  this.ui = {
-    messageHistoryElement: config.historyContainer || 'history',
-    inputElement: config.inputElement || 'message',
-    sendButtonElement: config.sendButtonElement || 'send',
-  }
+  this.ui = config.ui || {};
 
   if (config.welcomeMessage) {
     this.welcomeMessage = config.welcomeMessage;
@@ -91,13 +90,6 @@ SaihuBot.prototype = {
     function restore() {
       this.adapter.run(this);
       this.chatHistory = this.brain.get('chatLog') || [this.welcomeMessage];
-
-      this.history = document.getElementById(this.ui.messageHistoryElement);
-      this.message = document.getElementById(this.ui.inputElement);
-      this.btn = document.getElementById(this.ui.sendButtonElement);
-
-      this.btn.addEventListener('click', this.onReceive.bind(this));
-      this.message.addEventListener('keydown', this.onKeydown.bind(this));
       this.render();
     }
 
@@ -121,18 +113,6 @@ SaihuBot.prototype = {
     setTimeout(saveChanges.bind(this), 0);
   },
 
-  onKeydown: function(e) {
-    if (e.keyCode == 13) { // enter key
-      this.onReceive();
-    }
-  },
-
-  onReceive: function() {
-    var receivedMsg = this.message.value;
-    this.adapter.send(receivedMsg, this.myAlias);
-    this.processListeners(receivedMsg);
-  },
-
   processListeners: function(msg) {
     var len = this.chatHistory.length;
     this.responses.forEach((item) => {
@@ -152,6 +132,14 @@ SaihuBot.prototype = {
 
   send: function(msg, role) {
     this.adapter.send(msg, role);
+  },
+
+  sendHTML: function(msg, role) {
+    if (msg instanceof HTMLElement) {
+      this.adapter.sendHTML(msg, role);
+    } else {
+      console.log('>> The msg you provide is not an HTMLElement');
+    }
   },
 
   render: function() {
