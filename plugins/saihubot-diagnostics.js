@@ -1,7 +1,7 @@
 /* globals SaihuBot */
 'use strict';
 
-// addon that provide confirm dialog function
+// plugin that provide ping, time, echo skills
 SaihuBot.prototype.responses.push({
   name: 'ping',
   rule: /PING$/i,
