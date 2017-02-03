@@ -58,9 +58,12 @@ var dummyBrain = {
 function SaihuBot(config) {
   this.myAlias = config.user || 'me';
   this.botAlias = config.bot || 'bot';
-  this.messageHistoryElement = config.historyContainer || 'history';
-  this.inputElement = config.inputElement || 'message';
-  this.sendButtonElement = config.sendButtonElement || 'send';
+  this.ui = {
+    messageHistoryElement: config.historyContainer || 'history',
+    inputElement: config.inputElement || 'message',
+    sendButtonElement: config.sendButtonElement || 'send',
+  }
+
   if (config.welcomeMessage) {
     this.welcomeMessage = config.welcomeMessage;
   } else {
@@ -89,9 +92,9 @@ SaihuBot.prototype = {
       this.adapter.run(this);
       this.chatHistory = this.brain.get('chatLog') || [this.welcomeMessage];
 
-      this.history = document.getElementById(this.messageHistoryElement);
-      this.message = document.getElementById(this.inputElement);
-      this.btn = document.getElementById(this.sendButtonElement);
+      this.history = document.getElementById(this.ui.messageHistoryElement);
+      this.message = document.getElementById(this.ui.inputElement);
+      this.btn = document.getElementById(this.ui.sendButtonElement);
 
       this.btn.addEventListener('click', this.onReceive.bind(this));
       this.message.addEventListener('keydown', this.onKeydown.bind(this));
