@@ -1,11 +1,11 @@
 # Saihubot [![NPM version][npm-image]][npm-url] 
-Framework to build message/chat bots :speech_balloon: in the **Browser**, you can add new skills to bot via new skills to bot via plugins and extend its ability via addons. All in javascript. :clap:
+Framework to build message/chat bots :speech_balloon: in the **Browser** :globe_with_meridians:, you can add new skills to bot via new skills to bot via plugins and extend its ability via addons. All in javascript. :clap:
 
-Saihubot's API is very similar to [hubot](https://github.com/github/hubot/)'s API, so developer who have learned hubot-plugins could learn saihu-plugins very quickly. :sparkles:
+Saihubot's API is very similar to [hubot](https://github.com/github/hubot/)'s API, so developer who have learned hubot-plugins could learn saihu-plugins very quickly. :zap:
 
-:globe_with_meridians: Check [Online Demo](https://gasolin.github.io/saihubot/)
+Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-FYR :eyes:, Saihu means `master` in Taiwanese(`師傅`), its origin goal is provide a code sample that make learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier.
+FYR, Saihu means `master` in Taiwanese(`師傅`), its origin goal is provide a code sample that make learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier.
 
 ## Features
 
