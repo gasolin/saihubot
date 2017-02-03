@@ -12,10 +12,12 @@ var localforageBrain = {
     localforage.getItem('data').then((value) => {
       if (value) {
         var template = document.createElement('template');
-        value._private.chatLog = value._private.chatLog.map(function(html) {
-          template.innerHTML = html;
-          return template.content.firstChild;
-        });
+        if (value._private && value._private.chatLog) {
+          value._private.chatLog = value._private.chatLog.map(function(html) {
+            template.innerHTML = html;
+            return template.content.firstChild;
+          });
+        }
         // console.log('restored', value);
         console.log('data restored');
         this.data = value;
