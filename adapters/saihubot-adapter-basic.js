@@ -15,12 +15,16 @@ var basicAdapter = {
     this.message = document.getElementById(this.inputElement);
     this.btn = document.getElementById(this.sendButtonElement);
 
-    this.btn.addEventListener('click', this.onReceive.bind(this));
-    this.message.addEventListener('keydown', this.onKeydown.bind(this));
+    this.onReceiveBound = this.onReceive.bind(this);
+    this.onKeydownBound = this.onKeydown.bind(this);
+    this.btn.addEventListener('click', this.onReceiveBound);
+    this.message.addEventListener('keydown', this.onKeydownBound);
   },
 
   close: function() {
     console.log('close basic adapter');
+    this.btn.removeEventListener('click', this.onReceiveBound);
+    this.message.removeEventListener('keydown', this.onKeydownBound);
   },
 
   // send text message
