@@ -1,5 +1,6 @@
 /* globals localForage */
 'use strict';
+// Dependency: localForage
 
 /**
  * This brain do a trick to chatLog to save html as string and
