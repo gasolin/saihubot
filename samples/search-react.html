@@ -18,10 +18,6 @@
 <body>
   <div id="root"/>
 
-  <p>
-    >> type `ping`, `time`, or `echo [message]` to see what's happened<br> >> type `search [keyword]`, `g [keyword]`, `wiki [keyword]` to search<br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
-  </p>
-
   <script>
     function Main() {
       return (
@@ -40,8 +36,22 @@
     var root = document.getElementById('root');
     ReactDOM.render(React.createElement(Main), root);
 
+    var message = document.createElement('p');
+    var line1 = document.createTextNode('>> type `ping`, `time`, or `echo [message]` to see what\'s happened');
+    var line2 = document.createTextNode('>> type `search [keyword]`, `g [keyword]`, `wiki [keyword]` to search');
+    var line3 = document.createElement('a');
+    line3.href = "https://github.com/gasolin/saihubot/";
+    line3.textContent = "Download Saihubot";
+    message.appendChild(line1);
+    message.appendChild(document.createElement('br'));
+    message.appendChild(line2);
+    message.appendChild(document.createElement('br'));
+    message.appendChild(line3);
     document.addEventListener('DOMContentLoaded', function() {
-      new SaihuBot({adapter: basicAdapter});
+      new SaihuBot({
+        adapter: basicAdapter,
+        welcomeMessage: message,
+      });
     });
   </script>
   <script defer src="ga.js"></script>
