@@ -100,7 +100,7 @@ me: time
 bot: Device time is Fri Aug 05 2016 21:22:11 GMT+0800 (CST)
 ```
 
-### Echo plugin:
+### :loudspeaker: Echo plugin:
 
 ```
 me: echo Hello World!
