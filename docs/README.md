@@ -43,6 +43,9 @@ Check [Addon Demo](https://gasolin.github.io/saihubot/samples/addon) for example
 
 ![Imgur](http://i.imgur.com/qYCES6Ml.png)
 
+###　Improve Message Quality
+If you want to improve your your bot's message quality, read http://babich.biz/effective-writing-for-your-ui-things-to-avoid/
+
 ### Make an adapter
 
 To embed Saihubot in your existing web site, you can write Saihubot adapter to adapt Saihubot with any web UI.
