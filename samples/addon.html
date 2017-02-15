@@ -32,22 +32,39 @@
     // plugins that use confirm dialog addon
     SaihuBot.prototype.responses.push(
       { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
-        robot.confirm('would you like to exit?', ['ok', function() {
+        robot.confirm('would you like to exit?',
+        ['ok', {
+          name: 'yes',
+          rule: '/YES$/i',
+          action: function() {
             robot.send('see ya');
             robot.render();
-          }], ['no', function() {
+          }
+        }],
+        ['no', {
+          name: 'no',
+          rule: '/NO$/i',
+          action: function() {
             robot.send('Let\'s talk more!');
             robot.render();
-          }]
+          }
+        }]
         );
       }});
 
     SaihuBot.prototype.responses.push(
-      { name: 'go', rule: /home$/i, action: function(robot, msg) {
-        robot.confirm('visit Saihubot website', ['ok', function() {
-            robot.send('You\'ll be redirect to Saihubot home!');
-            robot.render();
-            window.location = 'https://github.com/gasolin/saihubot';
+      { name: 'go',
+        rule: /home$/i,
+        action: function(robot, msg) {
+        robot.confirm('visit Saihubot website',
+          ['ok', {
+           name: 'ok',
+           rule: '/OK$/i',
+           action: function() {
+             robot.send('You\'ll be redirect to Saihubot home!');
+             robot.render();
+             window.location = 'https://github.com/gasolin/saihubot';
+           }
           }]
         );
       }});

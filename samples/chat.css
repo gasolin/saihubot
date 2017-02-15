@@ -28,5 +28,11 @@
 }
 
 #history > p {
-  margin: 5px;
+  padding: 2px;
+}
+
+#history button {
+  padding: 5px;
+  width: 100%;
+  margin-bottom: 2px;
 }
