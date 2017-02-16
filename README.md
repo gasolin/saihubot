@@ -40,7 +40,7 @@ Clone the project with command
 git clone https://github.com/gasolin/saihubot.git
 ```
 
-Then drag `index.html` to your browser, now you have a working bot!
+Then drag `samples/index.html` to your browser, now you have a working bot!
 
 ### Bootstrap Saihubot
 
@@ -157,6 +157,7 @@ Saihubot use MIT License
 
 ## ChangeLog
 
+* 0.9 2017/2/16 dialog with button selection, help plugin with description
 * 0.8 2017/2/3  add swappable brain, provide `saihubot-brain-localforage` plugin with [sample](http://gasolin.idv.tw/saihubot/samples/brain.html)
 * 0.7 2017/1/27 add reference chat UI style and make sure the last message always scroll into view
 * 0.6 2017/1/26 provide run, close, send, render function by swappable adapter

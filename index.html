@@ -5,12 +5,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="description" content="client side chatbot that can be embedded in any web site.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Saihubot</title>
+  <title>Awesome Saihubot</title>
   <link rel="stylesheet" href="samples/chat.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.4.3/localforage.min.js"></script>
   <script src="saihubot.js"></script>
   <script src="adapters/saihubot-adapter-basic.js"></script>
+  <script src="addons/saihubot-brain-localforage.js"></script>
+  <script src="addons/saihubot-dialog.js"></script>
   <script src="plugins/saihubot-diagnostics.js"></script>
   <script src="plugins/saihubot-help.js"></script>
+  <script src="plugins/saihubot-search.js"></script>
 </head>
 
 <body>
@@ -23,13 +27,55 @@
     </div>
   </div>
 
-  <p>
-    >> type `ping`, `time`, `echo [message]` or `help` to see what's happened<br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
-  </p>
-
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      new SaihuBot({adapter: basicAdapter});
+      SaihuBot.prototype.responses.push(
+      { name: 'sample',
+        rule: /SAMPLE/i, action: function(robot, msg) {
+        robot.confirm('Here are samples',
+        ['hello', {
+          name: 'hello bot',
+          rule: '/hello/i',
+          action: function() {
+            robot.send('Open hello bot sample');
+            robot.render();
+            window.open('samples/index.html', '_blank');
+          }
+        }],
+        ['plugin', {
+          name: 'plugin',
+          rule: '/PLUGIN/i',
+          action: function() {
+            robot.send('Open plugin sample');
+            robot.render();
+            window.open('samples/plugin.html', '_blank');
+          }
+        }]
+        );
+      }});
+      
+      var message = document.createElement('span');
+      var line1 = document.createTextNode('🤵 Hello! type `echo bot` see what\'s happened');
+      message.appendChild(line1);
+      // var line2 = document.createElement('a');
+      // line2.href = "https://github.com/gasolin/saihubot/";
+      // line2.textContent = "Download Saihubot";
+      // message.appendChild(line2);
+
+      new SaihuBot({
+        adapter: basicAdapter,
+        brain: localforageBrain,
+        welcomeMessage: message,
+        notFoundMessages: [
+          'type `ping`, `time`, or `echo [message]` to see what\'s happened',
+          'type `google [keyword]`, `wiki [keyword]` to search',
+          'type `help` for full sample commands list',
+          'Want more samples? type `samples`',
+          'Try refresh the page, messages are cached locally',
+        ],
+        bot: "🤵",
+        user: "😎",
+      });
     });
   </script>
   <script src="samples/ga.js"></script>
