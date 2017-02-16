@@ -4,10 +4,12 @@
 // plugin that provide help skill
 SaihuBot.prototype.responses.push({
   name: 'help',
+  help: 'help - list available skills',
   rule: /HELP$/i,
   action: function(robot, msg) {
     var availableSkills = robot.responses.map(function(skill) {
-      return '* ' + skill.name;
+      console.log(skill);
+      return skill.help ? `* ${skill.name}\n  ${skill.help}` : `* ${skill.name}`;
     });
     let pre = document.createElement('pre');
     pre.textContent = 'Here are available skills:\n' + availableSkills.join('\n');

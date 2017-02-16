@@ -55,6 +55,7 @@
     SaihuBot.prototype.responses.push(
       { name: 'go',
         rule: /home$/i,
+        help: 'home - open saihubot website',
         action: function(robot, msg) {
         robot.confirm('visit Saihubot website',
           ['ok', {
