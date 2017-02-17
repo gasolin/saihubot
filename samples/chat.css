@@ -36,3 +36,10 @@
   width: 100%;
   margin-bottom: 2px;
 }
+
+@media (max-width: 561px) {
+  .chat-frame {
+    width: 98%;
+    height: 98%
+  }
+}
