@@ -1,5 +1,5 @@
 /* globals localforage */
-/* export localforageBrain */
+/* exported localforageBrain */
 
 'use strict';
 
@@ -47,7 +47,9 @@ var localforageBrain = {
    * Public: Store key-value pair under the private namespace and extend
    * existing @data before emitting the 'loaded' event.
    *
-   * Returns the instance for chaining.
+   * @params {object} key data key
+   * @params {object} value data value
+   * @return {object} the instance for chaining.
    */
   set: function(key, value) {
     var pair = {};
@@ -64,7 +66,8 @@ var localforageBrain = {
    * Public: Get value by key from the private namespace in this.data
    * or return null if not found.
    *
-   * Returns the value.
+   * @params {String} key data key
+   * @return {Object} value
    */
   get: function(key) {
     return this.data._private[key] || null;
@@ -73,7 +76,7 @@ var localforageBrain = {
    * Public: Remove value by key from the private namespace in this.data
    * if it exists.
    *
-   * Returns the instance for chaining.
+   * @return {Object} the instance for chaining.
    */
   remove: function(key) {
     if (this.data._private.hasOwnProperty(key)) {
@@ -85,7 +88,7 @@ var localforageBrain = {
    * Public: Emits the 'save' event so that 'brain' scripts can handle
    * persisting.
    *
-   * Returns nothing.
+   * @return {void}.
    */
   save: function() {
     if (this.data._private && this.data._private.chatLog) {

@@ -51,4 +51,4 @@ SaihuBot.prototype.dialogSelected = function(selected, args) {
     }
   });
   this.chatHistory.push(confirmBtn);
-}
+};

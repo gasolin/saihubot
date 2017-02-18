@@ -1,4 +1,4 @@
-/* export basicAdapter */
+/* exported basicAdapter */
 'use strict';
 
 var basicAdapter = {
@@ -52,7 +52,8 @@ var basicAdapter = {
       this.history.appendChild(element);
     });
     if (this.robot.chatHistory.length > 1) {
-      this.robot.chatHistory[this.robot.chatHistory.length - 1].scrollIntoView();
+      this.robot.chatHistory[this.robot.chatHistory.length - 1]
+        .scrollIntoView();
     }
   },
 
