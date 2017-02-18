@@ -8,7 +8,7 @@ SaihuBot.prototype.responses.push({
   rule: /PING$/i,
   action: function(robot, msg) {
     robot.send('PONG');
-  }
+  },
 });
 SaihuBot.prototype.responses.push({
   name: 'echo',
@@ -16,7 +16,7 @@ SaihuBot.prototype.responses.push({
   rule: /ECHO (.*)$/i,
   action: function(robot, msg) {
     robot.send(msg[0]);
-  }
+  },
 });
 SaihuBot.prototype.responses.push({
   name: 'time',
@@ -24,5 +24,5 @@ SaihuBot.prototype.responses.push({
   rule: /TIME$/i,
   action: function(robot, msg) {
     robot.send('Device time is ' + new Date());
-  }
+  },
 });

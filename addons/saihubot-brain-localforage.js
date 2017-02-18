@@ -1,5 +1,8 @@
-/* globals localForage */
+/* globals localforage */
+/* export localforageBrain */
+
 'use strict';
+
 // Dependency: localForage
 
 /**
@@ -10,7 +13,7 @@
  * - messageSize: limit saved chatLog size
  */
 var localforageBrain = {
-  name: "localforage",
+  name: 'localforage',
   run: function(robot, callback, config) {
     this.data = {
       _private: {},
@@ -18,8 +21,8 @@ var localforageBrain = {
 
     this.MESSAGE_SIZE = config && config.messageSize ? config.messageSize : 10;
     localforage.getItem('data').then((value) => {
+      var template = document.createElement('template');
       if (value) {
-        var template = document.createElement('template');
         if (value._private && value._private.chatLog) {
           value._private.chatLog = value._private.chatLog.map(function(html) {
             template.innerHTML = html;
@@ -99,5 +102,5 @@ var localforageBrain = {
     }).catch(function(err) {
       console.log(err);
     });
-  }
+  },
 };

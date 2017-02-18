@@ -11,7 +11,7 @@ SaihuBot.prototype.responses.push({
       console.log(skill);
       return skill.help ? `* ${skill.name}\n  ${skill.help}` : `* ${skill.name}`;
     });
-    let pre = document.createElement('pre');
+    var pre = document.createElement('pre');
     pre.textContent = 'Here are available skills:\n' + availableSkills.join('\n');
     robot.adapter.sendHTML(pre);
   }

@@ -1,3 +1,4 @@
+/* export basicAdapter */
 'use strict';
 
 var basicAdapter = {
@@ -29,7 +30,7 @@ var basicAdapter = {
 
   // send text message
   send: function(msg, role) {
-    var charactor = role ? role : this.robot.botAlias;
+    var charactor = role || this.robot.botAlias;
     var sendMsg = document.createElement('p');
     sendMsg.textContent = charactor + ': ' + msg;
     this.robot.chatHistory.push(sendMsg);
@@ -57,15 +58,17 @@ var basicAdapter = {
 
   // supportive functions
   onKeydown: function(e) {
-    if (e.keyCode == 13) { // enter key
+    if (e.keyCode === 13) { // enter key
       this.onReceive();
     }
   },
 
   onReceive: function() {
     var receivedMsg = this.message.value;
-    this.send(receivedMsg, this.robot.myAlias);
-    this.robot.processListeners(receivedMsg);
+    if (receivedMsg) {
+      this.send(receivedMsg, this.robot.myAlias);
+      this.robot.processListeners(receivedMsg);
+    }
   },
 
   cleanUp: function() {

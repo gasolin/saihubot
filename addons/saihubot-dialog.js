@@ -1,4 +1,5 @@
 /* globals SaihuBot */
+
 'use strict';
 
 // addon that provide confirm and selection dialog
