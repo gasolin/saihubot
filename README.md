@@ -5,8 +5,6 @@ Saihubot's API is very similar to [hubot](https://github.com/github/hubot/)'s AP
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-FYR, Saihu means `master` in Taiwanese(`師傅`), its origin goal is provide a code sample that make learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier.
-
 ## Features
 
 * Chat bot works in your browser, without server setup.
@@ -151,14 +149,19 @@ bot: Translate hello via Google Translate
 
 Check the [docs](https://github.com/gasolin/saihubot/tree/gh-pages/docs) section.
 
+## What Saihu means?
+
+Saihu(`師傅`) means `master` in Taiwanese, which people used to call the artisans.
+Saihubot's origin goal is provide a code sample that make learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier, then I found Saihu is a great way to embed bot into anywhere browser can live with.
+
 ## License
 
 Saihubot use MIT License
 
 ## ChangeLog
 
-* 0.9 2017/2/16 dialog with button selection, help plugin with description
-* 0.8 2017/2/3  add swappable brain, provide `saihubot-brain-localforage` plugin with [sample](http://gasolin.idv.tw/saihubot/samples/brain.html)
+* 0.9 2017/2/18 make index.html as a full feature showcase, dialog with button selection, help plugin with description
+* 0.8 2017/2/3 add swappable brain, provide `saihubot-brain-localforage` plugin with [sample](http://gasolin.idv.tw/saihubot/samples/brain.html)
 * 0.7 2017/1/27 add reference chat UI style and make sure the last message always scroll into view
 * 0.6 2017/1/26 provide run, close, send, render function by swappable adapter
 * 0.5 2017/1/25 structured plugins and demo pages, support config, changed catchAll API and support multiple `no command found` responses
@@ -166,7 +169,6 @@ Saihubot use MIT License
 * 0.3 2016/8/17 rename from HuohuBot to Saihubot, turn Saihubot to constructor, separate saihubot-dialog.js from addon
 * 0.2 2016/8/6 change to robot.send method in plugin, add plugin and addon examples
 * 0.1 2016/8/5 init version
-
 
 [npm-image]: https://badge.fury.io/js/saihubot.svg
 [npm-url]: https://npmjs.org/package/saihubot
