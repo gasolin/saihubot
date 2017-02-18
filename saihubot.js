@@ -90,7 +90,8 @@ SaihuBot.prototype = {
     console.log('run with', this.brain.name, 'brain and', this.adapter.name, 'adapter');
     function restore() {
       this.adapter.run(this);
-      this.chatHistory = this.brain.get('chatLog') || [this.welcomeMessage];
+      let brainLog = this.brain.get('chatLog');
+      this.chatHistory = brainLog && (brainLog.length > 1) ? brainLog : [this.welcomeMessage];
       this.render();
     }
 
@@ -108,9 +109,9 @@ SaihuBot.prototype = {
       } else {
         this.brain.close();
       }
-      this.adapter.close();
     }
 
+    this.adapter.close();
     setTimeout(saveChanges.bind(this), 0);
   },
 

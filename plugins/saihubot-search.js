@@ -173,4 +173,3 @@ SaihuBot.prototype.responses.push({
     window.open(url, '_blank');
   },
 });
-
