@@ -17,6 +17,7 @@
 .chat-footer {
   display: flex;
   flex-direction: row;
+  height: 4rem;
 }
 
 #message {
