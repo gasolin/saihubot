@@ -40,7 +40,8 @@
 
 @media (max-width: 561px) {
   .chat-frame {
+    font-size: larger;
+    height: 98%;
     width: 98%;
-    height: 98%
   }
 }
