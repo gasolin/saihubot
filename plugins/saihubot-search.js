@@ -165,7 +165,7 @@ SaihuBot.prototype.responses.push({
 SaihuBot.prototype.responses.push({
   name: 'wolfram',
   help: 'wolfram|wolf|wo [term] - search [term] with Wolfram Alpha',
-  rule: /(^wolfram |^wolf |^wo )(.*)/i,
+  rule: /(^wolfram |^wolf |^wo |^siri )(.*)/i,
   action: function(robot, msg) {
     let url = 'https://www.wolframalpha.com/input/?i=' + encodeURIComponent(msg[2]);
     let link = renderResponse('Search', msg[2], url, 'Wolfram Alpha');
