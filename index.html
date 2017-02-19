@@ -30,27 +30,37 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       SaihuBot.prototype.responses.push(
+      { name: 'home',
+        help: 'home - search github for saihubot',
+        rule: /HOME/i,
+        action: function(robot, msg) {
+          robot.ask('github saihubot');
+        },
+      });
+      SaihuBot.prototype.responses.push(
       { name: 'sample',
-        rule: /SAMPLE/i, action: function(robot, msg) {
-        robot.confirm('Here are samples',
-        ['hello', {
-          name: 'hello bot',
-          rule: '/hello/i',
-          action: function() {
-            robot.send('Open hello bot sample');
-            robot.render();
-            window.open('samples/index.html', '_blank');
-          }
-        }],
-        ['plugin', {
-          name: 'plugin',
-          rule: '/PLUGIN/i',
-          action: function() {
-            robot.send('Open plugin sample');
-            robot.render();
-            window.open('samples/plugin.html', '_blank');
-          }
-        }]
+        help: 'sample - show saihu samples',
+        rule: /SAMPLE/i,
+        action: function(robot, msg) {
+          robot.confirm('Here are samples',
+          ['hello', {
+            name: 'hello bot',
+            rule: '/hello/i',
+            action: function() {
+              robot.send('Open hello bot sample');
+              robot.render();
+              window.open('samples/index.html', '_blank');
+            }
+          }],
+          ['plugin', {
+            name: 'plugin',
+            rule: '/PLUGIN/i',
+            action: function() {
+              robot.send('Open plugin sample');
+              robot.render();
+              window.open('samples/plugin.html', '_blank');
+            }
+          }]
         );
       }});
       

@@ -144,6 +144,10 @@ SaihuBot.prototype = {
     }
   },
 
+  ask: function(msg) {
+    this.processListeners(msg);
+  },
+
   render: function() {
     this.adapter.render();
   }
