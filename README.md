@@ -2,13 +2,13 @@
 :robot: Framework to build :speech_balloon: message/chat bots in the :globe_with_meridians: **Browser**.
 You can add new skills to bot via plugins and extend its ability via addons. All with plain javascript. :clap:
 
-Saihubot's API is very similar to [hubot](https://github.com/github/hubot/)'s API, so developer who have learned hubot-plugins could learn saihu-plugins very quickly. :zap:
+Saihubot's API is very similar to [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned hubot-plugins could learn saihu-plugins very quickly. :zap:
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 ## Features
 
-* Chat bot works in your browser, without server setup.
+* Chatbot works in your browser, without server setup.
 * Written in plain Javascript, compatible with most browsers
 * Structure is inspired by [hubot](https://github.com/github/hubot/)
   * Regex based message matching
@@ -16,10 +16,10 @@ Check [Online Demo](https://gasolin.github.io/saihubot/)
   * Could swap brain to support different backends
   * Provide plugin architecture that able to expand functions
   * Can extend bot functionality by import addons
-* Tiny size, easy to learn (the init version has just 80 lines that bundle with 3 plugins)
+* Tiny size, easy to learn (the init version has just 80 lines that bundle with three plugins)
 * Each message can be customized with any HTML elements
 * Reference chat UI style is included
-* Plugin callbacks are extremely flexible, you can control in-page elements, execute local command, fetch remote data, trigger remote actions...
+* Plugin callbacks are extremely flexible; You can control in-page elements, execute the local command, fetch remote data, trigger remote actions...
 
 ## How to use
 
@@ -27,9 +27,9 @@ Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 If you just want to try how the saihubot looks like, Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-### Try Saihubot on github
+### Try Saihubot on Github
 
-Fork the project, edit index.html with github editor, save it and see the result on https://[yourname].github.io/saihubot
+Fork the project, edit index.html with Github editor, save it and see the result on https://[yourname].github.io/saihubot
 
 ### Try Saihubot locally
 
@@ -43,7 +43,7 @@ Then drag `samples/index.html` to your browser, now you have a working bot!
 
 ### Bootstrap Saihubot
 
-Clone the project then include the `saihubot.js` in your html file with a div tag for message history and the input field:
+Clone the project then includes the `saihubot.js` in your HTML file with a div tag for message history and the input field:
 
 ```html
 <body>
@@ -153,7 +153,7 @@ Check the [docs](https://github.com/gasolin/saihubot/tree/gh-pages/docs) section
 ## What Saihu means?
 
 Saihu(`師傅`) means `master` in Taiwanese, which people used to call the artisans.
-Saihubot's origin goal is provide a code sample that make learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier, then I found Saihu is a great way to embed bot into anywhere browser can live with.
+Saihubot's origin goal is to provide a code sample that makes learning [hubot](https://github.com/github/hubot/) and its ES6 variant [Webbybot](https://github.com/gasolin/webbybot/) easier; then I found Saihu is a great way to embed bot into anywhere browser can live with.
 
 ## License
 
