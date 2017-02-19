@@ -11,11 +11,17 @@
  * @return {HTMLElement} response description with link
  */
 function renderResponse(action, term, url, engine) {
+  var span = document.createElement('span');
+  var line1 = document.createTextNode(`${action} "`);
   let link = document.createElement('a');
   link.href = url;
-  let linkText = document.createTextNode(`${action} "${term}" via ${engine}`);
+  let linkText = document.createTextNode(`${term}`);
   link.appendChild(linkText);
-  return link;
+  var line2 = document.createTextNode(`" via ${engine}`);
+  span.appendChild(line1);
+  span.appendChild(link);
+  span.appendChild(line2);
+  return span;
 }
 
 SaihuBot.prototype.responses.push({
