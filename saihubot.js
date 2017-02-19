@@ -11,7 +11,7 @@ var dummyAdapter = {
     console.log('close dummy adapter');
   },
   send: function(msg, role) {
-    console.log('send text message');
+    console.log('send text message', msg);
   },
   sendHTML: function(msg, role) {
     console.log('send html message');
@@ -132,6 +132,7 @@ SaihuBot.prototype = {
     this.render();
   },
 
+  // public APIs
   send: function(msg, role) {
     this.adapter.send(msg, role);
   },
