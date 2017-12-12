@@ -1,7 +1,7 @@
 .chat-frame {
   display: flex;
   flex-direction: column;
-  width: 260px;
+  width: 98%;
   height: 320px;
   border-width: 1px;
   border-style: solid;
@@ -41,7 +41,6 @@
   .chat-frame {
     font-size: larger;
     height: 98%;
-    width: 98%;
   }
 
   .chat-footer {

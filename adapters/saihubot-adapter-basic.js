@@ -24,8 +24,12 @@ var basicAdapter = {
 
   close: function() {
     console.log('close basic adapter');
-    this.btn.removeEventListener('click', this.onReceiveBound);
-    this.message.removeEventListener('keydown', this.onKeydownBound);
+    if (this.btn) {
+      this.btn.removeEventListener('click', this.onReceiveBound);
+    }
+    if (this.message) {
+      this.message.removeEventListener('keydown', this.onKeydownBound);      
+    }
   },
 
   // send text message

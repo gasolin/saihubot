@@ -21,7 +21,7 @@ SaihuBot.prototype.responses.push({
 SaihuBot.prototype.responses.push({
   name: 'time',
   help: 'time - return current browser time',
-  rule: /TIME$/i,
+  rule: /TIME*|DATE*/i,
   action: function(robot, msg) {
     robot.send('Device time is ' + new Date());
   },
