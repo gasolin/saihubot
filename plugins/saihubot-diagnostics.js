@@ -23,6 +23,6 @@ SaihuBot.prototype.responses.push({
   help: 'time - return current browser time',
   rule: /TIME*|DATE*/i,
   action: function(robot, msg) {
-    robot.send('Device time is ' + new Date());
+    robot.send('Device time is ' + new Date().toLocaleString());
   },
 });

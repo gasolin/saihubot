@@ -1,4 +1,7 @@
+## 0.10 2020/9/25
 
+* use es6 syntax and clean up saihubot.js
+* deprecated `sendHTML`, prefer call from `adapter.sendHTML`
 
 ## 0.9 2017/2/18
 

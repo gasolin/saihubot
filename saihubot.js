@@ -1,6 +1,7 @@
+/* eslint-disable require-jsdoc */
 'use strict';
 
-var dummyAdapter = {
+const dummyAdapter = {
   // essential functions
   name: 'dummy',
   run: function(robot) {
@@ -21,12 +22,12 @@ var dummyAdapter = {
   },
 };
 
-var dummyBrain = {
-  name: "dummy",
+const dummyBrain = {
+  name: 'dummy',
   run: function(robot, callback) {
     this.data = {
       _private: {},
-    }
+    };
     callback();
   },
   close: function() {
@@ -34,7 +35,7 @@ var dummyBrain = {
     this.save();
   },
   set: function(key, value) {
-    var pair = {};
+    let pair = {};
     if (key === Object(key)) {
       pair = key;
     } else {
@@ -48,33 +49,42 @@ var dummyBrain = {
     return this.data._private[key] || null;
   },
   remove: function(key) {
-    if (this.data._private.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(this.data._private, key)) {
       delete this.data._private[key];
     }
     return this;
   },
   save: function() {
     console.log('save', this.data);
-  }
+  },
 };
 
+const DEFAULT_FALLBACK_MESSAGES = [
+  'what do you say?',
+  'Please make your order clear',
+];
+
+function dummyWelcomeMsgs(botAlias) {
+  const line = document.createElement('p');
+  line.textContent = `${botAlias}: type something to chat with me`;
+  return line;
+}
+
 function SaihuBot(config) {
+  // init setup
   this.myAlias = config.user || 'me';
   this.botAlias = config.bot || 'bot';
   this.ui = config.ui || {};
 
-  if (config.welcomeMessage) {
-    this.welcomeMessage = config.welcomeMessage;
-  } else {
-    this.welcomeMessage = document.createElement('p');
-    this.welcomeMessage.textContent = this.botAlias + ': type something to chat with me';
-  }
-  this.notFoundMessages = config.notFoundMessages || ['what do you say?', 'Please make your order clear'];
+  this.welcomeMessage = config.welcomeMessage ||
+    dummyWelcomeMsgs(this.botAlias);
+  this.notFoundMessages = config.notFoundMessages || DEFAULT_FALLBACK_MESSAGES;
   this.saveChatLog = config.saveChatLog || true;
   // provide run, close, send, render function by adapter
   this.brain = config.brain || dummyBrain;
   this.brainConfig = config.brainConfig;
   this.adapter = config.adapter || dummyAdapter;
+
   this.run();
 }
 
@@ -82,45 +92,49 @@ SaihuBot.prototype = {
   responses: [],
 
   catchAll: function(msg) {
-    var msgLen = this.notFoundMessages.length;
-    this.adapter.send(this.notFoundMessages[Math.floor(Math.random() * msgLen)]);
+    const msgLen = this.notFoundMessages.length;
+    this.adapter.send(
+        this.notFoundMessages[Math.floor(Math.random() * msgLen)]);
   },
 
   run: function() {
-    console.log('run with', this.brain.name, 'brain and', this.adapter.name, 'adapter');
-    function restore() {
-      this.adapter.run(this);
-      let brainLog = this.brain.get('chatLog');
-      this.chatHistory = brainLog && (brainLog.length > 1) ? brainLog : [this.welcomeMessage];
-      this.render();
-    }
+    console.log(
+        `run with ${this.brain.name} brain and ${this.adapter.name} adapter`);
 
-    this.brain.run(this, restore.bind(this), this.brainConfig);
+    // running loop
+    this.brain.run(this, this.restore.bind(this), this.brainConfig);
 
-    if (window) {
-      window.addEventListener('beforeunload', this.shutdown.bind(this));
+    // shutdown flow
+    this.adapter.shutdownHook(this.shutdown.bind(this));
+  },
+
+  restore: function() {
+    this.adapter.run(this);
+    const brainLog = this.brain.get('chatLog');
+    this.chatHistory = brainLog && (brainLog.length > 1) ?
+      brainLog : [this.welcomeMessage];
+    this.render();
+  },
+
+  saveChanges: function() {
+    if (this.saveChatLog) {
+      this.brain.set('chatLog', this.chatHistory).close();
+    } else {
+      this.brain.close();
     }
   },
 
   shutdown: function() {
-    function saveChanges() {
-      if (this.saveChatLog) {
-        this.brain.set('chatLog', this.chatHistory).close();
-      } else {
-        this.brain.close();
-      }
-    }
-
     this.adapter.close();
-    setTimeout(saveChanges.bind(this), 0);
+    setTimeout(this.saveChanges.bind(this), 0);
   },
 
   processListeners: function(msg) {
-    var len = this.chatHistory.length;
+    const len = this.chatHistory.length;
     this.responses.forEach((item) => {
-      var matchedMsg = msg.match(item.rule);
+      const matchedMsg = msg.match(item.rule);
       if (matchedMsg) {
-        console.log('matched!');
+        console.log(`matched! [${matchedMsg}]`);
         item.action(this, matchedMsg);
       }
     });
@@ -137,12 +151,9 @@ SaihuBot.prototype = {
     this.adapter.send(msg, role);
   },
 
+  // deprecated
   sendHTML: function(msg, role) {
-    if (msg instanceof HTMLElement) {
-      this.adapter.sendHTML(msg, role);
-    } else {
-      console.log('>> The msg you provide is not an HTMLElement');
-    }
+    console.log('>> deprecated, please use robot.adapter.sendHTML instead');
   },
 
   ask: function(msg) {
@@ -151,5 +162,5 @@ SaihuBot.prototype = {
 
   render: function() {
     this.adapter.render();
-  }
+  },
 };

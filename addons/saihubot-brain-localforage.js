@@ -1,3 +1,4 @@
+/* eslint-disable valid-jsdoc */
 /* globals localforage */
 /* exported localforageBrain */
 
@@ -12,7 +13,7 @@
  * Allowed configs:
  * - messageSize: limit saved chatLog size
  */
-var localforageBrain = {
+const localforageBrain = {
   name: 'localforage',
   run: function(robot, callback, config) {
     this.data = {
@@ -21,7 +22,7 @@ var localforageBrain = {
 
     this.MESSAGE_SIZE = config && config.messageSize ? config.messageSize : 10;
     localforage.getItem('data').then((value) => {
-      var template = document.createElement('template');
+      const template = document.createElement('template');
       if (value) {
         if (value._private && value._private.chatLog) {
           value._private.chatLog = value._private.chatLog.map(function(html) {
@@ -52,7 +53,7 @@ var localforageBrain = {
    * @return {object} the instance for chaining.
    */
   set: function(key, value) {
-    var pair = {};
+    let pair = {};
     if (key === Object(key)) {
       pair = key;
     } else {
@@ -79,7 +80,7 @@ var localforageBrain = {
    * @return {Object} the instance for chaining.
    */
   remove: function(key) {
-    if (this.data._private.hasOwnProperty(key)) {
+    if (Object.prototype.hasOwnProperty.call(this.data._private, key)) {
       delete this.data._private[key];
     }
     return this;
@@ -92,7 +93,7 @@ var localforageBrain = {
    */
   save: function() {
     if (this.data._private && this.data._private.chatLog) {
-      var arr = this.data._private.chatLog.slice(-this.MESSAGE_SIZE);
+      const arr = this.data._private.chatLog.slice(-this.MESSAGE_SIZE);
       console.log('saved', arr.length);
       this.data._private.chatLog = arr.map(function(ele) {
         // assume all elments are are HTMLElement

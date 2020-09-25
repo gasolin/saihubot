@@ -1,9 +1,9 @@
 /* exported basicAdapter */
 'use strict';
 
-var basicAdapter = {
+const basicAdapter = {
   // essential functions
-  name: 'basic',
+  name: 'basic web',
   run: function(robot) {
     this.robot = robot;
     this.ui = robot.ui;
@@ -22,31 +22,41 @@ var basicAdapter = {
     this.message.addEventListener('keydown', this.onKeydownBound);
   },
 
+  shutdownHook: function(shutdown) {
+    if (window) {
+      window.addEventListener('beforeunload', shutdown);
+    }
+  },
+
   close: function() {
     console.log('close basic adapter');
     if (this.btn) {
       this.btn.removeEventListener('click', this.onReceiveBound);
     }
     if (this.message) {
-      this.message.removeEventListener('keydown', this.onKeydownBound);      
+      this.message.removeEventListener('keydown', this.onKeydownBound);
     }
   },
 
   // send text message
   send: function(msg, role) {
-    var charactor = role || this.robot.botAlias;
-    var sendMsg = document.createElement('p');
+    const charactor = role || this.robot.botAlias;
+    const sendMsg = document.createElement('p');
     sendMsg.textContent = charactor + ': ' + msg;
     this.robot.chatHistory.push(sendMsg);
   },
 
   // send html element with bot
   sendHTML: function(msg, role) {
-    var sendMsg = document.createElement('p');
-    var charactor = role ? role : this.robot.botAlias;
-    sendMsg.textContent = charactor + ': ';
-    sendMsg.appendChild(msg);
-    this.robot.chatHistory.push(sendMsg);
+    if (msg instanceof HTMLElement) {
+      const sendMsg = document.createElement('p');
+      const charactor = role ? role : this.robot.botAlias;
+      sendMsg.textContent = charactor + ': ';
+      sendMsg.appendChild(msg);
+      this.robot.chatHistory.push(sendMsg);
+    } else {
+      console.log('>> The msg you provide is not an HTMLElement');
+    }
   },
 
   render: function() {
@@ -57,7 +67,7 @@ var basicAdapter = {
     });
     if (this.robot.chatHistory.length > 1) {
       this.robot.chatHistory[this.robot.chatHistory.length - 1]
-        .scrollIntoView();
+          .scrollIntoView();
     }
   },
 
@@ -69,7 +79,7 @@ var basicAdapter = {
   },
 
   onReceive: function() {
-    var receivedMsg = this.message.value;
+    const receivedMsg = this.message.value;
     if (receivedMsg) {
       this.send(receivedMsg, this.robot.myAlias);
       this.robot.processListeners(receivedMsg);

@@ -3,12 +3,12 @@
 'use strict';
 
 // addon that provide confirm and selection dialog
-SaihuBot.prototype.confirm = function() {
-  var confirmDlg = document.createElement('p');
-  var args = Array.prototype.slice.call(arguments);
-  var that = this;
+SaihuBot.prototype.confirm = function(...args) {
+  const confirmDlg = document.createElement('p');
+  const that = this;
+  // eslint-disable-next-line require-jsdoc
   function handleEvent(cb, idx) {
-    return function(e) {
+    return function() {
       that.dialogSelected(idx, args);
       // remove SaihuBot.prototype.responses item;
       cb();
@@ -22,7 +22,7 @@ SaihuBot.prototype.confirm = function() {
   }
 
   args.forEach((item, idx) => {
-    var confirmBtn = document.createElement('button');
+    const confirmBtn = document.createElement('button');
     confirmBtn.textContent = item[0];
     if (item[1].action) {
       confirmBtn.addEventListener('click', handleEvent(item[1].action, idx));
@@ -38,7 +38,7 @@ SaihuBot.prototype.confirm = function() {
 
 SaihuBot.prototype.dialogSelected = function(selected, args) {
   this.chatHistory.pop();
-  var confirmBtn = document.createElement('button');
+  const confirmBtn = document.createElement('button');
   confirmBtn.disabled = true;
   args.forEach((item, idx) => {
     if (typeof item === 'string') {

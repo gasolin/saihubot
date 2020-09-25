@@ -1,11 +1,11 @@
 {
   "name": "saihubot",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Client side chatb ot that can be embedded in any web site",
   "main": "saihubot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint **/*.js"
+    "lint": "eslint saihubot.js **/*.js"
   },
   "repository": {
     "type": "git",
@@ -23,11 +23,14 @@
   },
   "homepage": "https://github.com/gasolin/saihubot",
   "devDependencies": {
-    "eslint": "^3.15.0",
-    "eslint-config-google": "^0.7.1"
+    "eslint": "^7.9.0",
+    "eslint-config-google": "^0.14.0"
   },
   "eslintConfig": {
-    "extends": ["eslint:recommended", "google"],
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
     "env": {
       "browser": true,
       "es6": true
