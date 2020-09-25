@@ -1,9 +1,9 @@
 /* eslint-disable require-jsdoc */
 'use strict';
 
-const dummyAdapter = {
+const defaultAdapter = {
   // essential functions
-  name: 'dummy',
+  name: 'default',
   run: function(robot) {
     console.log('go pick an adapter instead!');
     this.robot = robot;
@@ -22,8 +22,8 @@ const dummyAdapter = {
   },
 };
 
-const dummyBrain = {
-  name: 'dummy',
+const defaultBrain = {
+  name: 'default',
   run: function(robot, callback) {
     this.data = {
       _private: {},
@@ -31,7 +31,7 @@ const dummyBrain = {
     callback();
   },
   close: function() {
-    console.log('close dummy brain');
+    console.log('close default brain');
     this.save();
   },
   set: function(key, value) {
@@ -64,7 +64,7 @@ const DEFAULT_FALLBACK_MESSAGES = [
   'Please make your order clear',
 ];
 
-function dummyWelcomeMsgs(botAlias) {
+function defaultWelcomeMsgs(botAlias) {
   const line = document.createElement('p');
   line.textContent = `${botAlias}: type something to chat with me`;
   return line;
@@ -77,13 +77,13 @@ function SaihuBot(config) {
   this.ui = config.ui || {};
 
   this.welcomeMessage = config.welcomeMessage ||
-    dummyWelcomeMsgs(this.botAlias);
+    defaultWelcomeMsgs(this.botAlias);
   this.notFoundMessages = config.notFoundMessages || DEFAULT_FALLBACK_MESSAGES;
   this.saveChatLog = config.saveChatLog || true;
   // provide run, close, send, render function by adapter
-  this.brain = config.brain || dummyBrain;
+  this.brain = config.brain || defaultBrain;
   this.brainConfig = config.brainConfig;
-  this.adapter = config.adapter || dummyAdapter;
+  this.adapter = config.adapter || defaultAdapter;
 
   this.run();
 }
