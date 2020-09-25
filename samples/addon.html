@@ -9,7 +9,7 @@
   <script src="../core/saihubot.js"></script>
   <script src="../adapters/saihubot-adapter-basic.js"></script>
   <script src="../addons/saihubot-dialog.js"></script>
-  <script src="../plugins/saihubot-diagnostics.js"></script>
+  <script src="../skills/saihubot-diagnostics.js"></script>
 </head>
 <body>
   <div class="chat-frame">
@@ -29,7 +29,7 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // plugins that use confirm dialog addon
+    // skills that use confirm dialog addon
     SaihuBot.prototype.responses.push(
       { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
         robot.confirm('would you like to exit?',

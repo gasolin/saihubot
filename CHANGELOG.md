@@ -2,6 +2,8 @@
 
 * use es6 syntax and clean up saihubot.js
 * deprecated `sendHTML`, prefer call from `adapter.sendHTML`
+* now call `plugins` as `skills`
+* add readme to explain the `skills` and `addons`
 
 ## 0.9 2017/2/18
 

@@ -1,8 +1,8 @@
 # Saihubot [![NPM version][npm-image]][npm-url] 
 :robot: Framework to build :speech_balloon: message/chat bots in the :globe_with_meridians: **Browser**.
-You can add new skills to bot via plugins and extend its ability via addons. All with plain javascript. :clap:
+You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
 
-Saihubot's API is very similar to [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned hubot-plugins could learn saihu-plugins very quickly. :zap:
+Saihubot's API is inspired by [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned `hubot-plugins` could learn `saihu-skills` very quickly. :zap:
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)
 
@@ -10,13 +10,13 @@ Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 * Chatbot works in your browser, without server setup.
 * Written in plain Javascript, compatible with most browsers
-* Structure is inspired by [hubot](https://github.com/github/hubot/)
+* Structure was inspired by [hubot](https://github.com/github/hubot/)
   * Regex based message matching
   * Could write adapter to fully cooperate with your web UI
   * Could swap brain to support different backends
-  * Provide plugin architecture that able to expand functions
+  * Provide skills(pluginn) architecture that able to expand functions
   * Can extend bot functionality by import addons
-* Tiny size, easy to learn (the init version has just 80 lines that bundle with three plugins)
+* Tiny size, easy to learn (the init version has just 80 lines that bundle with three skills)
 * Each message can be customized with any HTML elements
 * Reference chat UI style is included
 * Plugin callbacks are extremely flexible; You can control in-page elements, execute the local command, fetch remote data, trigger remote actions...
@@ -82,33 +82,33 @@ And don't forget to include related libraries in the header
 <head>
   <script src="saihubot.js"></script>
   <script src="adapters/saihubot-adapter-basic.js"></script>
-  <script src="plugins/saihubot-diagnostics.js"></script>
+  <script src="skills/saihubot-diagnostics.js"></script>
 </header>
 ```
 
 ## Usage
 
-Saihubot provide 3 default plugins `ping`, `time`, `echo` that you can include via:
+Saihubot provide 3 default skills `ping`, `time`, `echo` that you can include via:
 
 ```html
-<script src="plugins/saihubot-diagnostics.js"></script>
+<script src="skills/saihubot-diagnostics.js"></script>
 ```
 
-### Ping plugin
+### Ping skill
 
 ```
 me: ping
 bot: PONG
 ```
 
-### :clock2: Time plugin:
+### :clock2: Time skill:
 
 ```
 me: time
 bot: Device time is Fri Aug 05 2016 21:22:11 GMT+0800 (CST)
 ```
 
-### :loudspeaker: Echo plugin:
+### :loudspeaker: Echo skill:
 
 ```
 me: echo Hello World!
@@ -118,15 +118,15 @@ bot: Hello World!
 ![Imgur](http://i.imgur.com/Ljjf0Fwl.png)
 
 
-Saihubot also provide Search plugins, you can include it via:
+Saihubot also provide Search skills, you can include it via:
 
 ```html
-<script src="plugins/saihubot-search.js"></script>
+<script src="skills/saihubot-search.js"></script>
 ```
 
 Check the [Search Demo](https://gasolin.github.io/saihubot/samples/search).
 
-### :mag_right: Google Search plugin:
+### :mag_right: Google Search skill:
 
 ```
 me: g saihubot
@@ -137,7 +137,7 @@ me: search saihubot
 bot: Search saihubot via Google
 ```
 
-### Wikipedia plugin:
+### Wikipedia skill:
 
 ```
 me: wiki saihubot
@@ -146,7 +146,7 @@ me: wikipedia saihubot
 bot: Search saihubot via Wikipedia
 ```
 
-### Google Translate plugin
+### Google Translate skill
 
 ```
 me: translate hello
