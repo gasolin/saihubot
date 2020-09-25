@@ -35,11 +35,20 @@ Fork the project, edit index.html with Github editor, save it and see the result
 
 Clone the project with command
 
-```
+```sh
 git clone https://github.com/gasolin/saihubot.git
 ```
 
-Then drag `samples/index.html` to your browser, now you have a working bot!
+Then run
+
+```sh
+npx http-server .
+```
+
+now you have a working bot!
+
+(drag `index.html` to your browser also works)
+
 
 ### Bootstrap Saihubot
 
