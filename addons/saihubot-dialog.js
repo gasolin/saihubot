@@ -3,13 +3,13 @@
 'use strict';
 
 // addon that provide confirm and selection dialog
-SaihuBot.prototype.confirm = function(title, ...args) {
+SaihuBot.prototype.confirm = function(title, items) {
   const confirmDlg = document.createElement('p');
   const that = this;
   // eslint-disable-next-line require-jsdoc
   function handleEvent(cb, idx) {
     return function() {
-      that.dialogSelected(idx, args);
+      that.dialogSelected(idx, items);
       cb();
     };
   }
@@ -20,15 +20,15 @@ SaihuBot.prototype.confirm = function(title, ...args) {
   }
 
   // respond to click events
-  args.forEach((item, idx) => {
+  items.forEach((item, idx) => {
     const confirmBtn = document.createElement('button');
-    confirmBtn.textContent = item[0];
-    if (item[1].action) {
-      confirmBtn.addEventListener('click', handleEvent(item[1].action, idx));
+    confirmBtn.textContent = item.title;
+    if (item.action) {
+      confirmBtn.addEventListener('click', handleEvent(item.action, idx));
       // SaihuBot.prototype.responses.push(item[1]);
     }
     confirmDlg.appendChild(confirmBtn);
-    if (idx !== args.length - 1) {
+    if (idx !== items.length - 1) {
       confirmDlg.appendChild(document.createElement('br'));
     }
   });
@@ -36,38 +36,38 @@ SaihuBot.prototype.confirm = function(title, ...args) {
 
   // respond to input events
   this.adapter.delegateMsgParse((msg) => {
-    this.dialogMatched = false;
-    args.forEach((option) => {
-      const item = option[1]
+    let dialogMatched = false;
+    items.forEach((item) => {
       // refer processListeners
       const matchedMsg = msg.match(item.rule);
       if (matchedMsg) {
-        this.dialogMatched = true;
+        dialogMatched = true;
         console.log(`dialog skill matched! [${matchedMsg}]`);
-        item.action(this, matchedMsg);
+        item.action(that, matchedMsg);
       }
-    })
-    if (this.dialogMatched) {
-      this.resumeMsgParse()
+    });
+    if (dialogMatched) {
+      this.adapter.resumeMsgParse();
     } else {
-      this.send('Can not recognnize, would you click the option or try another term?Ÿ')
+      // eslint-disable-next-line max-len
+      this.send('Can not recognnize, would you click the option or try another term?');
     }
-    this.render()
-  })
+    this.render();
+  });
 };
 
-SaihuBot.prototype.dialogSelected = function(selected, args) {
+SaihuBot.prototype.dialogSelected = function(selected, items) {
   // remove SaihuBot.prototype.responses item;
   this.chatHistory.pop();
   const confirmBtn = document.createElement('button');
   confirmBtn.disabled = true;
-  args.forEach((item, idx) => {
+  items.forEach((item, idx) => {
     if (typeof item === 'string') {
       this.send(item);
       return;
     }
     if (idx === selected) {
-      confirmBtn.textContent = item[0];
+      confirmBtn.textContent = item.title;
       return;
     }
   });

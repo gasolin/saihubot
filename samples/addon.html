@@ -30,45 +30,52 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     // skills that use confirm dialog addon
-    SaihuBot.prototype.responses.push(
-      { name: 'bye', rule: /BYE$/i, action: function(robot, msg) {
-        robot.confirm('would you like to exit?',
-        ['ok', {
-          name: 'yes',
-          rule: /YES$/i,
-          action: function() {
-            robot.send('see ya');
-            robot.render();
+    SaihuBot.prototype.responses.push({
+      name: 'bye',
+      rule: /BYE$/i,
+      action: function(robot, msg) {
+        robot.confirm('would you like to exit?', [
+          {
+            title: 'ok',
+            id: 'yes',
+            rule: /YES$/i,
+            action: function() {
+              robot.send('see ya');
+              robot.render();
+            }
+          },
+          {
+            title: 'no',
+            id: 'no',
+            rule: /NO$/i,
+            action: function() {
+              robot.send('Let\'s talk more!');
+              robot.render();
+            }
           }
-        }],
-        ['no', {
-          name: 'no',
-          rule: /NO$/i,
-          action: function() {
-            robot.send('Let\'s talk more!');
-            robot.render();
-          }
-        }]
-        );
-      }});
+        ]);
+      }
+    });
 
-    SaihuBot.prototype.responses.push(
-      { name: 'go',
-        rule: /home$/i,
-        help: 'home - open saihubot website',
-        action: function(robot, msg) {
-        robot.confirm('visit Saihubot website',
-          ['ok', {
-           name: 'ok',
-           rule: /OK$/i,
-           action: function() {
-             robot.send('You\'ll be redirect to Saihubot home!');
-             robot.render();
-             window.location = 'https://github.com/gasolin/saihubot';
-           }
-          }]
-        );
-      }});
+    SaihuBot.prototype.responses.push({
+      name: 'go',
+      rule: /home$/i,
+      help: 'home - open saihubot website',
+      action: function(robot, msg) {
+        robot.confirm('visit Saihubot website', [
+          {
+            title: 'ok',
+            id: 'ok',
+            rule: /OK$/i,
+            action: function() {
+              robot.send('You\'ll be redirect to Saihubot home!');
+              robot.render();
+              window.location = 'https://github.com/gasolin/saihubot';
+            }
+          }
+        ]);
+      }
+    });
 
     new SaihuBot({adapter: basicAdapter});
   });

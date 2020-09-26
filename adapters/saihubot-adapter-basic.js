@@ -94,7 +94,7 @@ const basicAdapter = {
     if (receivedMsg) {
       this.send(receivedMsg, this.robot.myAlias);
       if (typeof this.customMsgParse === 'function') {
-        this.customMsgParse(receivedMsg)
+        this.customMsgParse(receivedMsg);
       } else {
         this.robot.processListeners(receivedMsg);
       }
@@ -102,7 +102,7 @@ const basicAdapter = {
   },
 
   resumeGlobalMsgParse: function() {
-    this.customMsgParse = ''
+    this.customMsgParse = '';
   },
 
   // pending global parse and delegate the parsing effort to a Skill.
@@ -112,13 +112,14 @@ const basicAdapter = {
       throw new Error('The skill should not take over MsgParse over 5 min');
     }
     // replace global parsing
-    this.customMsgParse = localParser
-    this.pendingMsgParse = window.setTimeout(this.resumeGlobalMsgParse.bind(this), timeout);
+    this.customMsgParse = localParser;
+    this.pendingMsgParse = window.setTimeout(
+        this.resumeGlobalMsgParse.bind(this), timeout);
   },
 
   // leave the pseudo session
   resumeMsgParse: function() {
     window.clearTimeout(this.pendingMsgParse);
-    this.resumeGlobalMsgParse()
-  }
+    this.resumeGlobalMsgParse();
+  },
 };
