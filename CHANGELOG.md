@@ -1,3 +1,10 @@
+## 0.11 2020/**
+
+* able to parse inputs in confirm dialog
+* able to parse dialog specific strings in pseudo session
+* change confirm dialog addon syntax
+* auto lint check via github actions
+
 ## 0.10 2020/9/25
 
 * use es6 syntax and clean up saihubot.js

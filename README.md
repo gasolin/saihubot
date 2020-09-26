@@ -1,5 +1,8 @@
 # Saihubot [![NPM version][npm-image]][npm-url] 
 :robot: Framework to build :speech_balloon: message/chat bots in the :globe_with_meridians: **Browser**.
+
+[![](https://github.com/gasolin/saihubot/workflows/lint/badge.svg)](https://github.com/gasolin/saihubot/actions?query=workflow%3Alint)
+
 You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
 
 Saihubot's API is inspired by [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned `hubot-plugins` could learn `saihu-skills` very quickly. :zap:
