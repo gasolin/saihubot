@@ -17,9 +17,11 @@ const basicAdapter = {
     this.btn = document.getElementById(this.sendButtonElement);
 
     this.onReceiveBound = this.onReceive.bind(this);
-    this.onKeydownBound = this.onKeydown.bind(this);
     this.btn.addEventListener('click', this.onReceiveBound);
+    this.onKeydownBound = this.onKeydown.bind(this);
     this.message.addEventListener('keydown', this.onKeydownBound);
+
+    this.customMsgParse = '';
   },
 
   shutdownHook: function(shutdown) {
@@ -46,19 +48,6 @@ const basicAdapter = {
     this.robot.chatHistory.push(sendMsg);
   },
 
-  // send html element with bot
-  sendHTML: function(msg, role) {
-    if (msg instanceof HTMLElement) {
-      const sendMsg = document.createElement('p');
-      const charactor = role ? role : this.robot.botAlias;
-      sendMsg.textContent = charactor + ': ';
-      sendMsg.appendChild(msg);
-      this.robot.chatHistory.push(sendMsg);
-    } else {
-      console.log('>> The msg you provide is not an HTMLElement');
-    }
-  },
-
   render: function() {
     console.log('render!');
     this.cleanUp();
@@ -72,17 +61,17 @@ const basicAdapter = {
   },
 
   // supportive functions
-  onKeydown: function(e) {
-    if (e.keyCode === 13) { // enter key
-      this.onReceive();
-    }
-  },
 
-  onReceive: function() {
-    const receivedMsg = this.message.value;
-    if (receivedMsg) {
-      this.send(receivedMsg, this.robot.myAlias);
-      this.robot.processListeners(receivedMsg);
+  // send html element with bot
+  sendHTML: function(msg, role) {
+    if (msg instanceof HTMLElement) {
+      const sendMsg = document.createElement('p');
+      const charactor = role ? role : this.robot.botAlias;
+      sendMsg.textContent = charactor + ': ';
+      sendMsg.appendChild(msg);
+      this.robot.chatHistory.push(sendMsg);
+    } else {
+      console.log('>> The msg you provide is not an HTMLElement');
     }
   },
 
@@ -93,4 +82,43 @@ const basicAdapter = {
     this.message.value = '';
     this.message.focus();
   },
+
+  onKeydown: function(e) {
+    if (e.keyCode === 13) { // enter key
+      this.onReceive();
+    }
+  },
+
+  onReceive: function() {
+    const receivedMsg = this.message.value;
+    if (receivedMsg) {
+      this.send(receivedMsg, this.robot.myAlias);
+      if (typeof this.customMsgParse === 'function') {
+        this.customMsgParse(receivedMsg)
+      } else {
+        this.robot.processListeners(receivedMsg);
+      }
+    }
+  },
+
+  resumeGlobalMsgParse: function() {
+    this.customMsgParse = ''
+  },
+
+  // pending global parse and delegate the parsing effort to a Skill.
+  // default timeout is 30 seconds
+  delegateMsgParse: function(localParser, timeout = 30000) {
+    if (timeout > 300000) {
+      throw new Error('The skill should not take over MsgParse over 5 min');
+    }
+    // replace global parsing
+    this.customMsgParse = localParser
+    this.pendingMsgParse = window.setTimeout(this.resumeGlobalMsgParse.bind(this), timeout);
+  },
+
+  // leave the pseudo session
+  resumeMsgParse: function() {
+    window.clearTimeout(this.pendingMsgParse);
+    this.resumeGlobalMsgParse()
+  }
 };

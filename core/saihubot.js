@@ -134,7 +134,7 @@ SaihuBot.prototype = {
     this.responses.forEach((item) => {
       const matchedMsg = msg.match(item.rule);
       if (matchedMsg) {
-        console.log(`matched! [${matchedMsg}]`);
+        console.log(`skill matched! [${matchedMsg}]`);
         item.action(this, matchedMsg);
       }
     });
@@ -153,7 +153,7 @@ SaihuBot.prototype = {
 
   // deprecated
   sendHTML: function(msg, role) {
-    console.log('>> deprecated, please use robot.adapter.sendHTML instead');
+    console.warn('>> deprecated, please use robot.adapter.sendHTML instead');
   },
 
   ask: function(msg) {

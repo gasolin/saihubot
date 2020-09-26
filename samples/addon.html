@@ -35,7 +35,7 @@
         robot.confirm('would you like to exit?',
         ['ok', {
           name: 'yes',
-          rule: '/YES$/i',
+          rule: /YES$/i,
           action: function() {
             robot.send('see ya');
             robot.render();
@@ -43,7 +43,7 @@
         }],
         ['no', {
           name: 'no',
-          rule: '/NO$/i',
+          rule: /NO$/i,
           action: function() {
             robot.send('Let\'s talk more!');
             robot.render();
@@ -60,7 +60,7 @@
         robot.confirm('visit Saihubot website',
           ['ok', {
            name: 'ok',
-           rule: '/OK$/i',
+           rule: /OK$/i,
            action: function() {
              robot.send('You\'ll be redirect to Saihubot home!');
              robot.render();
