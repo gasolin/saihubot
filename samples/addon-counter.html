@@ -1,0 +1,82 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="client side chatbot that can be embedded in any web site.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <title>Saihubot addon</title>
+  <link rel="stylesheet" href="chat.css">
+  <script src="../core/saihubot.js"></script>
+  <script src="../adapters/saihubot-adapter-basic.js"></script>
+  <script src="../addons/saihubot-addon-card.js"></script>
+  <script src="../skills/saihubot-diagnostics.js"></script>
+</head>
+<body>
+  <div class="chat-frame">
+    <div class="chat-content">
+      <div id="history"></div>
+    </div>
+    <div class="chat-footer">
+      <input id="message" autocomplete="off"><button id="send">Send</button>
+    </div>
+  </div>
+
+  <p>
+    >> type `ping`, `time`, or `echo [message]` to see what's happened<br>
+    >> type `count 15` (default 10) and you can interact with bot's card<br>
+    >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
+  </p>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // skills that use confirm dialog addon
+    SaihuBot.prototype.responses.push({
+      name: 'count',
+      rule: /count (.*)/i,
+      action: function(robot, msg) {
+        robot.card({
+          asyncAction: (rootElement) => {
+            let counter = msg[1] || 10;
+            const Area = document.createElement('span');
+            rootElement.appendChild(Area);
+            const timer = window.setInterval(() => {
+              console.log('checking ', counter);
+              if (counter === 0) {
+                window.clearInterval(timer);
+                robot.send('count done!');
+                robot.render();
+              }
+              Area.innerHTML = `${counter}`;
+              counter = counter - 1;
+            }, 1000);
+          }
+        });
+      }
+    });
+
+    SaihuBot.prototype.responses.push({
+      name: 'go',
+      rule: /home$/i,
+      help: 'home - open saihubot website',
+      action: function(robot, msg) {
+        robot.confirm('visit Saihubot website', [
+          {
+            title: 'ok',
+            id: 'ok',
+            rule: /OK$/i,
+            action: function() {
+              robot.send('You\'ll be redirect to Saihubot home!');
+              robot.render();
+              window.location = 'https://github.com/gasolin/saihubot';
+            }
+          }
+        ]);
+      }
+    });
+
+    new SaihuBot({adapter: basicAdapter});
+  });
+  </script>
+  <script defer src="ga.js"></script>
+</body>
+</html>
