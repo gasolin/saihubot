@@ -1,9 +1,17 @@
-## 0.11 2020/**
+## 0.11 2020/10/2
+
+Feature
+* auto lint check via github actions
+* new addon `addon/saihubot-addon-card` to show an widget area that able to control with id.
+
+Break CHange
+* rename `addon/saihubot-dialog` to `addon/saihubot-addon-dialog`
+* change confirm dialog addon syntax
+
+Enhancements
 
 * able to parse inputs in confirm dialog
 * able to parse dialog specific strings in pseudo session
-* change confirm dialog addon syntax
-* auto lint check via github actions
 
 ## 0.10 2020/9/25
 

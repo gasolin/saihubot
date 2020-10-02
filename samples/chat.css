@@ -37,6 +37,10 @@
   margin-bottom: 2px;
 }
 
+div.card {
+  background-color: lightgrey;
+}
+
 @media (max-width: 561px) {
   .chat-frame {
     font-size: larger;
