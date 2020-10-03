@@ -1,4 +1,3 @@
-/* eslint-disable valid-jsdoc */
 /* globals localforage */
 /* exported localforageBrain */
 
@@ -48,8 +47,8 @@ const localforageBrain = {
    * Public: Store key-value pair under the private namespace and extend
    * existing @data before emitting the 'loaded' event.
    *
-   * @params {object} key data key
-   * @params {object} value data value
+   * @param {object} key data key
+   * @param {object} value data value
    * @return {object} the instance for chaining.
    */
   set: function(key, value) {
@@ -67,7 +66,7 @@ const localforageBrain = {
    * Public: Get value by key from the private namespace in this.data
    * or return null if not found.
    *
-   * @params {String} key data key
+   * @param {String} key data key
    * @return {Object} value
    */
   get: function(key) {
@@ -77,6 +76,7 @@ const localforageBrain = {
    * Public: Remove value by key from the private namespace in this.data
    * if it exists.
    *
+   * @param {String} key data key
    * @return {Object} the instance for chaining.
    */
   remove: function(key) {

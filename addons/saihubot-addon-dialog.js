@@ -6,7 +6,13 @@
 SaihuBot.prototype.confirm = function(title, items) {
   const confirmDlg = document.createElement('p');
   const that = this;
-  // eslint-disable-next-line require-jsdoc
+  /**
+   * Event handler.
+   *
+   * @param {function} cb
+   * @param {number} idx
+   * @return {function} handler
+   */
   function handleEvent(cb, idx) {
     return function() {
       that.dialogSelected(idx, items);

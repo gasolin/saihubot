@@ -1,4 +1,3 @@
-/* eslint-disable require-jsdoc */
 'use strict';
 
 const defaultAdapter = {
@@ -64,12 +63,32 @@ const DEFAULT_FALLBACK_MESSAGES = [
   'Please make your order clear',
 ];
 
+/**
+ * Default welcome message
+ *
+ * @param {String} botAlias
+ * @return {String} Welcome message
+ */
 function defaultWelcomeMsgs(botAlias) {
   const line = document.createElement('p');
   line.textContent = `${botAlias}: type something to chat with me`;
   return line;
 }
 
+/**
+ * SaihuBot main instance.
+ *
+ * @param {Object} config
+ * @param {object} config.adapter - Saihubot platform specific adapter.
+ * @param {object} config.brainConfig - brain related config.
+ * @param {string} connfig.bot - bot prompt (default: bot)
+ * @param {string[]} config.notFoundMessages - default not found
+ * @param {boolean} config.saveChatLog - save chatlog or not (default: true),
+ *  need coperate with `brain` in addon.
+ * @param {string} config.user - user prompt (default: me)
+ * @param {string} config.welcomeMessage - default welcome message (optional)
+ *  messages (optional)
+ */
 function SaihuBot(config) {
   // init setup
   this.myAlias = config.user || 'me';
