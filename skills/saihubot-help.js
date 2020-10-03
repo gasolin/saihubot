@@ -8,12 +8,11 @@ SaihuBot.prototype.responses.push({
   rule: /HELP$/i,
   action: function(robot, msg) {
     const availableSkills = robot.responses.map(function(skill) {
-      console.log(skill);
       return skill.help ? `* ${skill.name}\n  ${skill.help}` :
         `* ${skill.name}`;
     });
     const pre = document.createElement('pre');
-    pre.textContent = 'Here are available skills:\n' +
+    pre.textContent = `I have ${availableSkills.length} skills:\n` +
       availableSkills.join('\n');
     robot.adapter.sendHTML(pre);
   },

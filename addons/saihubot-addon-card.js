@@ -27,11 +27,15 @@ SaihuBot.prototype.card = function(config) {
     renderLoading,
     width = '100%',
     minHeight ='50px',
+    height,
   } = config;
   rootElement.id = getRandomId();
   rootElement.className = 'card';
   rootElement.style.width = width;
   rootElement.style.minHeight = minHeight;
+  if (height) {
+    rootElement.style.height = height;
+  }
   if (typeof renderLoading === 'function') {
     const loadingId = renderLoading(rootElement);
     rootElement.loadingId = loadingId;
