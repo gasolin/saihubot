@@ -1,10 +1,14 @@
-/* eslint-disable require-jsdoc */
 /* globals SaihuBot */
 
 'use strict';
 
 const MAX = 10000;
 
+/**
+ * Get random id to access the element.
+ *
+ * @return {String} id to access the element
+ */
 function getRandomId() {
   return `id${Math.floor(Math.random() * Math.floor(MAX))}`;
 }

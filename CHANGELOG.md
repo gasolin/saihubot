@@ -1,3 +1,11 @@
+## 0.12 2020/
+
+Feature
+* distill addon-search to easier create a search type skill.
+
+Enhancements
+* add jsDoc
+
 ## 0.11 2020/10/2
 
 Feature

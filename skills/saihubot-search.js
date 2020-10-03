@@ -1,33 +1,5 @@
-/* eslint-disable require-jsdoc */
 /* globals SaihuBot */
 'use strict';
-
-/**
- * Render response message.
- *
- * @param {String} action action word
- * @param {String} term search term
- * @param {String} url real search url
- * @param {String} engine search engine
- * @return {HTMLElement} response description with link
- */
-function renderResponse(action, term, url, engine) {
-  const span = document.createElement('span');
-  const line1 = document.createTextNode(`${action} "`);
-  const link = document.createElement('a');
-  link.href = url;
-  const linkText = document.createTextNode(`${term}`);
-  link.appendChild(linkText);
-  const line2 = document.createTextNode(`" via ${engine}`);
-  span.appendChild(line1);
-  span.appendChild(link);
-  span.appendChild(line2);
-  return span;
-}
-
-function openTab(url) {
-  window.open(url, '_blank');
-}
 
 SaihuBot.prototype.responses.push({
   name: 'duckduckgo',
@@ -35,9 +7,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^duckduckgo |^duck )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://duckduckgo.com/?q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'DuckDuckgo');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'DuckDuckgo');
   },
 });
 
@@ -47,9 +17,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^wikipedia |^w |^wiki )(.*)/i,
   action: function(robot, msg) {
     const url = 'http://en.wikipedia.org/w/index.php?title=Special:Search&search=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Wikipedia');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Wikipedia');
   },
 });
 
@@ -59,9 +27,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^github |^gh )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://github.com/search?utf8=%E2%9C%93&q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Github');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Github');
   },
 });
 
@@ -71,9 +37,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^google |^g )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://www.google.com/search?q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Google');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Google');
   },
 });
 
@@ -83,9 +47,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^translate |^tr |^trans |^gt )(.*)/i,
   action: function(robot, msg) {
     const url = 'http://translate.google.com/?text=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Translate', msg[2], url, 'Google Translate');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Translate', msg[2], url, 'Google Translate');
   },
 });
 
@@ -95,9 +57,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^images |^image |^gi )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Google Images');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Google Images');
   },
 });
 
@@ -107,9 +67,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^maps |^map |^gm )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://www.google.com/maps?q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Google Maps');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Google Maps');
   },
 });
 
@@ -119,9 +77,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^youtube |^yt )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Youtube');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Youtube');
   },
 });
 
@@ -131,9 +87,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^mdn )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://mdn.io/' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'MDN');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'MDN');
   },
 });
 
@@ -143,9 +97,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^npm )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://www.npmjs.com/search?q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'npm');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'npm');
   },
 });
 
@@ -155,9 +107,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^twitter )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://twitter.com/search?q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Twitter');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Twitter');
   },
 });
 
@@ -167,9 +117,7 @@ SaihuBot.prototype.responses.push({
   rule: /(^stackoverflow |^stack |^so )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://stackoverflow.com/search?q=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'StackOverflow');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'StackOverflow');
   },
 });
 
@@ -179,8 +127,6 @@ SaihuBot.prototype.responses.push({
   rule: /(^wolfram |^wolf |^wo |^siri )(.*)/i,
   action: function(robot, msg) {
     const url = 'https://www.wolframalpha.com/input/?i=' + encodeURIComponent(msg[2]);
-    const link = renderResponse('Search', msg[2], url, 'Wolfram Alpha');
-    robot.adapter.sendHTML(link);
-    openTab(url);
+    robot.search('Search', msg[2], url, 'Wolfram Alpha');
   },
 });
