@@ -12,6 +12,7 @@
  * Allowed configs:
  * - messageSize: limit saved chatLog size
  */
+// eslint-disable-next-line no-unused-vars
 const localforageBrain = {
   name: 'localforage',
   run: function(robot, callback, config) {

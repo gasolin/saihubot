@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 const skill_search_duckduckgo = {
@@ -18,7 +19,7 @@ const skill_search_wikipedia = {
     const url = 'http://en.wikipedia.org/w/index.php?title=Special:Search&search=' + encodeURIComponent(msg[2]);
     robot.search('Search', msg[2], url, 'Wikipedia');
   },
-}
+};
 
 const skill_search_github = {
   name: 'github',
@@ -38,7 +39,7 @@ const skill_search_google = {
     const url = 'https://www.google.com/search?q=' + encodeURIComponent(msg[2]);
     robot.search('Search', msg[2], url, 'Google');
   },
-}
+};
 
 const skill_search_googletranslate = {
   name: 'googletranslate',
@@ -58,7 +59,7 @@ const skill_search_googleimages = {
     const url = 'https://www.google.com/search?tbm=isch&q=' + encodeURIComponent(msg[2]);
     robot.search('Search', msg[2], url, 'Google Images');
   },
-}
+};
 
 const skill_search_googlemaps = {
   name: 'googlemaps',
@@ -78,7 +79,7 @@ const skill_search_youtube = {
     const url = 'https://www.youtube.com/results?search_query=' + encodeURIComponent(msg[2]);
     robot.search('Search', msg[2], url, 'Youtube');
   },
-}
+};
 
 const skill_search_mdn = {
   name: 'mdn',
@@ -145,4 +146,4 @@ const skills = [
   skill_search_stackoverflow,
   skill_search_wolfram,
 ];
-export { skills };
+export {skills};

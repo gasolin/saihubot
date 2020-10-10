@@ -1,6 +1,6 @@
 {
   "name": "saihubot",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "Client side chatb ot that can be embedded in any web site",
   "main": "saihubot.js",
   "scripts": {
@@ -34,6 +34,14 @@
     "env": {
       "browser": true,
       "es6": true
+    },
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
     }
+  },
+  "dependencies": {
+    "babel-eslint": "^10.1.0"
   }
 }

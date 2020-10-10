@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 'use strict';
 
 // plugin that provide help skill
@@ -18,4 +19,4 @@ const skill_help = {
 };
 
 const skills = [skill_help];
-export { skills }; // should always return skills array
+export {skills}; // should always return skills array
