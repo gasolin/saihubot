@@ -1,8 +1,7 @@
-/* globals SaihuBot */
 'use strict';
 
 // plugin that provide help skill
-SaihuBot.prototype.responses.push({
+const skill_help = {
   name: 'help',
   help: 'help - list available skills',
   rule: /HELP$/i,
@@ -16,4 +15,7 @@ SaihuBot.prototype.responses.push({
       availableSkills.join('\n');
     robot.adapter.sendHTML(pre);
   },
-});
+};
+
+const skills = [skill_help];
+export { skills }; // should always return skills array

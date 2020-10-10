@@ -12,8 +12,6 @@
   <script src="../core/saihubot.js"></script>
   <script src="../adapters/saihubot-adapter-basic.js"></script>
   <script src="../addons/saihubot-addon-search.js"></script>
-  <script src="../skills/saihubot-diagnostics.js"></script>
-  <script src="../skills/saihubot-search.js"></script>
 </head>
 
 <body>
@@ -52,6 +50,10 @@
       new SaihuBot({
         adapter: basicAdapter,
         welcomeMessage: message,
+        skillsFile: [
+          'skills/saihubot-diagnostics.js',
+          'skills/saihubot-search.js',
+        ],
       });
     });
   </script>

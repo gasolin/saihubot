@@ -22,6 +22,7 @@ SaihuBot.prototype.search = function(action, term, url, engine) {
   const line1 = document.createTextNode(`${action} "`);
   const link = document.createElement('a');
   link.href = url;
+  link.target = '_blank';
   const linkText = document.createTextNode(`${term}`);
   link.appendChild(linkText);
   const line2 = document.createTextNode(`" via ${engine}`);

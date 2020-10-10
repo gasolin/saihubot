@@ -88,6 +88,7 @@ function defaultWelcomeMsgs(botAlias) {
  * @param {string} config.user - user prompt (default: me)
  * @param {string} config.welcomeMessage - default welcome message (optional)
  *  messages (optional)
+ * @param {string} config.skillsFile - skills file (path related to where saihubot.js located)
  */
 function SaihuBot(config) {
   // init setup
@@ -103,6 +104,19 @@ function SaihuBot(config) {
   this.brain = config.brain || defaultBrain;
   this.brainConfig = config.brainConfig;
   this.adapter = config.adapter || defaultAdapter;
+  if (config.skillsFile) {
+    config.skillsFile.forEach(file => {
+      const path = file.startsWith('..') ? file : `../${file}`
+      import(path).then((module) => {
+        if (module.skills) {
+          module.skills.forEach(skill => {
+            console.log('load ', skill.name);
+            this.responses.push(skill);
+          });
+        }
+      });
+    })
+  }
 
   this.run();
 }

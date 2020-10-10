@@ -2,6 +2,27 @@
 
 'use strict';
 
+SaihuBot.prototype.prompt = function(title, skill) {
+  // respond to input events
+  this.adapter.delegateMsgParse((msg) => {
+    let dialogMatched = false;
+    // refer processListeners
+    const matchedMsg = msg.match(skill.rule);
+    if (matchedMsg) {
+      dialogMatched = true;
+      console.log(`prompt skill matched! [${matchedMsg}]`);
+      skill.action(this, matchedMsg);
+    }
+    if (dialogMatched) {
+      this.adapter.resumeMsgParse();
+    } else {
+      // eslint-disable-next-line max-len
+      this.send('Can not recognnize, would you try another term?');
+    }
+    this.render();
+  });
+};
+
 // addon that provide confirm and selection dialog
 SaihuBot.prototype.confirm = function(title, items) {
   const confirmDlg = document.createElement('p');

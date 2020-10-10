@@ -11,7 +11,6 @@
   <script src="../core/saihubot.js"></script>
   <script src="../adapters/saihubot-adapter-basic.js"></script>
   <script src="../addons/saihubot-brain-localforage.js"></script>
-  <script src="../skills/saihubot-diagnostics.js"></script>
 </head>
 
 <body>
@@ -33,6 +32,7 @@
       new SaihuBot({
         adapter: basicAdapter,
         brain: localforageBrain,
+        skillsFile: ['skills/saihubot-diagnostics.js'],
       });
     });
   </script>

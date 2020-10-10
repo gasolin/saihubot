@@ -9,7 +9,6 @@
   <script src="../core/saihubot.js"></script>
   <script src="../adapters/saihubot-adapter-basic.js"></script>
   <script src="../addons/saihubot-addon-dialog.js"></script>
-  <script src="../skills/saihubot-diagnostics.js"></script>
 </head>
 <body>
   <div class="chat-frame">
@@ -77,7 +76,7 @@
       }
     });
 
-    new SaihuBot({adapter: basicAdapter});
+    new SaihuBot({adapter: basicAdapter, skillsFile: ['skills/saihubot-diagnostics.js']});
   });
   </script>
   <script defer src="ga.js"></script>

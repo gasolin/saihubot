@@ -1,20 +1,24 @@
-## 0.12 2020/
+## 1.0 2020/10/10
+
+Break Change
+* add `skillsFile` to import skills dynamically through js module.
 
 Feature
 * distill addon-search to easier create a search type skill.
 
 Enhancements
 * add jsDoc
+* Click the search link will open in the new browser tab.
 
 ## 0.11 2020/10/2
+
+Break Change
+* rename `addon/saihubot-dialog` to `addon/saihubot-addon-dialog`
+* change confirm dialog addon syntax
 
 Feature
 * auto lint check via github actions
 * new addon `addon/saihubot-addon-card` to show an widget area that able to control with id.
-
-Break CHange
-* rename `addon/saihubot-dialog` to `addon/saihubot-addon-dialog`
-* change confirm dialog addon syntax
 
 Enhancements
 

@@ -10,8 +10,6 @@
   <script src="../core/saihubot.js"></script>
   <script src="../adapters/saihubot-adapter-basic.js"></script>
   <script src="../addons/saihubot-addon-search.js"></script>
-  <script src="../skills/saihubot-diagnostics.js"></script>
-  <script src="../skills/saihubot-search.js"></script>
 </head>
 
 <body>
@@ -30,7 +28,13 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      new SaihuBot({adapter: basicAdapter});
+      new SaihuBot({
+        adapter: basicAdapter,
+        skillsFile: [
+          'skills/saihubot-diagnostics.js',
+          'skills/saihubot-search.js',
+        ],
+      });
     });
   </script>
   <script defer src="ga.js"></script>
