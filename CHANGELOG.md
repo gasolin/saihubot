@@ -1,8 +1,8 @@
-## 0.12 2020/10/10
+## 0.12 2020/10/16
 
 Break Change
-* add `skills` to import skills dynamically
-* add `skillsFile` to import skills dynamically through js module.
+* add `skills` prop in constructor to import skills dynamically
+* add `skillsFile` prop in constructor to import skills dynamically through js module.
 
 Feature
 * distill addon-search to easier create a search type skill.
