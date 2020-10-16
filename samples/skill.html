@@ -27,16 +27,20 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      SaihuBot.prototype.responses.push({
+      const skill_bye = {
         name: 'bye',
         help: 'bye - return `see ya` message',
         rule: /BYE$/i,
         action: function(robot, msg) {
           robot.send('see ya');
         }
-      });
+      };
 
-      new SaihuBot({adapter: basicAdapter, skillsFile: ['skills/saihubot-diagnostics.js']});
+      new SaihuBot({
+        adapter: basicAdapter,
+        skillsFile: ['skills/saihubot-diagnostics.js'],
+        skills: [skill_bye]
+      });
     });
   </script>
   <script defer src="ga.js"></script>

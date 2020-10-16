@@ -12,7 +12,7 @@
   <script src="adapters/saihubot-adapter-basic.js"></script>
   <script src="addons/saihubot-brain-localforage.js"></script>
   <script src="addons/saihubot-addon-dialog.js"></script>
-  <script src="skills/saihubot-addon-search.js"></script>
+  <script src="addons/saihubot-addon-search.js"></script>
 </head>
 
 <body>
@@ -27,40 +27,43 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      SaihuBot.prototype.responses.push(
-      { name: 'home',
+      const skill_home = {
+        name: 'home',
         help: 'home - search github for saihubot',
         rule: /HOME/i,
         action: function(robot, msg) {
           robot.ask('github saihubot');
         },
-      });
-      SaihuBot.prototype.responses.push(
-      { name: 'sample',
+      };
+      const skill_sample = {
+        name: 'sample',
         help: 'sample - show saihu samples',
         rule: /SAMPLE/i,
         action: function(robot, msg) {
-          robot.confirm('Here are samples',
-          ['hello', {
-            name: 'hello bot',
-            rule: '/hello/i',
-            action: function() {
-              robot.send('Open hello bot sample');
-              robot.render();
-              window.open('samples/index.html', '_blank');
+          robot.confirm('Here are samples', [
+            {
+              title: 'hello',
+              id: 'hello',
+              rule: '/hello/i',
+              action: function() {
+                robot.send('Open hello bot sample');
+                robot.render();
+                window.open('samples/index.html', '_blank');
+              },
+            },
+            {
+              title: 'skill',
+              id: 'skill',
+              rule: '/SKILL/i',
+              action: function() {
+                robot.send('Open skill sample');
+                robot.render();
+                window.open('samples/skill.html', '_blank');
+              }
             }
-          }],
-          ['plugin', {
-            name: 'plugin',
-            rule: '/PLUGIN/i',
-            action: function() {
-              robot.send('Open plugin sample');
-              robot.render();
-              window.open('samples/plugin.html', '_blank');
-            }
-          }]
-        );
-      }});
+          ]);
+        }
+      };
 
       var message = document.createElement('span');
       var line1 = document.createTextNode('🤖 Hello! type `echo bot` see what\'s happened');
@@ -89,7 +92,8 @@
           'skills/saihubot-diagnostics.js',
           'skills/saihubot-help.js',
           'skills/saihubot-search.js',
-        ]
+        ],
+        skills: [skill_home, skill_sample]
       });
     });
   </script>

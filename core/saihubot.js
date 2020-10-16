@@ -82,14 +82,15 @@ function defaultWelcomeMsgs(botAlias) {
  * @param {object} config.adapter - Saihubot platform specific adapter.
  * @param {object} config.brainConfig - brain related config.
  * @param {string} connfig.bot - bot prompt (default: bot)
- * @param {string[]} config.notFoundMessages - default not found
+ * @param {string[]} config.notFoundMessages - default not found messages
  * @param {boolean} config.saveChatLog - save chatlog or not (default: true),
  *  need coperate with `brain` in addon.
  * @param {string} config.user - user prompt (default: me)
  * @param {string} config.welcomeMessage - default welcome message (optional)
  *  messages (optional)
- * @param {string} config.skillsFile - skills file (path related to where
+ * @param {string[]} config.skillsFile - skills files (path related to where
  *  saihubot.js located)
+ * @param {Object[]} config.skills - skills array
  */
 function SaihuBot(config) {
   // init setup
@@ -110,13 +111,13 @@ function SaihuBot(config) {
       const path = file.startsWith('..') ? file : `../${file}`;
       import(path).then((module) => {
         if (module.skills) {
-          module.skills.forEach((skill) => {
-            console.log('load ', skill.name);
-            this.responses.push(skill);
-          });
+          module.skills.forEach((skill) => this.loadSkill(skill));
         }
       });
     });
+  }
+  if (config.skills) {
+    config.skills.forEach((skill) => this.loadSkill(skill));
   }
 
   this.run();
@@ -178,6 +179,11 @@ SaihuBot.prototype = {
       this.catchAll(msg);
     }
     this.render();
+  },
+
+  loadSkill: function(skill) {
+    console.log('load ', skill.name);
+    this.responses.push(skill);
   },
 
   // public APIs

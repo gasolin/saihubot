@@ -1,6 +1,7 @@
 ## 0.12 2020/10/10
 
 Break Change
+* add `skills` to import skills dynamically
 * add `skillsFile` to import skills dynamically through js module.
 
 Feature
