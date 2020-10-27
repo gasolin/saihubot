@@ -98,7 +98,6 @@ export const addonDialogSelected = {
     confirmBtn.disabled = true;
     items.forEach((item, idx) => {
       if (typeof item === 'string') {
-        console.log('>>> ', item)
         robot.send(item);
         return;
       }

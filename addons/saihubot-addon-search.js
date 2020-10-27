@@ -1,5 +1,3 @@
-/* globals SaihuBot */
-
 /**
  * Open url in browser.
  *
