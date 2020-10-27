@@ -5,6 +5,7 @@
 const skill_help = {
   name: 'help',
   help: 'help - list available skills',
+  requirements: [],
   rule: /HELP$/i,
   action: function(robot, msg) {
     const availableSkills = robot.responses.map(function(skill) {

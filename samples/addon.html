@@ -6,9 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Saihubot addon</title>
   <link rel="stylesheet" href="chat.css">
-  <script src="../core/saihubot.js"></script>
-  <script src="../adapters/saihubot-adapter-basic.js"></script>
-  <script src="../addons/saihubot-addon-dialog.js"></script>
 </head>
 <body>
   <div class="chat-frame">
@@ -26,62 +23,69 @@
     >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // skills that use confirm dialog addon
-    const skill_bye = {
-      name: 'bye',
-      rule: /BYE$/i,
-      action: function(robot, msg) {
-        robot.confirm('would you like to exit?', [
-          {
-            title: 'ok',
-            id: 'yes',
-            rule: /YES$/i,
-            action: function() {
-              robot.send('see ya');
-              robot.render();
-            }
-          },
-          {
-            title: 'no',
-            id: 'no',
-            rule: /NO$/i,
-            action: function() {
-              robot.send('Let\'s talk more!');
-              robot.render();
-            }
-          }
-        ]);
-      }
-    };
+  <script type="module">
+    import SaihuBot from '../core/saihubot.js';
+    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
 
-    const skill_gohome = {
-      name: 'go',
-      rule: /home$/i,
-      help: 'home - open saihubot website',
-      action: function(robot, msg) {
-        robot.confirm('visit Saihubot website', [
-          {
-            title: 'ok',
-            id: 'ok',
-            rule: /OK$/i,
-            action: function() {
-              robot.send('You\'ll be redirect to Saihubot home!');
-              robot.render();
-              window.location = 'https://github.com/gasolin/saihubot';
+    document.addEventListener('DOMContentLoaded', function() {
+      // skills that use confirm dialog addon
+      const skill_bye = {
+        name: 'bye',
+        help: 'confirm before leave',
+        requirements: [],
+        rule: /BYE$/i,
+        action: function(robot, msg) {
+          robot.addons.confirm('would you like to exit?', [
+            {
+              title: 'ok',
+              id: 'yes',
+              rule: /YES$/i,
+              action: function() {
+                robot.send('see ya');
+                robot.render();
+              }
+            },
+            {
+              title: 'no',
+              id: 'no',
+              rule: /NO$/i,
+              action: function() {
+                robot.send('Let\'s talk more!');
+                robot.render();
+              }
             }
-          }
-        ]);
-      }
-    };
+          ]);
+        }
+      };
 
-    new SaihuBot({
-      adapter: basicAdapter,
-      skillsFile: ['skills/saihubot-diagnostics.js'],
-      skills: [skill_bye, skill_gohome]
+      const skill_gohome = {
+        name: 'go',
+        rule: /home$/i,
+        help: 'home - open saihubot website',
+        requirements: [],
+        action: function(robot, msg) {
+          robot.addons.confirm('visit Saihubot website', [
+            {
+              title: 'ok',
+              id: 'ok',
+              rule: /OK$/i,
+              action: function() {
+                robot.send('You\'ll be redirect to Saihubot home!');
+                robot.render();
+                window.location = 'https://github.com/gasolin/saihubot';
+              }
+            }
+          ]);
+        }
+      };
+
+      new SaihuBot({
+        adapter: basicAdapter,
+        skillsFile: ['skills/saihubot-diagnostics.js'],
+        skills: [skill_bye, skill_gohome],
+        addonsFile: ['addons/saihubot-addon-dialog.js'],
+      });
     });
-  });
   </script>
   <script defer src="ga.js"></script>
 </body>

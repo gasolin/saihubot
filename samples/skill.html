@@ -7,8 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Saihubot plugin</title>
   <link rel="stylesheet" href="chat.css">
-  <script src="../core/saihubot.js"></script>
-  <script src="../adapters/saihubot-adapter-basic.js"></script>
 </head>
 
 <body>
@@ -25,11 +23,15 @@
     >> type `ping`, `time`, or `echo [message]` to see what's happened<br> >> type `bye` and you'll got message from bot <br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script>
+  <script type="module">
+    import SaihuBot from '../core/saihubot.js';
+    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
+
     document.addEventListener('DOMContentLoaded', function() {
       const skill_bye = {
         name: 'bye',
         help: 'bye - return `see ya` message',
+        requirements: [],
         rule: /BYE$/i,
         action: function(robot, msg) {
           robot.send('see ya');

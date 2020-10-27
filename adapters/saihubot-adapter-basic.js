@@ -1,4 +1,3 @@
-/* exported basicAdapter */
 'use strict';
 
 // eslint-disable-next-line no-unused-vars
@@ -124,3 +123,5 @@ const basicAdapter = {
     this.resumeGlobalMsgParse();
   },
 };
+
+export default basicAdapter;

@@ -7,9 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Saihubot Search</title>
   <link rel="stylesheet" href="chat.css">
-  <script src="../core/saihubot.js"></script>
-  <script src="../adapters/saihubot-adapter-basic.js"></script>
-  <script src="../addons/saihubot-addon-search.js"></script>
 </head>
 
 <body>
@@ -26,7 +23,10 @@
     >> type `ping`, `time`, or `echo [message]` to see what's happened<br> >> type `search [keyword]`, `g [keyword]`, `wiki [keyword]` to search<br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script>
+  <script type="module">
+    import SaihuBot from '../core/saihubot.js';
+    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
+
     document.addEventListener('DOMContentLoaded', function() {
       new SaihuBot({
         adapter: basicAdapter,
@@ -34,6 +34,8 @@
           'skills/saihubot-diagnostics.js',
           'skills/saihubot-search.js',
         ],
+        addonsFile: ['../addons/saihubot-addon-search.js'],
+        debug: true,
       });
     });
   </script>

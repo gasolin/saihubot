@@ -8,9 +8,6 @@
   <title>Saihubot persistent log with localForage Brain</title>
   <link rel="stylesheet" href="chat.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.4.3/localforage.min.js"></script>
-  <script src="../core/saihubot.js"></script>
-  <script src="../adapters/saihubot-adapter-basic.js"></script>
-  <script src="../addons/saihubot-brain-localforage.js"></script>
 </head>
 
 <body>
@@ -27,12 +24,17 @@
     >> type `ping`, `time`, or `echo [message]`, then reload the page to see what's happened<br> >> <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script>
+  <script type="module">
+    import SaihuBot from '../core/saihubot.js';
+    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
+    import localforageBrain from '../adapters/saihubot-brain-localforage.js'
+
     document.addEventListener('DOMContentLoaded', function() {
       new SaihuBot({
         adapter: basicAdapter,
         brain: localforageBrain,
         skillsFile: ['skills/saihubot-diagnostics.js'],
+        debug: true,
       });
     });
   </script>

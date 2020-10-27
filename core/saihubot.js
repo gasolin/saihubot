@@ -70,9 +70,21 @@ const DEFAULT_FALLBACK_MESSAGES = [
  * @return {String} Welcome message
  */
 function defaultWelcomeMsgs(botAlias) {
-  const line = document.createElement('p');
-  line.textContent = `${botAlias}: type something to chat with me`;
-  return line;
+  if (typeof window !== 'undefined') {
+    const line = document.createElement('p');
+    line.textContent = `${botAlias}: type something to chat with me`;
+    return line;
+  }
+}
+
+/**
+ * Get ES6 Module path.
+ *
+ * @param {string} file
+ * @return {string} file path
+ */
+function getModulePath(file) {
+  return file.startsWith('..') ? file : `../${file}`;
 }
 
 /**
@@ -88,15 +100,20 @@ function defaultWelcomeMsgs(botAlias) {
  * @param {string} config.user - user prompt (default: me)
  * @param {string} config.welcomeMessage - default welcome message (optional)
  *  messages (optional)
+ * @param {string[]} config.addonsFile - addons files (path related to where
+ *  saihubot.js located), might deprecate in later version
+ * @param {object[]} config.addons - addons array
  * @param {string[]} config.skillsFile - skills files (path related to where
- *  saihubot.js located)
+ *  saihubot.js located), might deprecate in later version
  * @param {Object[]} config.skills - skills array
+ * @param {boolean} config.debug - show debug messages
  */
 function SaihuBot(config) {
   // init setup
   this.myAlias = config.user || 'me';
   this.botAlias = config.bot || 'bot';
   this.ui = config.ui || {};
+  this.DEBUG = config.debug || false;
 
   this.welcomeMessage = config.welcomeMessage ||
     defaultWelcomeMsgs(this.botAlias);
@@ -106,9 +123,28 @@ function SaihuBot(config) {
   this.brain = config.brain || defaultBrain;
   this.brainConfig = config.brainConfig;
   this.adapter = config.adapter || defaultAdapter;
+  this.addons = {};
+
+  // addonsFile
+  if (config.addonsFile) {
+    config.addonsFile.forEach((file) => {
+      const path = getModulePath(file);
+      import(path).then((module) => {
+        if (module.addons) {
+          module.addons.forEach((addon) => this.loadAddon(addon));
+        }
+      });
+    });
+  }
+  // addons
+  if (config.addons) {
+    config.addons.forEach((addon) => this.loadAddon(addon));
+  }
+
+  // skillsFile
   if (config.skillsFile) {
     config.skillsFile.forEach((file) => {
-      const path = file.startsWith('..') ? file : `../${file}`;
+      const path = getModulePath(file);
       import(path).then((module) => {
         if (module.skills) {
           module.skills.forEach((skill) => this.loadSkill(skill));
@@ -116,6 +152,7 @@ function SaihuBot(config) {
       });
     });
   }
+  // skills
   if (config.skills) {
     config.skills.forEach((skill) => this.loadSkill(skill));
   }
@@ -133,7 +170,7 @@ SaihuBot.prototype = {
   },
 
   run: function() {
-    console.log(
+    this.DEBUG && console.log(
         `run with ${this.brain.name} brain and ${this.adapter.name} adapter`);
 
     // running loop
@@ -147,7 +184,7 @@ SaihuBot.prototype = {
     this.adapter.run(this);
     const brainLog = this.brain.get('chatLog');
     this.chatHistory = brainLog && (brainLog.length > 1) ?
-      brainLog : [this.welcomeMessage];
+      brainLog : this.welcomeMessage && [this.welcomeMessage] || [];
     this.render();
   },
 
@@ -169,21 +206,35 @@ SaihuBot.prototype = {
     this.responses.forEach((item) => {
       const matchedMsg = msg.match(item.rule);
       if (matchedMsg) {
-        console.log(`skill matched! [${matchedMsg}]`);
+        this.DEBUG && console.log(`skill matched! [${matchedMsg}]`);
         item.action(this, matchedMsg);
       }
     });
 
     if (len === this.chatHistory.length) {
-      console.log('wildcard');
+      this.DEBUG && console.log('wildcard');
       this.catchAll(msg);
     }
     this.render();
   },
 
   loadSkill: function(skill) {
-    console.log('load ', skill.name);
+    this.DEBUG && console.log('load skill ', skill.name);
+    if (!skill || !skill.name || !skill.rule || !skill.action ||
+      typeof skill.action !== 'function') {
+      console.log(`invalid skill ${skill.name}`);
+      console.log(`please define name, rule and action`);
+    }
     this.responses.push(skill);
+  },
+
+  loadAddon: function(addon) {
+    this.DEBUG && console.log('load addon ', addon.name);
+    if (!addon || !addon.name || !addon.action ||
+      typeof addon.action !== 'function') {
+      console.log(`invalid addon ${addon.name}, please define name and action`);
+    }
+    this.addons[addon.name] = addon.action(this);
   },
 
   // public APIs
@@ -204,3 +255,5 @@ SaihuBot.prototype = {
     this.adapter.render();
   },
 };
+
+export default SaihuBot;

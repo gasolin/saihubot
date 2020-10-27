@@ -4,6 +4,7 @@
   "description": "Client side chatb ot that can be embedded in any web site",
   "main": "saihubot.js",
   "scripts": {
+    "start": "npx http-server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.js"
   },

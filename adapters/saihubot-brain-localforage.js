@@ -1,6 +1,4 @@
 /* globals localforage */
-/* exported localforageBrain */
-
 'use strict';
 
 // Dependency: localForage
@@ -109,3 +107,5 @@ const localforageBrain = {
     });
   },
 };
+
+export default localforageBrain;

@@ -8,11 +8,6 @@
   <title>Liho! Saihu (Hello! Master)...</title>
   <link rel="stylesheet" href="samples/chat.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.5.5/localforage.min.js"></script>
-  <script src="core/saihubot.js"></script>
-  <script src="adapters/saihubot-adapter-basic.js"></script>
-  <script src="addons/saihubot-brain-localforage.js"></script>
-  <script src="addons/saihubot-addon-dialog.js"></script>
-  <script src="addons/saihubot-addon-search.js"></script>
 </head>
 
 <body>
@@ -25,11 +20,16 @@
     </div>
   </div>
 
-  <script>
+  <script type="module">
+    import SaihuBot from './core/saihubot.js';
+    import basicAdapter from './adapters/saihubot-adapter-basic.js';
+    import localforageBrain from './adapters/saihubot-brain-localforage.js';
+
     document.addEventListener('DOMContentLoaded', function() {
       const skill_home = {
         name: 'home',
         help: 'home - search github for saihubot',
+        requirements: [],
         rule: /HOME/i,
         action: function(robot, msg) {
           robot.ask('github saihubot');
@@ -38,13 +38,14 @@
       const skill_sample = {
         name: 'sample',
         help: 'sample - show saihu samples',
+        requirements: [],
         rule: /SAMPLE/i,
         action: function(robot, msg) {
-          robot.confirm('Here are samples', [
+          robot.addons.confirm('Here are samples', [
             {
               title: 'hello',
               id: 'hello',
-              rule: '/hello/i',
+              rule: /hello/i,
               action: function() {
                 robot.send('Open hello bot sample');
                 robot.render();
@@ -54,7 +55,7 @@
             {
               title: 'skill',
               id: 'skill',
-              rule: '/SKILL/i',
+              rule: /SKILL/i,
               action: function() {
                 robot.send('Open skill sample');
                 robot.render();
@@ -93,7 +94,12 @@
           'skills/saihubot-help.js',
           'skills/saihubot-search.js',
         ],
-        skills: [skill_home, skill_sample]
+        skills: [skill_home, skill_sample],
+        addonsFile: [
+          'addons/saihubot-addon-dialog.js',
+          'addons/saihubot-addon-search.js',
+        ],
+        debug: true,
       });
     });
   </script>

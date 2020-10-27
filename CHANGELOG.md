@@ -1,3 +1,17 @@
+## 0.13 2020/10/27
+
+Break Change
+* turn to es6 module based
+* move localforageBrain from addons/ to adapters/
+* name skills and addons with camelCase
+* add `addons` prop in constructor to import addons dynamically
+* add `addonsFile` prop in constructor to import addons dynamically through js module.
+
+Enhancements
+* add `debug` option in saihubot constructor
+* update README and docs
+* can trigger test site via `npm start` command
+
 ## 0.12 2020/10/16
 
 Break Change

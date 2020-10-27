@@ -17,18 +17,26 @@ function openTab(url) {
  * @param {String} url real search url
  * @param {String} engine search engine
  */
-SaihuBot.prototype.search = function(action, term, url, engine) {
-  const span = document.createElement('span');
-  const line1 = document.createTextNode(`${action} "`);
-  const link = document.createElement('a');
-  link.href = url;
-  link.target = '_blank';
-  const linkText = document.createTextNode(`${term}`);
-  link.appendChild(linkText);
-  const line2 = document.createTextNode(`" via ${engine}`);
-  span.appendChild(line1);
-  span.appendChild(link);
-  span.appendChild(line2);
-  this.adapter.sendHTML(link);
-  openTab(url);
+export const addonSearch = {
+  name: 'search',
+  requirements: [],
+  action: (robot) => (action, term, url, engine) => {
+    const span = document.createElement('span');
+    const line1 = document.createTextNode(`${action} "`);
+    const link = document.createElement('a');
+    link.href = url;
+    link.target = '_blank';
+    const linkText = document.createTextNode(`${term}`);
+    link.appendChild(linkText);
+    const line2 = document.createTextNode(`" via ${engine}`);
+    span.appendChild(line1);
+    span.appendChild(link);
+    span.appendChild(line2);
+    robot.adapter.sendHTML(link);
+    openTab(url);
+  },
 };
+
+const addons = [addonSearch];
+
+export {addons};

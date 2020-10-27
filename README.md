@@ -97,20 +97,6 @@ Saihubot provide 3 default skills `ping`, `time`, `echo` that you can include vi
 <script src="skills/saihubot-diagnostics.js"></script>
 ```
 
-### Ping skill
-
-```
-me: ping
-bot: PONG
-```
-
-### :clock2: Time skill:
-
-```
-me: time
-bot: Device time is Fri Aug 05 2016 21:22:11 GMT+0800 (CST)
-```
-
 ### :loudspeaker: Echo skill:
 
 ```
@@ -120,6 +106,12 @@ bot: Hello World!
 
 ![Imgur](http://i.imgur.com/Ljjf0Fwl.png)
 
+### :clock2: Time skill:
+
+```
+me: time
+bot: Device time is Fri Aug 05 2016 21:22:11 GMT+0800 (CST)
+```
 
 Saihubot also provide Search skills, you can include it via:
 
@@ -138,24 +130,6 @@ me: google saihubot
 bot: Search saihubot via Google
 me: search saihubot
 bot: Search saihubot via Google
-```
-
-### Wikipedia skill:
-
-```
-me: wiki saihubot
-bot: Search saihubot via Wikipedia
-me: wikipedia saihubot
-bot: Search saihubot via Wikipedia
-```
-
-### Google Translate skill
-
-```
-me: translate hello
-bot: Translate hello via Google Translate
-me: tr saihubot
-bot: Translate hello via Google Translate
 ```
 
 ## Want to learn more?

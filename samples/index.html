@@ -7,8 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <title>Hello Saihu</title>
   <link rel="stylesheet" href="chat.css">
-  <script src="../core/saihubot.js"></script>
-  <script src="../adapters/saihubot-adapter-basic.js"></script>
 </head>
 
 <body>
@@ -25,7 +23,10 @@
     <a href="https://github.com/gasolin/saihubot/">Download Saihubot</a>
   </p>
 
-  <script>
+  <script type="module">
+    import SaihuBot from '../core/saihubot.js';
+    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
+
     document.addEventListener('DOMContentLoaded', function() {
       var message = document.createElement('span');
       var line1 = document.createTextNode('>> type `ping`, `time`, or `echo [message]` to see what\'s happened');
@@ -38,6 +39,7 @@
           'skills/saihubot-diagnostics.js',
           'skills/saihubot-help.js',
         ],
+        debug: true,
       });
     });
   </script>

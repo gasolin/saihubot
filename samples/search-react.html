@@ -9,15 +9,15 @@
   <link rel="stylesheet" href="chat.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
-  <script src="../core/saihubot.js"></script>
-  <script src="../adapters/saihubot-adapter-basic.js"></script>
-  <script src="../addons/saihubot-addon-search.js"></script>
 </head>
 
 <body>
   <div id="root"/>
 
-  <script>
+  <script type="module">
+    import SaihuBot from '../core/saihubot.js';
+    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
+
     function Main() {
       return (
         React.DOM.div({className: "chat-frame"},
@@ -54,6 +54,8 @@
           'skills/saihubot-diagnostics.js',
           'skills/saihubot-search.js',
         ],
+        addonsFile: ['../addons/saihubot-addon-search.js'],
+        debug: true,
       });
     });
   </script>
