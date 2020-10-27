@@ -1,8 +1,7 @@
-/* eslint-disable camelcase */
 'use strict';
 
 // plugin that provide ping, time, echo skills
-const skill_ping = {
+export const skillPing = {
   name: 'ping',
   help: 'ping - return pong',
   requirements: [],
@@ -12,7 +11,7 @@ const skill_ping = {
   },
 };
 
-const skill_echo = {
+export const skillEcho = {
   name: 'echo',
   help: 'echo [string] - return [string]',
   requirements: [],
@@ -22,7 +21,7 @@ const skill_echo = {
   },
 };
 
-const skill_current_time = {
+export const skillCurrentTime = {
   name: 'time',
   help: 'time - return current browser time',
   requirements: [],
@@ -32,5 +31,5 @@ const skill_current_time = {
   },
 };
 
-const skills = [skill_ping, skill_echo, skill_current_time];
+const skills = [skillPing, skillEcho, skillCurrentTime];
 export {skills};

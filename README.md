@@ -1,5 +1,5 @@
-# Saihubot [![NPM version][npm-image]][npm-url] 
-:robot: Framework to build :speech_balloon: message/chat bots in the :globe_with_meridians: **Browser**.
+# Saihubot [![NPM version][npm-image]][npm-url]
+:robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Browser**, no server required.
 
 [![](https://github.com/gasolin/saihubot/workflows/lint/badge.svg)](https://github.com/gasolin/saihubot/actions?query=workflow%3Alint)
 
@@ -12,7 +12,7 @@ Check [Online Demo](https://gasolin.github.io/saihubot/)
 ## Features
 
 * Chatbot works in your browser, without server setup.
-* Written in plain Javascript, compatible with most browsers
+* Written in plain Javascript, compatible with modern browsers
 * Structure was inspired by [hubot](https://github.com/github/hubot/)
   * Regex based message matching
   * Could write adapter to fully cooperate with your web UI
@@ -30,10 +30,6 @@ Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 If you just want to try how the saihubot looks like, Check [Online Demo](https://gasolin.github.io/saihubot/)
 
-### Try Saihubot on Github
-
-Fork the project, edit index.html with Github editor, save it and see the result on https://[yourname].github.io/saihubot
-
 ### Try Saihubot locally
 
 Clone the project with command
@@ -44,14 +40,22 @@ git clone https://github.com/gasolin/saihubot.git
 
 Then run
 
+
+```sh
+npm start
+```
+
+or
+
 ```sh
 npx http-server .
 ```
 
 now you have a working bot!
 
-(drag `index.html` to your browser also works)
+### Try Saihubot on Github
 
+Fork the project, edit index.html with Github editor, save it and see the result on https://[yourname].github.io/saihubot
 
 ### Bootstrap Saihubot
 
@@ -61,9 +65,15 @@ Clone the project then includes the `saihubot.js` in your HTML file with a div t
 <body>
   <div id="history"></div>
   <input id="message"><button id="send">Send</button>
-  <script>
+  <script type="module">
+    import SaihuBot from '../core/saihubot.js';
+    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
+
     document.addEventListener('DOMContentLoaded', function() {
-      new SaihuBot({adapter: basicAdapter});
+      new SaihuBot({
+        adapter: basicAdapter,
+        skillsFile: ['skills/saihubot-diagnostics.js'],
+      });
     });
   </script>
 </body>
@@ -79,23 +89,9 @@ Wrap that script in `DOMContentLoaded` event to make sure contents are loaded be
 
 You can pass some parameters into it to quickly customize the bot.
 
-And don't forget to include related libraries in the header
-
-```html
-<head>
-  <script src="saihubot.js"></script>
-  <script src="adapters/saihubot-adapter-basic.js"></script>
-  <script src="skills/saihubot-diagnostics.js"></script>
-</header>
-```
-
 ## Usage
 
-Saihubot provide 3 default skills `ping`, `time`, `echo` that you can include via:
-
-```html
-<script src="skills/saihubot-diagnostics.js"></script>
-```
+Saihubot provide 3 default skills `ping`, `time`, `echo` that you can include via `skillsFile: ['skills/saihubot-diagnostics.js']`
 
 ### :loudspeaker: Echo skill:
 
@@ -113,11 +109,7 @@ me: time
 bot: Device time is Fri Aug 05 2016 21:22:11 GMT+0800 (CST)
 ```
 
-Saihubot also provide Search skills, you can include it via:
-
-```html
-<script src="skills/saihubot-search.js"></script>
-```
+Saihubot also provide Search skills, you can include it via `skillsFile: ['skills/saihubot-search.js']`
 
 Check the [Search Demo](https://gasolin.github.io/saihubot/samples/search).
 

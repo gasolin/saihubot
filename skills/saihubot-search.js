@@ -1,7 +1,6 @@
-/* eslint-disable camelcase */
 'use strict';
 
-const skill_search_duckduckgo = {
+export const skillSearchDuckduckgo = {
   name: 'duckduckgo',
   help: 'duckduckgo [term] - search [term] with DuckDuckgo',
   requirements: ['search'],
@@ -12,7 +11,7 @@ const skill_search_duckduckgo = {
   },
 };
 
-const skill_search_wikipedia = {
+export const skillSearchWikipedia = {
   name: 'wikipedia',
   help: 'wikipedia|w|wiki [term] - search wikipedia with [term]',
   requirements: ['search'],
@@ -23,7 +22,7 @@ const skill_search_wikipedia = {
   },
 };
 
-const skill_search_github = {
+export const skillSearchGithub = {
   name: 'github',
   help: 'github|gh [term] - search github with [term]',
   requirements: ['search'],
@@ -34,7 +33,7 @@ const skill_search_github = {
   },
 };
 
-const skill_search_google = {
+export const skillSearchGoogle = {
   name: 'google',
   help: 'google|g [term] - google search with [term]',
   requirements: ['search'],
@@ -45,7 +44,7 @@ const skill_search_google = {
   },
 };
 
-const skill_search_googletranslate = {
+export const skillSearchGoogletranslate = {
   name: 'googletranslate',
   help: 'translate|tr|trans|gt [term] - translate [term] with google translate',
   requirements: ['search'],
@@ -56,7 +55,7 @@ const skill_search_googletranslate = {
   },
 };
 
-const skill_search_googleimages = {
+export const skillSearchGoogleimages = {
   name: 'googleimages',
   help: 'images|image|gi [term] - search [term] with google images',
   requirements: ['search'],
@@ -67,7 +66,7 @@ const skill_search_googleimages = {
   },
 };
 
-const skill_search_googlemaps = {
+export const skillSearchGooglemaps = {
   name: 'googlemaps',
   help: 'maps|map|gm [term] - search [term] with google maps',
   requirements: ['search'],
@@ -78,7 +77,7 @@ const skill_search_googlemaps = {
   },
 };
 
-const skill_search_youtube = {
+export const skillSearchYoutube = {
   name: 'youtube',
   help: 'youtube|yt [term] - search [term] with Youtube',
   requirements: ['search'],
@@ -89,7 +88,7 @@ const skill_search_youtube = {
   },
 };
 
-const skill_search_mdn = {
+export const skillSearchMdn = {
   name: 'mdn',
   help: 'mdn [term] - search [term] with Mozilla Developer Network',
   requirements: ['search'],
@@ -100,7 +99,7 @@ const skill_search_mdn = {
   },
 };
 
-const skill_search_npm = {
+export const skillSearchNpm = {
   name: 'npm',
   help: 'npm [term] - search [term] with npm',
   requirements: ['search'],
@@ -111,7 +110,7 @@ const skill_search_npm = {
   },
 };
 
-const skill_search_twitter = {
+export const skillSearchTwitter = {
   name: 'twitter',
   help: 'twitter [term] - search [term] with twitter',
   requirements: ['search'],
@@ -122,7 +121,7 @@ const skill_search_twitter = {
   },
 };
 
-const skill_search_stackoverflow = {
+export const skillSearchStackoverflow = {
   name: 'stackoverflow',
   help: 'stackoverflow|stack|so [term] - search [term] with StackOverflow',
   requirements: ['search'],
@@ -133,7 +132,7 @@ const skill_search_stackoverflow = {
   },
 };
 
-const skill_search_wolfram = {
+export const skillSearchWolfram = {
   name: 'wolfram',
   help: 'wolfram|wolf|wo [term] - search [term] with Wolfram Alpha',
   requirements: ['search'],
@@ -145,18 +144,18 @@ const skill_search_wolfram = {
 };
 
 const skills = [
-  skill_search_duckduckgo,
-  skill_search_wikipedia,
-  skill_search_github,
-  skill_search_google,
-  skill_search_googletranslate,
-  skill_search_googleimages,
-  skill_search_googlemaps,
-  skill_search_youtube,
-  skill_search_mdn,
-  skill_search_npm,
-  skill_search_twitter,
-  skill_search_stackoverflow,
-  skill_search_wolfram,
+  skillSearchDuckduckgo,
+  skillSearchWikipedia,
+  skillSearchGithub,
+  skillSearchGoogle,
+  skillSearchGoogletranslate,
+  skillSearchGoogleimages,
+  skillSearchGooglemaps,
+  skillSearchYoutube,
+  skillSearchMdn,
+  skillSearchNpm,
+  skillSearchTwitter,
+  skillSearchStackoverflow,
+  skillSearchWolfram,
 ];
 export {skills};

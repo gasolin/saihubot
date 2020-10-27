@@ -1,8 +1,7 @@
-/* eslint-disable camelcase */
 'use strict';
 
 // plugin that provide help skill
-const skill_help = {
+export const skillHelp = {
   name: 'help',
   help: 'help - list available skills',
   requirements: [],
@@ -19,5 +18,5 @@ const skill_help = {
   },
 };
 
-const skills = [skill_help];
+const skills = [skillHelp];
 export {skills}; // should always return skills array

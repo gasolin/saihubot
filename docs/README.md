@@ -26,17 +26,19 @@ Addon denotes the extra function that can expand Saihubot's functionality.
 You can extend Saihubot's functionality by import extra `saihubot-addon-[addonName].js`:
 
 ```js
-Saihubot.prototype.addonName = {
-  ...
+const addonName = {
+  name: 'name', // accessible via robot.addons.name
+  requirements: [],
+  action: (robot) => (normal, func) => {}, // need pass robot as first param.
 };
 ```
 
 then include the js file after `saihubot.js`.
 
-```html
+```js
 ...
-<script defer src="saihubot.js"></script>
-<script defer src="saihubot-addon-[addonName].js"></script>
+import Saihubot from 'saihubot'
+import { addons } from 'saihubot-addon-[addonName]'
 ```
 
 Check [Addon Demo](https://gasolin.github.io/saihubot/samples/addon) for example.
