@@ -5,6 +5,8 @@
 
 You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
 
+The saihubot skills currently work for :globe_with_meridians: Browser and [Command line](https://github.com/gasolin/saihubot-cli).
+
 Saihubot's API is inspired by [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned `hubot-plugins` could learn `saihu-skills` very quickly. :zap:
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)

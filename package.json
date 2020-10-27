@@ -1,11 +1,12 @@
 {
   "name": "saihubot",
-  "version": "0.14.0",
-  "description": "Client side chatb ot that can be embedded in any web site",
+  "version": "0.17.0",
+  "description": "Client side chatbot that can be embedded in any web site",
   "main": "src/core/saihubot.js",
   "scripts": {
     "start": "npx http-server",
     "build": "babel ./src --out-dir ./dist --copy-files",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.js"
   },

@@ -1,3 +1,10 @@
+## 0.17
+
+Feature
+* support cli based on React Ink https://github.com/gasolin/saihubot-cli
+* ship with commonjs module (import from `saihubot/dist`)
+* add build and prepublish script
+
 ## 0.14 2020/10/27
 
 Break Change
@@ -6,10 +13,6 @@ Break Change
 * name skills and addons with camelCase
 * add `addons` prop in constructor to import addons dynamically
 * add `addonsFile` prop in constructor to import addons dynamically through js module.
-
-Feature
-* support cli based on React Ink https://github.com/gasolin/saihubot-cli
-* ship with commonjs module (import from `saihubot/dist`)
 
 Enhancements
 * add `debug` option in saihubot constructor
