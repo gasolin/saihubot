@@ -1,10 +1,11 @@
 {
   "name": "saihubot",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Client side chatb ot that can be embedded in any web site",
-  "main": "saihubot.js",
+  "main": "src/core/saihubot.js",
   "scripts": {
     "start": "npx http-server",
+    "build": "babel ./src --out-dir ./dist --copy-files",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint **/*.js"
   },
@@ -15,7 +16,9 @@
   "keywords": [
     "saihubot",
     "hubot",
-    "webbybot"
+    "webbybot",
+    "chatbot",
+    "devops"
   ],
   "author": "Fred Lin <gasolin+saihubot@gmail.com>",
   "license": "MIT",
@@ -24,6 +27,10 @@
   },
   "homepage": "https://github.com/gasolin/saihubot",
   "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/register": "^7.12.1",
     "eslint": "^7.9.0",
     "eslint-config-google": "^0.14.0"
   },
