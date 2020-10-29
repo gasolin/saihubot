@@ -48,7 +48,7 @@ Saihubot also provide `Search` skills, you can include it via:
 ```js
 new SaihuBot({
   ...
-  addons: ['addons/saihubot-addon-search.js'],
+  addonsFile: ['addons/saihubot-addon-search.js'],
   skillsFile: ['skills/saihubot-search.js']
 })
 ```

@@ -69,7 +69,7 @@ Clone the project then includes the `saihubot.js` in your HTML file with a div t
   <input id="message"><button id="send">Send</button>
   <script type="module">
     import SaihuBot from '../core/saihubot.js';
-    import basicAdapter from '../adapters/saihubot-adapter-basic.js';
+    import basicAdapter from '../adapters/saihubot-html-adapter.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       new SaihuBot({

@@ -13,6 +13,9 @@
 // eslint-disable-next-line no-unused-vars
 const localforageBrain = {
   name: 'localforage',
+  requirements: {
+    adapters: ['html'],
+  },
   run: function(robot, callback, config) {
     this.data = {
       _private: {},

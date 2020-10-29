@@ -28,7 +28,7 @@ You can extend Saihubot's functionality by import extra `saihubot-addon-[addonNa
 ```js
 const addonName = {
   name: 'name', // accessible via robot.addons.name
-  requirements: [],
+  requirements: {},
   action: (robot) => (normal, func) => {}, // need pass robot as first param.
 };
 ```
@@ -52,7 +52,7 @@ If you want to improve your bot's message quality, read http://babich.biz/effect
 
 To embed Saihubot in your existing website, you can write a Saihubot adapter to adapt Saihubot with any web UI.
 
-Check [saihubot-adapter-basic](https://github.com/gasolin/saihubot/tree/gh-pages/adapters/saihubot-adapter-basic.js)
+Check [saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/adapters/saihubot-html-adapter.js)
 This adapter is cooperate with [index.html](https://github.com/gasolin/saihubot/tree/gh-pages/index.html) and all other [samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples).
 
 ### Make a brain
