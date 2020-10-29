@@ -2,7 +2,9 @@
 
 export const addonPrompt = {
   name: 'prompt',
-  requirements: [],
+  requirements: {
+    adapters: ['html'],
+  },
   action: (robot) => (title, skill) => {
     // respond to input events
     robot.adapter.delegateMsgParse((msg) => {
@@ -28,7 +30,9 @@ export const addonPrompt = {
 // addon that provide confirm and selection dialog
 export const addonConfirm = {
   name: 'confirm',
-  requirements: [],
+  requirements: {
+    platform: ['html'],
+  },
   action: (robot) => (title, items) => {
     const confirmDlg = document.createElement('p');
     /**
@@ -90,7 +94,9 @@ export const addonConfirm = {
 
 export const addonDialogSelected = {
   name: 'dialogSelected',
-  requirements: [],
+  requirements: {
+    platform: ['html'],
+  },
   action: (robot) => (selected, items) => {
     // remove SaihuBot.prototype.responses item;
     robot.chatHistory.pop();

@@ -13,13 +13,17 @@ function getRandomId() {
 
 export const addonGetRandomId = {
   name: 'getRandomId',
-  requirements: [],
+  requirements: {
+    adapters: ['all'],
+  },
   action: (robot) => getRandomId,
 };
 
 export const addonCardIsReady = {
   name: 'cardIsReady',
-  requirements: [],
+  requirements: {
+    adapters: ['html'],
+  },
   action: (robot) => (rootElement) => {
     console.log('clean up', rootElement.loadingId);
     if (rootElement.loadingId) {
@@ -32,7 +36,9 @@ export const addonCardIsReady = {
 // addon that shows widget area to manipulate
 export const addonCard = {
   name: 'card',
-  requirements: [],
+  requirements: {
+    adapters: ['html'],
+  },
   action: (robot) => (config) => {
     const {
       rootElement = document.createElement('div'),

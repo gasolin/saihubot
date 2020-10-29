@@ -4,7 +4,9 @@
 export const skillHelp = {
   name: 'help',
   help: 'help - list available skills',
-  requirements: [],
+  requirements: {
+    adapters: ['html'],
+  },
   rule: /HELP$/i,
   action: function(robot, msg) {
     const availableSkills = robot.responses.map(function(skill) {

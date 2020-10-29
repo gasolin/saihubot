@@ -3,7 +3,8 @@
 // eslint-disable-next-line no-unused-vars
 const basicAdapter = {
   // essential functions
-  name: 'basic web',
+  name: 'html',
+  description: 'basic web',
   run: function(robot) {
     this.robot = robot;
     this.ui = robot.ui;

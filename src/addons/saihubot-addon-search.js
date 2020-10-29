@@ -7,6 +7,14 @@ function openTab(url) {
   window.open(url, '_blank');
 }
 
+export const addonOpenLink = {
+  name: 'openLink',
+  requirements: {
+    platform: ['html'],
+  },
+  action: (robot) => (url) => openTab(url),
+};
+
 /**
  * Render search response message.
  *
@@ -17,7 +25,9 @@ function openTab(url) {
  */
 export const addonSearch = {
   name: 'search',
-  requirements: [],
+  requirements: {
+    adapters: ['html'],
+  },
   action: (robot) => (action, term, url, engine) => {
     const span = document.createElement('span');
     const line1 = document.createTextNode(`${action} "`);
@@ -35,6 +45,6 @@ export const addonSearch = {
   },
 };
 
-const addons = [addonSearch];
+const addons = [addonSearch, addonOpenLink];
 
 export {addons};
