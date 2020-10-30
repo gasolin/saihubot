@@ -6,9 +6,19 @@
 
 | Module  | Version | Description |
 | --------|---------|-------------|
-| saihubot | [npm-image] [npm-url] | core module|
-| saihu | [saihu-image] [saihu-url] | Command line Sample |
-| sample | [Online Demo](https://gasolin.github.io/saihubot/) | |
+| [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/core#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://badge.fury.io/js/saihubot) | core module|
+| [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://badge.fury.io/js/saihu) | Command line Sample |
+| [Web samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples) | [Online Demo](https://gasolin.github.io/saihubot/) | |
+
+| Adapters | Version | Description |
+| --------|---------|-------------|
+|[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-html-adapter.svg)](https://badge.fury.io/js/saihubot-html-adapter) |HTML |
+|[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-adapter.svg)](https://badge.fury.io/js/saihubot-cli-adapter) |Command Line |
+
+| Adapters | Version | Description |
+| --------|---------|-------------|
+|[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://badge.fury.io/js/saihubot-skill-search) | Search engines |
+|[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://badge.fury.io/js/saihubot-skill-diagnostics) | ping, echo, current time |
 
 You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
 
@@ -98,8 +108,3 @@ Saihubot use MIT License
 ## ChangeLog
 
 Check [ChangeLog](CHANGELOG.md)
-
-[npm-image]: https://badge.fury.io/js/saihubot.svg
-[npm-url]: https://npmjs.org/package/saihubot
-[saihu-image]: https://badge.fury.io/js/saihu.svg
-[saihu-url]: https://npmjs.org/package/saihu

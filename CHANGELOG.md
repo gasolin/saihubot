@@ -1,4 +1,4 @@
-## 0.22 2020/10/30
+## 0.23 2020/10/30
 
 Break Change
 
@@ -8,6 +8,10 @@ Break Change
 
 Feature
 - besides current release modules `saihu` (command line sample), `saihubot` (core), new modules `saihubot-html-adapter`, `saihubot-cli-adapter`, `saihubot-skill-search`, `saihubot-skill-diagnostics` join the family to make construct your saihubot easier.
+
+Enhancement
+- list modules table
+- show related package repo in npm instead of the main project
 
 ## 0.17 2020/10/27
 

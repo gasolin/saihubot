@@ -24,7 +24,7 @@
 	"bugs": {
 		"url": "https://github.com/gasolin/saihubot/issues"
 	},
-	"homepage": "https://github.com/gasolin/saihubot",
+	"homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme",
 	"scripts": {
 		"start": "babel-node --presets @babel/preset-env src/cli.js",
 		"build": "babel --root-mode=upward ./src --out-dir ./dist --copy-files",
