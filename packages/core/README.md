@@ -1,6 +1,10 @@
 # saihubot-core
 
-Core library of Saihubot
+:robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Browser**, no server required.
+
+You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
+
+Find out more details in https://github.com/gasolin/saihubot
 
 ## HTML project
 

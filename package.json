@@ -32,7 +32,6 @@
     "start": "npx http-server",
     "lint": "eslint **/*.js",
     "build": "npx lerna bootstrap",
-    "version": "npx lerna version",
     "publish": "npx lerna publish"
   }
 }

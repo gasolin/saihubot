@@ -5,6 +5,7 @@
 	"author": "Fred Lin <gasolin+saihubot@gmail.com>",
 	"license": "MIT",
 	"bin": "dist/cli.js",
+	"files": ["dist/**", "src/**"],
 	"engines": {
 		"node": ">=10"
 	},

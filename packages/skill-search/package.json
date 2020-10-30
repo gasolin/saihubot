@@ -3,6 +3,7 @@
   "version": "0.19.0",
   "description": "Saihubot search skills.",
   "main": "dist/index.js",
+  "files": ["dist/**", "index.js", "saihubot-skill-search.js"],
   "scripts": {
     "build": "babel --root-mode=upward index.js saihubot-skill-search.js --out-dir ./dist",
     "prepublish": "npm run build"

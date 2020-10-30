@@ -18,6 +18,7 @@
     "chatbot",
     "devops"
   ],
+  "files": ["dist/**", "src/**"],
   "author": "Fred Lin <gasolin+saihubot@gmail.com>",
   "license": "MIT",
   "bugs": {

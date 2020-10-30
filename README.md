@@ -4,6 +4,12 @@
 
 :robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Browser**, no server required.
 
+| Module  | Version | Description |
+| --------|---------|-------------|
+| saihubot | [npm-image] [npm-url] | core module|
+| saihu | [saihu-image] [saihu-url] | Command line Sample |
+| sample | [Online Demo](https://gasolin.github.io/saihubot/) | |
+
 You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
 
 The saihubot skills currently work for :globe_with_meridians: Browser and [Command line](https://github.com/gasolin/saihubot-cli).
@@ -95,3 +101,5 @@ Check [ChangeLog](CHANGELOG.md)
 
 [npm-image]: https://badge.fury.io/js/saihubot.svg
 [npm-url]: https://npmjs.org/package/saihubot
+[saihu-image]: https://badge.fury.io/js/saihu.svg
+[saihu-url]: https://npmjs.org/package/saihu

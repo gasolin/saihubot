@@ -6,6 +6,9 @@ Break Change
 - define requirements with syntax proposed in #17
 - remove `addonsFile`, `skillsFile` prop from Saihubot core
 
+Feature
+- besides current release modules `saihu` (command line sample), `saihubot` (core), new modules `saihubot-html-adapter`, `saihubot-cli-adapter`, `saihubot-skill-search`, `saihubot-skill-diagnostics` join the family to make construct your saihubot easier.
+
 ## 0.17 2020/10/27
 
 Break Change
