@@ -6,6 +6,7 @@ import execa from 'execa';
  * @param {String} url
  */
 function openTab(url) {
+  // eslint-disable-next-line no-undef
   execa('open', [`${url}`]).stdout.pipe(process.stdout);
 }
 
