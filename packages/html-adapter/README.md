@@ -6,12 +6,14 @@ Includes
 
 * Adapter: saihubot-html-adapter.js
 * Brain: saihubot-html-brain-localforage.js
-* Addons: saihubot-addon-search.js (search), saihubot-addon-dialog.js (confirm dialog), saihubot-addon-card.js (card)
+* Addons: saihubot-html-addon-search.js (search), saihubot-html-addon-dialog.js (confirm dialog), saihubot-html-addon-card.js (card)
 * Skill: saihubot-html-skill-help.js (show **help**)
 
 ### Bootstrap HTML Saihubot
 
-Clone the project then includes the `saihubot.js` in your HTML file with a div tag for message history and the input field:
+`npm install saihubot saihubot-html-adapter saihubot-skill-diagnostics`
+
+Then includes the `saihubot.js` in your HTML file with a div tag for message history and the input field:
 
 ```html
 <body>
@@ -19,12 +21,12 @@ Clone the project then includes the `saihubot.js` in your HTML file with a div t
   <input id="message"><button id="send">Send</button>
   <script type="module">
     import SaihuBot from 'node_modules/saihubot-core/src/saihubot.js';
-    import basicAdapter from 'node_modules/html-adapter/saihubot-html-adapter.js';
-    import { skills } from 'node_modules/saihubot-skill-diagnostics/saihubot-skill-diagnostics.js';
+    import htmlAdapter from 'node_modules/html-adapter/saihubot-html-adapter.js';
+    import { skills } from 'node_modules/saihubot-skill-diagnostics/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       new SaihuBot({
-        adapter: basicAdapter,
+        adapter: htmlAdapter,
         skills,
       });
     });
