@@ -24,17 +24,17 @@
   </p>
 
   <script type="module">
-    import SaihuBot from '../src/core/saihubot.js';
-    import basicAdapter from '../src/adapters/saihubot-html-adapter.js';
+    import SaihuBot from '../packages/core/src/saihubot.js';
+    import basicAdapter from '../packages/html-adapter/saihubot-html-adapter.js';
+    import { addons as searchAddons } from '../packages/html-adapter/saihubot-html-addon-search.js';
+    import { skills as diagnosSkills } from '../packages/skill-diagnostics/index.js';
+    import { skills as searchSkills } from '../packages/skill-search/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       new SaihuBot({
         adapter: basicAdapter,
-        skillsFile: [
-          'skills/saihubot-diagnostics.js',
-          'skills/saihubot-search.js',
-        ],
-        addonsFile: ['../addons/saihubot-addon-search.js'],
+        addons: [...searchAddons],
+        skills: [...diagnosSkills, ...searchSkills],
         debug: true,
       });
     });

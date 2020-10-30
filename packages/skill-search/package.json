@@ -1,0 +1,20 @@
+{
+  "name": "saihubot-html-adapter",
+  "version": "0.18.0",
+  "description": "Saihubot html adapter with some bundled addons.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/saihubot.git"
+  },
+  "keywords": [
+    "saihubot-adapter",
+    "saihubot-addon"
+  ],
+  "author": "Fred Lin <gasolin+saihubot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gasolin/saihubot/issues"
+  },
+  "homepage": "https://gasolin.github.io/saihubot"
+}

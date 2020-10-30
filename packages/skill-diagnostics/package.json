@@ -1,0 +1,19 @@
+{
+  "name": "saihubot-skill-diagnostics",
+  "version": "0.18.0",
+  "description": "Saihubot diagnostics skills: echo, ping, time.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/saihubot.git"
+  },
+  "keywords": [
+    "saihubot-skill"
+  ],
+  "author": "Fred Lin <gasolin+saihubot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gasolin/saihubot/issues"
+  },
+  "homepage": "https://gasolin.github.io/saihubot"
+}

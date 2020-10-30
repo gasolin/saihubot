@@ -21,24 +21,29 @@
   </div>
 
   <script type="module">
-    import SaihuBot from './src/core/saihubot.js';
-    import basicAdapter from './src/adapters/saihubot-html-adapter.js';
-    import localforageBrain from './src/adapters/saihubot-html-brain-localforage.js';
+    import SaihuBot from './packages/core/src/saihubot.js';
+    import basicAdapter from './packages/html-adapter/saihubot-html-adapter.js';
+    import localforageBrain from './packages/html-adapter/saihubot-html-brain-localforage.js';
+    import { addons as dialogAddons } from './packages/html-adapter/saihubot-html-addon-dialog.js';
+    import { addons as searchAddons } from './packages/html-adapter/saihubot-html-addon-search.js';
+    import { skills as helpSkills } from '../packages/html-adapter/saihubot-html-skill-help.js';
+    import { skills as diagnosSkills } from '../packages/skill-diagnostics/index.js';
+    import { skills as searchSkills } from '../packages/skill-search/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
-      const skill_home = {
+      const skillHome = {
         name: 'home',
         help: 'home - search github for saihubot',
-        requirements: [],
+        requirements: {},
         rule: /HOME/i,
         action: function(robot, msg) {
           robot.ask('github saihubot');
         },
       };
-      const skill_sample = {
+      const skillSample = {
         name: 'sample',
         help: 'sample - show saihu samples',
-        requirements: [],
+        requirements: {},
         rule: /SAMPLE/i,
         action: function(robot, msg) {
           robot.addons.confirm('Here are samples', [
@@ -89,16 +94,8 @@
         ],
         bot: "🤖",
         user: "😎",
-        skillsFile: [
-          'skills/saihubot-diagnostics.js',
-          'skills/saihubot-help.js',
-          'skills/saihubot-search.js',
-        ],
-        skills: [skill_home, skill_sample],
-        addonsFile: [
-          'addons/saihubot-addon-dialog.js',
-          'addons/saihubot-addon-search.js',
-        ],
+        addons: [...dialogAddons, ...searchAddons],
+        skills: [...helpSkills, ...diagnosSkills, ...searchSkills, skillHome, skillSample],
         debug: true,
       });
     });

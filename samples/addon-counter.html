@@ -24,12 +24,14 @@
   </p>
 
   <script type="module">
-    import SaihuBot from '../src/core/saihubot.js';
-    import basicAdapter from '../src/adapters/saihubot-html-adapter.js';
+    import SaihuBot from '../packages/core/src/saihubot.js';
+    import basicAdapter from '../packages/html-adapter/saihubot-html-adapter.js';
+    import { addons as cardAddons } from './packages/html-adapter/saihubot-html-addon-dialog.js';
+    import { skills as diagnosSkills } from '../packages/skill-diagnostics/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       // skills that use confirm dialog addon
-      const skill_count = {
+      const skillCount = {
         name: 'count',
         help: 'count down any number',
         requirements: [],
@@ -57,9 +59,8 @@
 
       new SaihuBot({
         adapter: basicAdapter,
-        skillsFile: ['skills/saihubot-diagnostics.js'],
-        skills: [skill_count, skill_gohome],
-        addonsFile: ['addons/saihubot-addon-card.js'],
+        addons: [...cardAddons],
+        skills: [...diagnosSkills, skillCount],
         debug: true,
       });
     });

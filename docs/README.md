@@ -10,7 +10,24 @@ layout: docs
 
 ### Make a skill
 
-Skill denotes rules and responses that the bot use to match and respond to the user.
+Skills means new abilities, which contains rules and responses that the bot use to match and respond to the user.
+
+You can equip Saihubot extra skikks by import extra `saihubot-[adapter]-skill-[skillName].js`:
+
+Required syntax for define a skill
+
+```js
+export const skillSearchDuckduckgo = {
+  name: 'duckduckgo',
+  help: 'duckduckgo [term] - search [term] with DuckDuckgo',
+  requirements: {
+    addons: ['search'],
+  },
+  rule: /(^duckduckgo |^duck )(.*)/i,
+  action: function(robot, msg) {
+  }
+}
+```
 
 Open browser's devtool and you can start to manipulate `Saihubot` object.
 Skills are located in `Saihubot.responses`, and that is the place all you need to deal with.
@@ -21,24 +38,30 @@ Check [Skills Demo](https://gasolin.github.io/saihubot/samples/skill) for exampl
 
 ### Make an addon
 
-Addon denotes the extra function that can expand Saihubot's functionality.
+Addons means the extra functions that can extend saihubot's capability.
 
-You can extend Saihubot's functionality by import extra `saihubot-addon-[addonName].js`:
+Required syntax for define an addon
 
 ```js
-const addonName = {
-  name: 'name', // accessible via robot.addons.name
-  requirements: {},
-  action: (robot) => (normal, func) => {}, // need pass robot as first param.
-};
+export const addonSearch = {
+  requirements: {
+  name: 'search', // accessible via robot.addons.name
+  requirements: {
+    adapters: ['html'],
+  },
+  // need pass robot as first param.
+  action: (robot) => (param1, param2) => {
+  }
+}
 ```
 
-then include the js file after `saihubot.js`.
+You can extend Saihubot's functionality by import extra `saihubot-[adapter]-addon-[addonName].js`:
+
 
 ```js
 ...
 import Saihubot from 'saihubot'
-import { addons } from 'saihubot-addon-[addonName]'
+import { addons } from 'saihubot-[adapter]-addon-[addonName]'
 ```
 
 Check [Addon Demo](https://gasolin.github.io/saihubot/samples/addon) for example.
@@ -51,6 +74,17 @@ If you want to improve your bot's message quality, read http://babich.biz/effect
 ### Make an adapter
 
 To embed Saihubot in your existing website, you can write a Saihubot adapter to adapt Saihubot with any web UI.
+
+Required syntax for define an adapter
+
+```js
+const htmlAdapter = {
+  name: 'html',
+  description: 'basic web',
+  run: function(robot) {
+  }
+}
+```
 
 Check [saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/adapters/saihubot-html-adapter.js)
 This adapter is cooperate with [index.html](https://github.com/gasolin/saihubot/tree/gh-pages/index.html) and all other [samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples).

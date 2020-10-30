@@ -1,39 +1,14 @@
 {
   "name": "saihubot",
-  "version": "0.17.0",
-  "description": "Client side chatbot that can be embedded in any web site",
-  "main": "src/core/saihubot.js",
-  "scripts": {
-    "start": "npx http-server",
-    "build": "babel ./src --out-dir ./dist --copy-files",
-    "prepublish": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint **/*.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gasolin/saihubot.git"
-  },
-  "keywords": [
-    "saihubot",
-    "hubot",
-    "webbybot",
-    "chatbot",
-    "devops"
-  ],
-  "author": "Fred Lin <gasolin+saihubot@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gasolin/saihubot/issues"
-  },
-  "homepage": "https://github.com/gasolin/saihubot",
+  "description": "Frontend framework to build message/chatbot ops, no server required.",
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "@babel/register": "^7.12.1",
-    "eslint": "^7.9.0",
-    "eslint-config-google": "^0.14.0"
+    "eslint": "^7.12.1",
+    "eslint-config-google": "^0.14.0",
+    "lerna": "^3.22.1"
   },
   "eslintConfig": {
     "extends": [
@@ -50,7 +25,10 @@
       "allowImportExportEverywhere": true
     }
   },
-  "dependencies": {
-    "babel-eslint": "^10.1.0"
+  "scripts": {
+    "start": "npx http-server",
+    "lint": "eslint **/*.js",
+    "build": "npx lerna bootstrap",
+    "publish": "npx lerna publish"
   }
 }

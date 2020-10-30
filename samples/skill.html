@@ -24,14 +24,15 @@
   </p>
 
   <script type="module">
-    import SaihuBot from '../src/core/saihubot.js';
-    import basicAdapter from '../src/adapters/saihubot-html-adapter.js';
+    import SaihuBot from '../packages/core/src/saihubot.js';
+    import basicAdapter from '../packages/html-adapter/saihubot-html-adapter.js';
+    import { skills as diagnosSkills } from '../packages/skill-diagnostics/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
-      const skill_bye = {
+      const skillBye = {
         name: 'bye',
         help: 'bye - return `see ya` message',
-        requirements: [],
+        requirements: {},
         rule: /BYE$/i,
         action: function(robot, msg) {
           robot.send('see ya');
@@ -40,8 +41,7 @@
 
       new SaihuBot({
         adapter: basicAdapter,
-        skillsFile: ['skills/saihubot-diagnostics.js'],
-        skills: [skill_bye]
+        skills: [...diagnosSkills, skillBye]
       });
     });
   </script>

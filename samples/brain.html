@@ -25,15 +25,16 @@
   </p>
 
   <script type="module">
-    import SaihuBot from '../src/core/saihubot.js';
-    import basicAdapter from '../src/adapters/saihubot-html-adapter.js';
-    import localforageBrain from '../src/adapters/saihubot-html-brain-localforage.js'
+    import SaihuBot from '../packages/core/src/saihubot.js';
+    import basicAdapter from '../packages/html-adapter/saihubot-html-adapter.js';
+    import localforageBrain from '../packages/html-adapter/saihubot-html-brain-localforage.js'
+    import { skills as diagnosSkills } from '../packages/skill-diagnostics/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       new SaihuBot({
         adapter: basicAdapter,
         brain: localforageBrain,
-        skillsFile: ['skills/saihubot-diagnostics.js'],
+        skills: [...diagnosSkills],
         debug: true,
       });
     });

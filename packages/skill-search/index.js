@@ -1,0 +1,48 @@
+import {
+  skillSearchDuckduckgo,
+  skillSearchWikipedia,
+  skillSearchGithub,
+  skillSearchGoogle,
+  skillSearchGoogletranslate,
+  skillSearchGoogleimages,
+  skillSearchGooglemaps,
+  skillSearchYoutube,
+  skillSearchMdn,
+  skillSearchNpm,
+  skillSearchTwitter,
+  skillSearchStackoverflow,
+  skillSearchWolfram,
+} from './saihubot-skill-search.js';
+
+const skills = [
+  skillSearchDuckduckgo,
+  skillSearchWikipedia,
+  skillSearchGithub,
+  skillSearchGoogle,
+  skillSearchGoogletranslate,
+  skillSearchGoogleimages,
+  skillSearchGooglemaps,
+  skillSearchYoutube,
+  skillSearchMdn,
+  skillSearchNpm,
+  skillSearchTwitter,
+  skillSearchStackoverflow,
+  skillSearchWolfram,
+];
+
+export {
+  skillSearchDuckduckgo,
+  skillSearchWikipedia,
+  skillSearchGithub,
+  skillSearchGoogle,
+  skillSearchGoogletranslate,
+  skillSearchGoogleimages,
+  skillSearchGooglemaps,
+  skillSearchYoutube,
+  skillSearchMdn,
+  skillSearchNpm,
+  skillSearchTwitter,
+  skillSearchStackoverflow,
+  skillSearchWolfram,
+  skills,
+};

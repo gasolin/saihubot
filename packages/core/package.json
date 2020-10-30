@@ -1,0 +1,26 @@
+{
+  "name": "saihubot-core",
+  "version": "0.18.0",
+  "description": "Frontend framework to build message/chatbot ops, no server required.",
+  "scripts": {
+    "build": "babel ./src --out-dir ./dist --copy-files",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/saihubot.git"
+  },
+  "keywords": [
+    "saihubot",
+    "hubot",
+    "webbybot",
+    "chatbot",
+    "devops"
+  ],
+  "author": "Fred Lin <gasolin+saihubot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gasolin/saihubot/issues"
+  },
+  "homepage": "https://gasolin.github.io/saihubot"
+}

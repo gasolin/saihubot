@@ -168,20 +168,3 @@ export const skillSearchWolfram = {
     robot.addons.search('Search', msg[2], url, 'Wolfram Alpha');
   },
 };
-
-const skills = [
-  skillSearchDuckduckgo,
-  skillSearchWikipedia,
-  skillSearchGithub,
-  skillSearchGoogle,
-  skillSearchGoogletranslate,
-  skillSearchGoogleimages,
-  skillSearchGooglemaps,
-  skillSearchYoutube,
-  skillSearchMdn,
-  skillSearchNpm,
-  skillSearchTwitter,
-  skillSearchStackoverflow,
-  skillSearchWolfram,
-];
-export {skills};

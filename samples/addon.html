@@ -24,12 +24,14 @@
   </p>
 
   <script type="module">
-    import SaihuBot from '../src/core/saihubot.js';
-    import basicAdapter from '../src/adapters/saihubot-html-adapter.js';
+    import SaihuBot from '../packages/core/src/saihubot.js';
+    import basicAdapter from '../packages/html-adapter/saihubot-html-adapter.js';
+    import { addons as dialogAddons } from '../packages/html-adapter/saihubot-html-addon-dialog.js';
+    import { skills as diagnosSkills } from '../packages/skill-diagnostics/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       // skills that use confirm dialog addon
-      const skill_bye = {
+      const skillBye = {
         name: 'bye',
         help: 'confirm before leave',
         requirements: [],
@@ -58,7 +60,7 @@
         }
       };
 
-      const skill_gohome = {
+      const skillGohome = {
         name: 'go',
         rule: /home$/i,
         help: 'home - open saihubot website',
@@ -81,9 +83,8 @@
 
       new SaihuBot({
         adapter: basicAdapter,
-        skillsFile: ['skills/saihubot-diagnostics.js'],
-        skills: [skill_bye, skill_gohome],
-        addonsFile: ['addons/saihubot-addon-dialog.js'],
+        skills: [...diagnosSkills, skillBye, skillGohome],
+        addons: [...dialogAddons],
       });
     });
   </script>

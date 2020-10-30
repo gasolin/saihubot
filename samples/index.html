@@ -24,8 +24,10 @@
   </p>
 
   <script type="module">
-    import SaihuBot from '../src/core/saihubot.js';
-    import basicAdapter from '../src/adapters/saihubot-html-adapter.js';
+    import SaihuBot from '../packages/core/src/saihubot.js';
+    import basicAdapter from '../packages/html-adapter/saihubot-html-adapter.js';
+    import { skills } from '../packages/skill-diagnostics/saihubot-skill-diagnostics.js';
+    import { skills as helpSkills } from '../packages/html-adapter/saihubot-html-skill-help.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       var message = document.createElement('span');
@@ -35,10 +37,7 @@
       new SaihuBot({
         adapter: basicAdapter,
         welcomeMessage: message,
-        skillsFile: [
-          'skills/saihubot-diagnostics.js',
-          'skills/saihubot-help.js',
-        ],
+        skills: [...skills, ...helpSkills],
         debug: true,
       });
     });
