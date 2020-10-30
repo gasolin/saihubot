@@ -1,6 +1,6 @@
 {
 	"name": "saihu",
-	"version": "0.18.0",
+	"version": "0.19.0",
 	"description": "Client side chatbot framework that can be run in the command line",
 	"author": "Fred Lin <gasolin+saihubot@gmail.com>",
 	"license": "MIT",
@@ -14,8 +14,8 @@
 		"devops"
 	],
 	"repository": {
-      "type": "git",
-      "url": "git+https://github.com/gasolin/saihubot.git"
+		"type": "git",
+		"url": "git+https://github.com/gasolin/saihubot.git"
 	},
 	"bugs": {
 		"url": "https://github.com/gasolin/saihubot/issues"
@@ -36,10 +36,10 @@
 		"ink-select-input": "^4.2.0",
 		"meow": "^7.1.1",
 		"react": "^17.0.1",
-    "saihubot": "^0.18.0",
-    "saihubot-cli-adapter": "^0.18.0",
-    "saihubot-skill-search": "^0.18.0",
-    "saihubot-skill-diagnostics": "^0.18.0"
+		"saihubot": "^0.19.0",
+		"saihubot-cli-adapter": "^0.19.0",
+		"saihubot-skill-diagnostics": "^0.19.0",
+		"saihubot-skill-search": "^0.19.0"
 	},
 	"devDependencies": {
 		"@ava/babel": "^1.0.1",
