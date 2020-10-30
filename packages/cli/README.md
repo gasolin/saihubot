@@ -1,7 +1,6 @@
-# Saihubot-cli [![NPM version][npm-image]][npm-url]
-:robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Command Line**, no server required.
+# Saihubot-cli
 
-[![](https://github.com/gasolin/saihubot/workflows/lint/badge.svg)](https://github.com/gasolin/saihubot/actions?query=workflow%3Alint)
+:robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Command Line**, no server required.
 
 The Saihubot-cli project is derived from https://github.com/gasolin/saihubot , and can share most of skills between them.
 

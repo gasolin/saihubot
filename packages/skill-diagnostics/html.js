@@ -2,9 +2,8 @@ import {
   skillPing,
   skillEcho,
   skillCurrentTime,
+  skills,
 } from './saihubot-skill-diagnostics.js';
-
-const skills = [skillPing, skillEcho, skillCurrentTime];
 
 export {
   skillPing,

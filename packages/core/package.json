@@ -2,8 +2,9 @@
   "name": "saihubot",
   "version": "0.18.0",
   "description": "Frontend framework to build message/chatbot ops, no server required.",
+  "main": "dist/saihubot.js",
   "scripts": {
-    "build": "babel ./src --out-dir ./dist --copy-files",
+    "build": "babel --root-mode=upward ./src --out-dir ./dist --copy-files",
     "prepublish": "npm run build"
   },
   "repository": {

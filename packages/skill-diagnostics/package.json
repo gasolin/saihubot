@@ -2,7 +2,11 @@
   "name": "saihubot-skill-diagnostics",
   "version": "0.18.0",
   "description": "Saihubot diagnostics skills: echo, ping, time.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "scripts": {
+		"build": "babel --root-mode=upward saihubot-skill-diagnostics.js -o dist/index.js",
+		"prepublish": "npm run build"
+	},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gasolin/saihubot.git"

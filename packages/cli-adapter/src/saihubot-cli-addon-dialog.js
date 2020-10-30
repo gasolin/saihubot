@@ -14,11 +14,11 @@ export const addonConfirm = {
     const Msg = () => {
       // first arg is title msg
 			const msgTitle = typeof title === 'string'
-			const handleSelect = item => {
+			const handleSelect = (item) => {
 				// `item` = { label: 'First', value: 'first' }
 				if (item && items[item.value] && items[item.value].action) {
 					items[item.value].action();
-					robot.render()
+					robot.render();
 				}
 			};
 
@@ -27,7 +27,7 @@ export const addonConfirm = {
 				options.push({
 					label: item.title,
 					value: idx,
-				})
+				});
 			});
 
 			return (
@@ -35,11 +35,11 @@ export const addonConfirm = {
 					{msgTitle}
 					<SelectInput items={options} onSelect={handleSelect} />
 				</Box>
-			)
-		}
+			);
+		};
 		const element = React.createElement(Msg, {})
 		robot.chatHistory = [element];
-		robot.render()
+		robot.render();
   },
 };
 

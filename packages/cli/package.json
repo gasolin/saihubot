@@ -23,7 +23,7 @@
 	"homepage": "https://github.com/gasolin/saihubot",
 	"scripts": {
 		"start": "babel-node --presets @babel/preset-env src/cli.js",
-		"build": "babel ./src --out-dir ./dist --copy-files",
+		"build": "babel --root-mode=upward ./src --out-dir ./dist --copy-files",
 		"prepublish": "npm run build",
 		"test": "xo && ava"
 	},
@@ -61,12 +61,6 @@
 		"babel": true,
 		"require": [
 			"@babel/register"
-		]
-	},
-	"babel": {
-		"presets": [
-			"@babel/preset-env",
-			"@babel/preset-react"
 		]
 	},
 	"xo": {

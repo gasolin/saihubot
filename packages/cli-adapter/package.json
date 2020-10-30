@@ -2,6 +2,10 @@
   "name": "saihubot-cli-adapter",
   "version": "0.18.0",
   "description": "Saihubot command line adapter with some bundled addons.",
+  "scripts": {
+		"build": "babel --root-mode=upward ./src --out-dir ./dist --copy-files",
+		"prepublish": "npm run build"
+	},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gasolin/saihubot.git"

@@ -2,7 +2,11 @@
   "name": "saihubot-skill-search",
   "version": "0.18.0",
   "description": "Saihubot search skills.",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "scripts": {
+		"build": "babel --root-mode=upward saihubot-skill-search.js -o dist/index.js",
+		"prepublish": "npm run build"
+	},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gasolin/saihubot.git"

@@ -30,3 +30,7 @@ export const skillCurrentTime = {
     robot.send('Device time is ' + new Date().toLocaleString());
   },
 };
+
+const skills = [skillPing, skillEcho, skillCurrentTime];
+
+export {skills};

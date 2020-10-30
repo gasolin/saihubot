@@ -10,8 +10,8 @@ function openTab(url) {
 }
 
 export const addonOpenLink = {
-	name: 'openLink',
-	requirements: {
+  name: 'openLink',
+  requirements: {
     platform: ['cli'],
   },
   action: (robot) => (url) => openTab(url),
@@ -26,8 +26,8 @@ export const addonOpenLink = {
  * @param {String} engine search engine
  */
 export const addonSearch = {
-	name: 'search',
-	requirements: {
+  name: 'search',
+  requirements: {
     platform: ['cli'],
   },
   action: (robot) => (action, term, url, engine) => {
