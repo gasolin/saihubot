@@ -4,7 +4,7 @@
   "description": "Saihubot diagnostics skills: echo, ping, time.",
   "main": "dist/index.js",
   "scripts": {
-		"build": "babel --root-mode=upward saihubot-skill-diagnostics.js -o dist/index.js",
+		"build": "babel --root-mode=upward index.js saihubot-skill-diagnostics.js --out-dir ./dist --copy-files",
 		"prepublish": "npm run build"
 	},
   "repository": {

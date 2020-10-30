@@ -15,8 +15,8 @@ Then construct the bot in file.
 
 ```js
 import SaihuBot from 'saihubot/dist/saihubot';
-import cliAdapter from 'saihubot-cli-adapter';
-import { skills } from 'saihubot-skill-diagnostics';
+import {cliAdapter} from 'saihubot-cli-adapter';
+import {skills} from 'saihubot-skill-diagnostics';
 
 new SaihuBot({
   adapter: cliAdapter,

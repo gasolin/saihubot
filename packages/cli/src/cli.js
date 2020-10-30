@@ -4,9 +4,7 @@ import meow from 'meow';
 import SaihuBot from 'saihubot/dist/saihubot';
 import {skills} from 'saihubot-skill-diagnostics';
 import {skills as searchSkills} from 'saihubot-skill-search';
-import cliAdapter from 'saihubot-cli-adapter';
-import {addonSearch} from 'saihubot-cli-adapter/saihubot-cli-addon-search';
-import {addonConfirm} from 'saihubot-cli-adapter/saihubot-cli-addon-dialog';
+import {cliAdapter, addonSearch, addonConfirm} from 'saihubot-cli-adapter';
 
 const cli = meow(`
   Usage
