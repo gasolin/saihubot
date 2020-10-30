@@ -1,5 +1,5 @@
 {
-  "name": "saihubot-core",
+  "name": "saihubot",
   "version": "0.18.0",
   "description": "Frontend framework to build message/chatbot ops, no server required.",
   "scripts": {

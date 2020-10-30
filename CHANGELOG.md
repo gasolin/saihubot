@@ -2,8 +2,9 @@
 
 Break Change
 
-- rename modules as `saihubot-[adapter]-[addon|skill]-[name]` proposed in #31
+- rename modules as `saihubot-[adapter]-[addon|skill]-[name]` proposed in #31, and re-organize related projects as a monorepo
 - define requirements with syntax proposed in #17
+- remove `addonsFile`, `skillsFile` prop from Saihubot core
 
 ## 0.17 2020/10/27
 

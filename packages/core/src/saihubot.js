@@ -78,16 +78,6 @@ function defaultWelcomeMsgs(botAlias) {
 }
 
 /**
- * Get ES6 Module path.
- *
- * @param {string} file
- * @return {string} file path
- */
-function getModulePath(file) {
-  return file.startsWith('..') ? file : `../${file}`;
-}
-
-/**
  * SaihuBot main instance.
  *
  * @param {Object} config
@@ -100,11 +90,7 @@ function getModulePath(file) {
  * @param {string} config.user - user prompt (default: me)
  * @param {string} config.welcomeMessage - default welcome message (optional)
  *  messages (optional)
- * @param {string[]} config.addonsFile - addons files (path related to where
- *  saihubot.js located), might deprecate in later version
  * @param {object[]} config.addons - addons array
- * @param {string[]} config.skillsFile - skills files (path related to where
- *  saihubot.js located), might deprecate in later version
  * @param {Object[]} config.skills - skills array
  * @param {boolean} config.debug - show debug messages
  */
@@ -125,33 +111,11 @@ function SaihuBot(config) {
   this.adapter = config.adapter || defaultAdapter;
   this.addons = {};
 
-  // addonsFile
-  if (config.addonsFile) {
-    config.addonsFile.forEach((file) => {
-      const path = getModulePath(file);
-      import(path).then((module) => {
-        if (module.addons) {
-          module.addons.forEach((addon) => this.loadAddon(addon));
-        }
-      });
-    });
-  }
   // addons
   if (config.addons) {
     config.addons.forEach((addon) => this.loadAddon(addon));
   }
 
-  // skillsFile
-  if (config.skillsFile) {
-    config.skillsFile.forEach((file) => {
-      const path = getModulePath(file);
-      import(path).then((module) => {
-        if (module.skills) {
-          module.skills.forEach((skill) => this.loadSkill(skill));
-        }
-      });
-    });
-  }
   // skills
   if (config.skills) {
     config.skills.forEach((skill) => this.loadSkill(skill));

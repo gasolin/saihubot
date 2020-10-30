@@ -1,45 +1,88 @@
-# saihubot-html-adaper
+# Saihubot-skill-search
 
-Saihubot basic HTML Adapter and addons
+Saihubot-skill-search provide a range of search skills that works for HTML and Command Line.
 
-## HTML project
+* Duckduckgo (duckduckgo|duck [term])
+* Wikipedia (wikipedia|w|wiki [term])
+* Github (github|gh [term])
+* Google (google|g [term])
+* Google Translate (translate|tr|trans|gt [term])
+* Google Images (images|image|gi [term])
+* Google Maps (maps|map|gm [term])
+* Youtube (youtube|yt [term])
+* MDN (mdn [term])
+* NPM (npm [term])
+* Twitter (twitter [term])
+* Stackoverflow (stackoverflow|stack|so [term])
+* Wolfram (wolfram|wolf|wo [term])
 
-```html
-<script type="module">
-  import SaihuBot from 'node_modules/saihubot-core/src/saihubot.js';
-  import 
-</script>
+## Install
+
+```sh
+npm install saihubot-addon-search saihubot-skill-search
 ```
 
-### Bootstrap Saihubot
-
-Clone the project then includes the `saihubot.js` in your HTML file with a div tag for message history and the input field:
-
-```html
-<body>
-  <div id="history"></div>
-  <input id="message"><button id="send">Send</button>
-  <script type="module">
-    import SaihuBot from 'node_modules/saihubot-core/src/saihubot.js';
-    import basicAdapter from 'node_modules/html-adapter/saihubot-html-adapter.js';
-    import { skills } from 'node_modules/saihubot-skill-diagnostics/saihubot-skill-diagnostics.js';
-
-    document.addEventListener('DOMContentLoaded', function() {
-      new SaihuBot({
-        adapter: basicAdapter,
-        skills,
-      });
-    });
-  </script>
-</body>
-```
-
-The script is used to bootstrap the Saihubot.
+(in html)
 
 ```js
-new SaihuBot({});
+import htmlAdapter from 'node_modules/saihubot-html-adapter/saihubot-html-adapter.js'
+import addonSearch from 'node_modules/saihubot-html-adapter/saihubot-html-addon-search.js'
+import { skills } from 'node_modules/saihubot-skill-search/index.js'
 ```
 
-Wrap that script in `DOMContentLoaded` event to make sure contents are loaded before running scripts.
+(in module)
 
-You can pass some parameters into it to quickly customize the bot.
+```js
+import { skills } from 'saihubot-skill-search'
+```
+
+that you can include `skills` via
+
+```js
+new SaihuBot({
+  skills: [...skills],
+});
+```
+
+Of course you can only import certain search skills into your bot
+
+```js
+import { skillSearchGoogle } from 'saihubot-skill-search'
+
+new SaihuBot({
+  skills: [skillSearchGoogle],
+});
+```
+
+## Usage
+
+Check the [Search Demo](https://gasolin.github.io/saihubot/samples/search).
+
+### :mag_right: Google Search skill:
+
+```
+me: g saihubot
+bot: Search saihubot via Google
+me: google saihubot
+bot: Search saihubot via Google
+me: search saihubot
+bot: Search saihubot via Google
+```
+
+### Wikipedia skill:
+
+```
+me: wiki saihubot
+bot: Search saihubot via Wikipedia
+me: wikipedia saihubot
+bot: Search saihubot via Wikipedia
+```
+
+### Google Translate skill
+
+```
+me: translate hello
+bot: Translate hello via Google Translate
+me: tr saihubot
+bot: Translate hello via Google Translate
+```

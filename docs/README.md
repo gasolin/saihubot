@@ -101,3 +101,11 @@ You can find [sample](http://gasolin.idv.tw/saihubot/samples/brain.html) here.
 You can use online tools such as [regex101](https://regex101.com/) to debug js regex.
 
 Make sure you've selected ECMAScript(Javascript) in the `FLAVOR` menu.
+
+## FAQ
+
+* How to customize skill's alias? For example, if I want change `google [term]` search to `ok [term]`.
+
+After you `npm install` some skills, they will be downloadeded to `node_modules/` folder. You can edit them directly.
+
+Then use [patch-package](https://www.npmjs.com/package/patch-package) to keep the local changes for reuse.

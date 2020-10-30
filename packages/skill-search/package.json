@@ -1,15 +1,14 @@
 {
-  "name": "saihubot-html-adapter",
+  "name": "saihubot-skill-search",
   "version": "0.18.0",
-  "description": "Saihubot html adapter with some bundled addons.",
+  "description": "Saihubot search skills.",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gasolin/saihubot.git"
   },
   "keywords": [
-    "saihubot-adapter",
-    "saihubot-addon"
+    "saihubot-skill"
   ],
   "author": "Fred Lin <gasolin+saihubot@gmail.com>",
   "license": "MIT",
