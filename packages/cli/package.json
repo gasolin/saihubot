@@ -4,7 +4,9 @@
 	"description": "Client side chatbot framework that can be run in the command line",
 	"author": "Fred Lin <gasolin+saihubot@gmail.com>",
 	"license": "MIT",
-	"bin": "dist/cli.js",
+  "bin": {
+    "saihu": "./dist/cli.js"
+  },
 	"files": [
 		"dist/**",
 		"src/**"
@@ -15,7 +17,10 @@
 	"keywords": [
 		"saihubot",
 		"chatbot",
-		"devops"
+    "devops",
+    "cli",
+    "ink",
+    "react"
 	],
 	"repository": {
 		"type": "git",

@@ -32,7 +32,7 @@ const skillToday = {
   requirements: [],
   rule: /TODAY/i,
   action: function(robot, msg) {
-    robot.addons.confirm('Here are samples', [
+    robot.addons.confirm('What\'s up Today', [
       {
         title: 'Weather',
         id: 'weather',

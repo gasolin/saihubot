@@ -1,7 +1,7 @@
 'use strict';
 
 // eslint-disable-next-line no-unused-vars
-const basicAdapter = {
+const htmlAdapter = {
   // essential functions
   name: 'html',
   description: 'basic web',
@@ -125,4 +125,4 @@ const basicAdapter = {
   },
 };
 
-export default basicAdapter;
+export default htmlAdapter;
