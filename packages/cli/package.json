@@ -44,7 +44,7 @@
 		"ink-markdown": "^1.0.1",
 		"ink-select-input": "^4.2.0",
 		"meow": "^7.1.1",
-		"react": "^16.8.2",
+		"react": "^16.14.0",
 		"saihubot": "^0.25.0",
 		"saihubot-cli-adapter": "^0.25.1",
 		"saihubot-skill-diagnostics": "^0.25.0",
@@ -54,12 +54,15 @@
 		"@ava/babel": "^1.0.1",
 		"@babel/cli": "^7.12.1",
 		"@babel/core": "^7.12.3",
+		"@babel/eslint-parser": "^7.12.1",
 		"@babel/node": "^7.12.1",
 		"@babel/preset-env": "^7.12.1",
 		"@babel/preset-react": "^7.12.1",
 		"@babel/register": "^7.12.1",
 		"ava": "^3.13.0",
 		"chalk": "^4.1.0",
+		"eslint": "^7.12.1",
+		"eslint-config-google": "^0.14.0",
 		"eslint-config-xo-react": "^0.23.0",
 		"eslint-plugin-react": "^7.21.5",
 		"eslint-plugin-react-hooks": "^4.2.0",
@@ -76,6 +79,21 @@
 		"extends": "xo-react",
 		"rules": {
 			"react/prop-types": "off"
+		}
+	},
+	"eslintConfig": {
+		"extends": [
+			"eslint:recommended",
+			"google"
+		],
+		"env": {
+			"browser": true,
+			"es6": true
+		},
+		"parser": "@babel/eslint-parser",
+		"parserOptions": {
+			"sourceType": "module",
+			"allowImportExportEverywhere": true
 		}
 	}
 }

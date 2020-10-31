@@ -7,11 +7,15 @@ Break Change
 Feature
 - add `cliAdapter.unsafe_sendComponent` method to render react component as the message
 - add `saihubot-cli-addon-skill-help` to saihubot-cli-adapter
+- `cli` package can work alone out of lerna (copy the `cli` and it will work independently)
 
 Enhancement
 - update readme
 - add npm keywords for saihu cli
 - update sahu cli bin configuration
+
+Fix
+- [cli-adapter] support excape via `Q` or `ESC` key in addons.confirm (saihubot-cli-addon-dialog)
 
 ## 0.23 2020/10/30
 
