@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Box from 'ink-box';
 
 // plugin that provide help skill
 export const skillHelp = {
@@ -18,9 +17,9 @@ export const skillHelp = {
     });
 
     const helpMsg = () => (
-      <Box borderStyle="round" borderColor="cyan" float="center" padding={1}>
+      <>
         {`I have ${availableSkills.length} skills:\n ${availableSkills.join('\n')}`}
-      </Box>
+      </>
     );
     robot.adapter.unsafe_sendComponent(helpMsg, {});
   },
