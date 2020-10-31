@@ -4,10 +4,32 @@
 
 :robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Browser**, no server required.
 
+You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
+
+The saihubot skills currently work for :globe_with_meridians: Browser and [Command line](https://github.com/gasolin/saihubot-cli).
+
+Saihubot's API is inspired by [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned `hubot-plugins` could learn `saihu-skills` very quickly. :zap:
+
+Check [Online Demo](https://gasolin.github.io/saihubot/)
+
+## Features
+
+* Chatbot works in multiple platforms, without server setup.
+* Structure was inspired by [hubot](https://github.com/github/hubot/)
+  * Regex based message matching
+  * Could write adapter to fully cooperate with your web UI
+  * Could swap brain to support different backends
+  * Provide skills(pluginn) architecture that able to expand functions
+  * Can extend bot functionality by import addons
+* Tiny size, easy to learn (the init version has just 80 lines that bundle with three skills)
+* Plugin callbacks are extremely flexible; You can control in-page elements, execute the local command, fetch remote data, trigger remote actions...
+
+## Modules
+
 | Module  | Version | Description |
 | --------|---------|-------------|
 | [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/core#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://badge.fury.io/js/saihubot) | core module|
-| [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://badge.fury.io/js/saihu) | Command line Sample |
+| [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://badge.fury.io/js/saihu) | Sample Command line bot |
 | [Web samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples) | [Online Demo](https://gasolin.github.io/saihubot/) | |
 
 | Adapters | Version | Description |
@@ -19,29 +41,6 @@
 | --------|---------|-------------|
 |[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://badge.fury.io/js/saihubot-skill-search) | Search engines |
 |[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://badge.fury.io/js/saihubot-skill-diagnostics) | ping, echo, current time |
-
-You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
-
-The saihubot skills currently work for :globe_with_meridians: Browser and [Command line](https://github.com/gasolin/saihubot-cli).
-
-Saihubot's API is inspired by [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned `hubot-plugins` could learn `saihu-skills` very quickly. :zap:
-
-Check [Online Demo](https://gasolin.github.io/saihubot/)
-
-## Features
-
-* Chatbot works in your browser, without server setup.
-* Written in plain Javascript, compatible with modern browsers
-* Structure was inspired by [hubot](https://github.com/github/hubot/)
-  * Regex based message matching
-  * Could write adapter to fully cooperate with your web UI
-  * Could swap brain to support different backends
-  * Provide skills(pluginn) architecture that able to expand functions
-  * Can extend bot functionality by import addons
-* Tiny size, easy to learn (the init version has just 80 lines that bundle with three skills)
-* Each message can be customized with any HTML elements
-* Reference chat UI style is included
-* Plugin callbacks are extremely flexible; You can control in-page elements, execute the local command, fetch remote data, trigger remote actions...
 
 ## How to use
 
