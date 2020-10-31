@@ -41,8 +41,8 @@ const cliAdapter = (cli) => ({
   },
 
   // supportive functions
-  unsafe_sendComponent: function(msg) {
-    this.robot.chatHistory = [React.createElement(msg)];
+  unsafe_sendComponent: function(msg, props) {
+    this.robot.chatHistory = [React.createElement(msg, props)];
   },
 });
 

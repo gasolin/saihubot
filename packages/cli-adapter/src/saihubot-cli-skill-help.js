@@ -16,11 +16,13 @@ export const skillHelp = {
       return skill.help ? `* ${skill.name}\n  ${skill.help}` :
         `* ${skill.name}`;
     });
-    robot.adapter.unsafe_sendComponent(
-        <Box borderStyle="round" borderColor="cyan" float="center" padding={1}>
-          {`I have ${availableSkills.length} skills:\n ${availableSkills.join('\n')}`}
-        </Box>
+
+    const helpMsg = () => (
+      <Box borderStyle="round" borderColor="cyan" float="center" padding={1}>
+        {`I have ${availableSkills.length} skills:\n ${availableSkills.join('\n')}`}
+      </Box>
     );
+    robot.adapter.unsafe_sendComponent(helpMsg, {});
   },
 };
 
