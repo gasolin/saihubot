@@ -13,16 +13,14 @@ export const skillHelp = {
   rule: /HELP$/i,
   action: function(robot, msg) {
     const availableSkills = robot.responses.map(function(skill) {
-      return skill.help ? `* ${skill.name}\n  ${skill.help}` :
-        `* ${skill.name}`;
+      return skill.help ? `* ${skill.help}` : `* ${skill.name}`;
     });
 
-    const helpMsg = () => (
-      <Text>
-        {`I have ${availableSkills.length} skills:\n ${availableSkills.join('\n')}`}
-      </Text>
+    robot.adapter.unsafe_sendComponent(
+        <Text>
+          {`I have ${availableSkills.length} skills:\n${availableSkills.join('\n')}`}
+        </Text>
     );
-    robot.adapter.unsafe_sendComponent(helpMsg, {});
   },
 };
 
