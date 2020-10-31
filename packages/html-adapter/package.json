@@ -1,6 +1,6 @@
 {
   "name": "saihubot-html-adapter",
-  "version": "0.25.0",
+  "version": "0.26.0",
   "description": "Saihubot html adapter with some bundled addons.",
   "repository": {
     "type": "git",
