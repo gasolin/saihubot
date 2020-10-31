@@ -1,4 +1,4 @@
-## 0.25 2020/10/31
+## 0.26 2020/10/31
 
 Break Change
 - remove deprecated `sendHTML` method from saihubot core

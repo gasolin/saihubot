@@ -28,8 +28,7 @@ const cliAdapter = (cli) => ({
   // send text message
   send: function(msg, role) {
     const charactor = role || this.robot.botAlias;
-    this.robot.chatHistory = [React.createElement(Msg,
-        {message: `${charactor}: ${msg}`})];
+    this.robot.chatHistory.push(<Msg message={`${charactor}: ${msg}`} />);
   },
 
   ask: function(msg) {
@@ -37,12 +36,14 @@ const cliAdapter = (cli) => ({
   },
 
   render: function() {
-    render(this.robot.chatHistory[0]);
+    if (this.robot.chatHistory.length > 0) {
+      render(this.robot.chatHistory[0]);
+    }
   },
 
   // supportive functions
   unsafe_sendComponent: function(msg, props) {
-    this.robot.chatHistory = [React.createElement(msg, props)];
+    this.robot.chatHistory.push(msg);
   },
 });
 
