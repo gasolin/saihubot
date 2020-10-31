@@ -6,7 +6,9 @@ The Saihubot-cli project is derived from https://github.com/gasolin/saihubot , a
 
 # Try it
 
-Install via `npm install saihu`
+Install via
+
+`npm install -g saihu`
 
 Then you can use `saihu` command to perform some skills
 

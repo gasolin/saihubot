@@ -9,7 +9,13 @@ Includes
 * Addons: saihubot-html-addon-search.js (search), saihubot-html-addon-dialog.js (confirm dialog), saihubot-html-addon-card.js (card)
 * Skill: saihubot-html-skill-help.js (show **help**)
 
-### Bootstrap HTML Saihubot
+## Features
+
+* Written in plain Javascript, compatible with modern browsers
+* Each message can be customized with any HTML elements
+* Reference chat UI style is included
+
+## Bootstrap HTML Saihubot
 
 `npm install saihubot saihubot-html-adapter saihubot-skill-diagnostics`
 
@@ -20,9 +26,9 @@ Then includes the `saihubot.js` in your HTML file with a div tag for message his
   <div id="history"></div>
   <input id="message"><button id="send">Send</button>
   <script type="module">
-    import SaihuBot from 'node_modules/saihubot-core/src/saihubot.js';
-    import htmlAdapter from 'node_modules/html-adapter/saihubot-html-adapter.js';
-    import { skills } from 'node_modules/saihubot-skill-diagnostics/index.js';
+    import SaihuBot from './node_modules/saihubot-core/src/saihubot.js';
+    import htmlAdapter from './node_modules/html-adapter/saihubot-html-adapter.js';
+    import { skills } from './node_modules/saihubot-skill-diagnostics/index.js';
 
     document.addEventListener('DOMContentLoaded', function() {
       new SaihuBot({

@@ -7,7 +7,13 @@ Includes
 * Adapter: saihubot-cli-adapter.js
 * Addons: saihubot-cli-addon-search.js (search), saihubot-cli-addon-dialog.js (confirm dialog),
 
-### Bootstrap Command Line Saihubot
+## Features
+
+* Written with react-ink Javascript, compatible with modern browsers
+* Each message can be customized with any HTML elements
+* Reference chat UI style is included
+
+## Bootstrap Command Line Saihubot
 
 `npm install saihubot saihubot-cli-adapter saihubot-skill-diagnostics`
 
