@@ -206,11 +206,6 @@ SaihuBot.prototype = {
     this.adapter.send(msg, role);
   },
 
-  // deprecated
-  sendHTML: function(msg, role) {
-    console.warn('>> deprecated, please use robot.adapter.sendHTML instead');
-  },
-
   ask: function(msg) {
     this.processListeners(msg);
   },
