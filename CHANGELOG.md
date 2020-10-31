@@ -1,3 +1,16 @@
+## 0.24 2020/10/31
+
+Break Change
+- remove deprecated `sendHTML` method from saihubot core
+
+Feature
+- add `saihubot-cli-addon-skill-help` to saihubot-cli-adapter
+
+Enhancement
+- update readme
+- add npm keywords for saihu cli
+- update sahu cli bin configuration
+
 ## 0.23 2020/10/30
 
 Break Change

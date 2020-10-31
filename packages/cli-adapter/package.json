@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/gasolin/saihubot/issues"
   },
-  "homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme"
+  "homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme",
+  "dependencies": {
+    "ink-box": "^1.0.0"
+  }
 }

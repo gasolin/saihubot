@@ -4,7 +4,7 @@ import meow from 'meow';
 import SaihuBot from 'saihubot/dist/saihubot';
 import {skills} from 'saihubot-skill-diagnostics';
 import {skills as searchSkills} from 'saihubot-skill-search';
-import {cliAdapter, addonSearch, addonConfirm} from 'saihubot-cli-adapter';
+import {cliAdapter, addonSearch, addonConfirm, skillHelp} from 'saihubot-cli-adapter';
 
 const cli = meow(`
   Usage
@@ -51,9 +51,9 @@ const skillToday = {
 
 const bot = new SaihuBot({
   adapter: cliAdapter(cli),
-  skills: [...skills, ...searchSkills, skillToday],
-  addons: [addonSearch, addonConfirm],
   bot: '🤖',
+  addons: [addonSearch, addonConfirm],
+  skills: [...skills, ...searchSkills, skillToday, skillHelp],
   debug: cli.flags && cli.flags.debug,
 });
 
