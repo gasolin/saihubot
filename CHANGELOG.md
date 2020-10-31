@@ -1,9 +1,11 @@
-## 0.24 2020/10/31
+## 0.25 2020/10/31
 
 Break Change
 - remove deprecated `sendHTML` method from saihubot core
+- rename `htmlAdapter.sendHTML` to `htmlAdapter.unsafe_sendHTML`
 
 Feature
+- add `cliAdapter.unsafe_sendComponent` method to render react component as the message
 - add `saihubot-cli-addon-skill-help` to saihubot-cli-adapter
 
 Enhancement

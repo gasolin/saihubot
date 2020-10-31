@@ -16,7 +16,7 @@ export const skillHelp = {
     const pre = document.createElement('pre');
     pre.textContent = `I have ${availableSkills.length} skills:\n` +
       availableSkills.join('\n');
-    robot.adapter.sendHTML(pre);
+    robot.adapter.unsafe_sendHTML(pre);
   },
 };
 

@@ -40,7 +40,7 @@ export const addonSearch = {
     span.appendChild(line1);
     span.appendChild(link);
     span.appendChild(line2);
-    robot.adapter.sendHTML(link);
+    robot.adapter.unsafe_sendHTML(link);
     openTab(url);
   },
 };

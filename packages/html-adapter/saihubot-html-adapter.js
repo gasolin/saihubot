@@ -64,7 +64,7 @@ const htmlAdapter = {
   // supportive functions
 
   // send html element with bot
-  sendHTML: function(msg, role) {
+  unsafe_sendHTML: function(msg, role) {
     if (msg instanceof HTMLElement) {
       const sendMsg = document.createElement('p');
       const charactor = role ? role : this.robot.botAlias;

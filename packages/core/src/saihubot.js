@@ -13,7 +13,7 @@ const defaultAdapter = {
   send: function(msg, role) {
     console.log('send text message', msg);
   },
-  sendHTML: function(msg, role) {
+  unsafe_sendHTML: function(msg, role) {
     console.log('send html message');
   },
   render: function() {
