@@ -1,4 +1,4 @@
-## 0.26 2020/10/31
+## 0.26.1 2020/11/1
 
 Break Change
 - remove deprecated `sendHTML` method from saihubot core
@@ -16,6 +16,7 @@ Enhancement
 
 Fix
 - [cli-adapter] support excape via `Q` or `ESC` key in addons.confirm (saihubot-cli-addon-dialog)
+- [saihubot] fix wildcard check in cli
 
 ## 0.23 2020/10/30
 

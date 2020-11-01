@@ -166,18 +166,20 @@ SaihuBot.prototype = {
   },
 
   processListeners: function(msg) {
-    const len = this.chatHistory.length;
+    let matched = false;
     this.responses.forEach((item) => {
       const matchedMsg = msg.match(item.rule);
       if (matchedMsg) {
         this.DEBUG && console.log(`skill matched! [${matchedMsg}]`);
+        matched = true;
         item.action(this, matchedMsg);
       }
     });
 
-    if (len === this.chatHistory.length) {
+    if (!matched) {
       this.DEBUG && console.log('wildcard');
       this.catchAll(msg);
+      this.render();
     }
     this.render();
   },
