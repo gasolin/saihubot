@@ -2,9 +2,14 @@
 'use strict';
 import meow from 'meow';
 import SaihuBot from 'saihubot/dist/saihubot';
+import {
+  cliAdapter,
+  addonSearch,
+  addonConfirm,
+  skillHelp,
+} from 'saihubot-cli-adapter';
 import {skills} from 'saihubot-skill-diagnostics';
 import {skills as searchSkills} from 'saihubot-skill-search';
-import {cliAdapter, addonSearch, addonConfirm, skillHelp} from 'saihubot-cli-adapter';
 
 const cli = meow(`
   Usage
@@ -53,7 +58,12 @@ const bot = new SaihuBot({
   adapter: cliAdapter(cli),
   bot: '🤖',
   addons: [addonSearch, addonConfirm],
-  skills: [...skills, ...searchSkills, skillToday, skillHelp],
+  skills: [
+    ...skills,
+    ...searchSkills,
+    skillToday,
+    skillHelp,
+  ],
   debug: cli.flags && cli.flags.debug,
 });
 
