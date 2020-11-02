@@ -10,6 +10,7 @@ import {
 } from 'saihubot-cli-adapter';
 import {skills} from 'saihubot-skill-diagnostics';
 import {skills as searchSkills} from 'saihubot-skill-search';
+import {skillToday} from './saihubot-skill-today';
 
 const cli = meow(`
   Usage
@@ -30,29 +31,6 @@ const cli = meow(`
     },
   },
 });
-
-const skillToday = {
-  name: 'today',
-  help: 'today - Show today selections',
-  requirements: [],
-  rule: /TODAY/i,
-  action: function(robot, msg) {
-    robot.addons.confirm('What\'s up Today?', [
-      {
-        title: 'Weather',
-        id: 'weather',
-        rule: /WEATHER/i,
-        action: () => robot.ask('g weather today'),
-      },
-      {
-        title: 'Today in History',
-        id: 'history',
-        rule: /HISTORY/i,
-        action: () => robot.ask('wolf today in history'),
-      },
-    ]);
-  },
-};
 
 const bot = new SaihuBot({
   adapter: cliAdapter(cli),

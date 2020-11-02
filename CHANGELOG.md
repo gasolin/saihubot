@@ -8,6 +8,7 @@ Feature
 Fix
 - [cli-adapter] fix packages dependencies
 - [cli-adapter] render last pushed element instead of the first pushed element
+- [saihu] fix today skill in loop
 
 ## 0.26.1 2020/11/1
 
