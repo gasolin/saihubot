@@ -1,6 +1,6 @@
 {
 	"name": "saihu",
-	"version": "0.27.4",
+	"version": "0.27.5",
 	"description": "Client side chatbot framework that can be run in the command line",
 	"author": "Fred Lin <gasolin+saihubot@gmail.com>",
 	"license": "MIT",
