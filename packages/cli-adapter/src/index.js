@@ -7,11 +7,22 @@ import {
 } from './saihubot-cli-addon-search';
 import {skillHelp} from './saihubot-cli-skill-help';
 
-export {
-  cliAdapter,
+const addons = [
   addonConfirm,
   addonSearch,
   addonOpenLink,
   addonFetch,
+];
+
+const skills = [skillHelp];
+
+export {
+  cliAdapter,
+  addons,
+  addonConfirm,
+  addonSearch,
+  addonOpenLink,
+  addonFetch,
+  skills,
   skillHelp,
 };
