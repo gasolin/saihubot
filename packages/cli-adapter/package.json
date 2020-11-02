@@ -13,7 +13,8 @@
   },
   "keywords": [
     "saihubot-adapter",
-    "saihubot-addon"
+    "saihubot-addon",
+    "saihubot-skill"
   ],
   "files": [
     "dist/**",
@@ -26,7 +27,13 @@
   },
   "homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme",
   "dependencies": {
+    "dedent": "^0.7.0",
+    "execa": "^4.1.0",
+    "ink": "^3.0.8",
     "ink-box": "^1.0.0",
+    "ink-markdown": "^1.0.1",
+    "ink-select-input": "^4.2.0",
+    "meow": "^8.0.0",
     "node-fetch": "^2.6.1"
   }
 }

@@ -5,6 +5,9 @@ Feature
 - [saihubot-cli-addons-search] wrap node_fetch as addons.fetch API
 - Instead of import specific addon or skill, can do `import {addons, skills} from 'saihubot-cli-adapter'`.
 
+Fix
+- [cli-adapter] fix packages dependencies
+
 ## 0.26.1 2020/11/1
 
 Break Change
