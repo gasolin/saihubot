@@ -39,12 +39,9 @@ export const addonConfirm = {
       // `item` = { label: 'First', value: 'first' }
       if (item && items[item.value] && items[item.value].action) {
         items[item.value].action();
-        robot.render();
       }
     };
 
-    // const element = React.createElement(Msg, {});
-    // robot.chatHistory = [element];
     robot.chatHistory.push(
         <SelectBox
           title={title}

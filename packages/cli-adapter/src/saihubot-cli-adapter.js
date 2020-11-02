@@ -27,6 +27,7 @@ const cliAdapter = (cli) => ({
 
   // send text message
   send: function(msg, role) {
+    this.DEBUG && console.log('send ', msg);
     const charactor = role || this.robot.botAlias;
     this.robot.chatHistory.push(<Msg message={`${charactor}: ${msg}`} />);
   },
@@ -36,8 +37,9 @@ const cliAdapter = (cli) => ({
   },
 
   render: function() {
+    this.DEBUG && console.log('render');
     if (this.robot.chatHistory.length > 0) {
-      render(this.robot.chatHistory[0]);
+      render(this.robot.chatHistory[this.robot.chatHistory.length - 1]);
     }
   },
 
