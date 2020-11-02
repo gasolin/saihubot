@@ -1,5 +1,5 @@
 import execa from 'execa';
-
+import fetch from 'node-fetch';
 /**
  * Open url in browser.
  *
@@ -16,6 +16,17 @@ export const addonOpenLink = {
     platform: ['cli'],
   },
   action: (robot) => (url) => openTab(url),
+};
+
+/**
+ * expose web equivalent fetch API.
+ */
+export const addonFetch = {
+  name: 'fetch',
+  requirements: {
+    platform: ['cli'],
+  },
+  action: (robot) => fetch,
 };
 
 /**
@@ -37,6 +48,6 @@ export const addonSearch = {
   },
 };
 
-const addons = [addonSearch];
+const addons = [addonSearch, addonOpenLink, addonFetch];
 
 export {addons};

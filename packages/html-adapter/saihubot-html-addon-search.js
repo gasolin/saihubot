@@ -16,6 +16,17 @@ export const addonOpenLink = {
 };
 
 /**
+ * expose web equivalent fetch API.
+ */
+export const addonFetch = {
+  name: 'fetch',
+  requirements: {
+    platform: ['cli'],
+  },
+  action: (robot) => window.fetch,
+};
+
+/**
  * Render search response message.
  *
  * @param {String} action action word
@@ -45,6 +56,6 @@ export const addonSearch = {
   },
 };
 
-const addons = [addonSearch, addonOpenLink];
+const addons = [addonSearch, addonOpenLink, addonFetch];
 
 export {addons};

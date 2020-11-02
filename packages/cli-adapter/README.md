@@ -5,8 +5,8 @@ Saihubot basic Command Line Adapter and addons
 Includes
 
 * Adapter: saihubot-cli-adapter.js
-* Addons: saihubot-cli-addon-search.js (search), saihubot-cli-addon-dialog.js (confirm dialog),
-* Skills: saihubot-cli-skill-help.js (help skill)
+* Addons: saihubot-cli-addon-search.js (`search`, `openLink`, `fetch`), saihubot-cli-addon-dialog.js (`confirm` dialog),
+* Skills: saihubot-cli-skill-help.js (`help` skill)
 
 ## Features
 

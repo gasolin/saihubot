@@ -1,3 +1,9 @@
+## 0.27 2020/11/2
+
+Feature
+- [saihubot-html-addons-search] wrap window.fetch as addons.fetch API
+- [saihubot-cli-addons-search] wrap node_fetch as addons.fetch API
+
 ## 0.26.1 2020/11/1
 
 Break Change

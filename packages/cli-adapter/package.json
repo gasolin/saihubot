@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme",
   "dependencies": {
-    "ink-box": "^1.0.0"
+    "ink-box": "^1.0.0",
+    "node-fetch": "^2.6.1"
   }
 }
