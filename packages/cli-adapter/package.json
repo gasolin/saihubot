@@ -1,6 +1,6 @@
 {
   "name": "saihubot-cli-adapter",
-  "version": "0.26.0",
+  "version": "0.27.0",
   "description": "Saihubot command line adapter with some bundled addons.",
   "main": "dist/index.js",
   "scripts": {
