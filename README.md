@@ -1,6 +1,6 @@
 # Saihubot
 
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/) [![](https://github.com/gasolin/saihubot/workflows/Lint%20Action/badge.svg)](https://github.com/gasolin/saihubot/actions?query=workflow%3A%22Lint+Action%22)
 
 :robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Browser**, no server required.
 
