@@ -32,7 +32,7 @@ const htmlAdapter = {
   },
 
   close: function() {
-    console.log('close basic adapter');
+    this.robot.DEBUG && console.log('close basic adapter');
     if (this.btn) {
       this.btn.removeEventListener('click', this.onReceiveBound);
     }
@@ -42,35 +42,57 @@ const htmlAdapter = {
   },
 
   // send text message
-  send: function(msg, role) {
-    const charactor = role || this.robot.botAlias;
-    const sendMsg = document.createElement('p');
-    sendMsg.textContent = charactor + ': ' + msg;
-    this.robot.chatHistory.push(sendMsg);
+  send: function(msg, role = 'bot') {
+    const {
+      chatHistory,
+      botAlias,
+      userAlias,
+      renderMessage,
+    } = this.robot;
+    const charactor = role === 'bot' ? botAlias : userAlias;
+    if (typeof renderMessage === 'function') {
+      chatHistory.push(renderMessage(msg, charactor, role));
+    } else { // basic render
+      const sendMsg = document.createElement('p');
+      sendMsg.textContent = charactor + ': ' + msg;
+      chatHistory.push(sendMsg);
+    }
   },
 
   render: function() {
-    console.log('render!');
+    const {
+      DEBUG,
+      chatHistory,
+    } = this.robot;
+    DEBUG && console.log('render!');
     this.cleanUp();
-    this.robot.chatHistory.forEach((element) => {
+    chatHistory.forEach((element) => {
       this.history.appendChild(element);
     });
-    if (this.robot.chatHistory.length > 1) {
-      this.robot.chatHistory[this.robot.chatHistory.length - 1]
-          .scrollIntoView();
+    if (chatHistory.length > 1) {
+      chatHistory[chatHistory.length - 1].scrollIntoView();
     }
   },
 
   // supportive functions
-
   // send html element with bot
-  unsafe_sendHTML: function(msg, role) {
-    if (msg instanceof HTMLElement) {
-      const sendMsg = document.createElement('p');
-      const charactor = role ? role : this.robot.botAlias;
-      sendMsg.textContent = charactor + ': ';
-      sendMsg.appendChild(msg);
-      this.robot.chatHistory.push(sendMsg);
+  unsafe_sendComponent: function(element, role = 'bot') {
+    const {
+      botAlias,
+      userAlias,
+      chatHistory,
+      renderComponent,
+    } = this.robot;
+    if (element instanceof HTMLElement) {
+      const charactor = role === 'bot' ? botAlias : userAlias;
+      if (typeof renderComponent === 'function') {
+        chatHistory.push(renderComponent(element, charactor, role));
+      } else { // basic render
+        const sendMsg = document.createElement('p');
+        sendMsg.textContent = charactor + ': ';
+        sendMsg.appendChild(element);
+        chatHistory.push(sendMsg);
+      }
     } else {
       console.log('>> The msg you provide is not an HTMLElement');
     }
@@ -93,7 +115,7 @@ const htmlAdapter = {
   onReceive: function() {
     const receivedMsg = this.message.value;
     if (receivedMsg) {
-      this.send(receivedMsg, this.robot.myAlias);
+      this.send(receivedMsg, 'user');
       if (typeof this.customMsgParse === 'function') {
         this.customMsgParse(receivedMsg);
       } else {

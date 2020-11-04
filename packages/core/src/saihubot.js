@@ -13,8 +13,8 @@ const defaultAdapter = {
   send: function(msg, role) {
     console.log('send text message', msg);
   },
-  unsafe_sendHTML: function(msg, role) {
-    console.log('send html message');
+  unsafe_sendComponent: function(element, role) {
+    console.log('send element');
   },
   render: function() {
     console.log('render!');
@@ -64,30 +64,22 @@ const DEFAULT_FALLBACK_MESSAGES = [
 ];
 
 /**
- * Default welcome message
- *
- * @param {String} botAlias
- * @return {String} Welcome message
- */
-function defaultWelcomeMsgs(botAlias) {
-  if (typeof window !== 'undefined') {
-    const line = document.createElement('p');
-    line.textContent = `${botAlias}: type something to chat with me`;
-    return line;
-  }
-}
-
-/**
  * SaihuBot main instance.
  *
  * @param {Object} config
  * @param {object} config.adapter - Saihubot platform specific adapter.
  * @param {object} config.brainConfig - brain related config.
  * @param {string} connfig.bot - bot prompt (default: bot)
+ * , same as connfig.botAlias
+ * @param {string} connfig.botAlias - bot prompt (default: bot)
  * @param {string[]} config.notFoundMessages - default not found messages
  * @param {boolean} config.saveChatLog - save chatlog or not (default: true),
  *  need coperate with `brain` in addon.
  * @param {string} config.user - user prompt (default: me)
+ * , same as connfig.userAlias
+ * @param {string} config.userAlias - user prompt (default: me)
+ * @param {function} renderMessage - define how to render the message
+ * @param {function} renderComponent - define how to render the html component
  * @param {string} config.welcomeMessage - default welcome message (optional)
  *  messages (optional)
  * @param {object[]} config.addons - addons array
@@ -96,13 +88,15 @@ function defaultWelcomeMsgs(botAlias) {
  */
 function SaihuBot(config) {
   // init setup
-  this.myAlias = config.user || 'me';
-  this.botAlias = config.bot || 'bot';
+  this.userAlias = config.user || config.userAlias || 'me';
+  this.botAlias = config.bot || config.botAlias || 'bot';
+  this.renderMessage = config.renderMessage || undefined;
+  this.renderComponent = config.renderComponent || undefined;
   this.ui = config.ui || {};
   this.DEBUG = config.debug || false;
 
   this.welcomeMessage = config.welcomeMessage ||
-    defaultWelcomeMsgs(this.botAlias);
+    'type something to chat with me';
   this.notFoundMessages = config.notFoundMessages || DEFAULT_FALLBACK_MESSAGES;
   this.saveChatLog = config.saveChatLog || true;
   // provide run, close, send, render function by adapter
@@ -147,8 +141,12 @@ SaihuBot.prototype = {
   restore: function() {
     this.adapter.run(this);
     const brainLog = this.brain.get('chatLog');
-    this.chatHistory = brainLog && (brainLog.length > 1) ?
-      brainLog : this.welcomeMessage && [this.welcomeMessage] || [];
+    if (brainLog && brainLog.length > 1) {
+      this.chatHistory = brainLog;
+    } else {
+      this.chatHistory = [];
+      this.welcomeMessage && this.send(this.welcomeMessage, 'bot');
+    }
     this.render();
   },
 

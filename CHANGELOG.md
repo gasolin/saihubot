@@ -1,3 +1,17 @@
+## 0.28
+
+Break Change
+- [saihubot-html-adapter] rename `unsafe_sendHTML` to `unsafe_sendComponent`
+- [saihubot] turn `welcomeMessage` to a text message
+
+Feature
+- [saihubot] add `renderMessage, renderComponent, userAlias, botAlias` in config
+- [saihubot-html-adapter] support render user/bot message with provided function (renderMessage, renderComponent)
+
+Refactor
+- [saihubot] rename internal param `myAlias` to `userAlias`.
+- [saihubot] decouple role and alias. Current support roles are 'bot' and 'user'
+
 ## 0.27 2020/11/2
 
 Feature

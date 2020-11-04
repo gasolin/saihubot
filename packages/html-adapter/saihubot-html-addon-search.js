@@ -51,7 +51,7 @@ export const addonSearch = {
     span.appendChild(line1);
     span.appendChild(link);
     span.appendChild(line2);
-    robot.adapter.unsafe_sendHTML(link);
+    robot.adapter.unsafe_sendComponent(link);
     openTab(url);
   },
 };
