@@ -1,4 +1,4 @@
-## 0.28
+## 0.28 2020/11/5
 
 Break Change
 - [saihubot-html-adapter] rename `unsafe_sendHTML` to `unsafe_sendComponent`
