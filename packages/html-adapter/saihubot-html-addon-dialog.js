@@ -67,7 +67,7 @@ export const addonConfirm = {
         confirmDlg.appendChild(document.createElement('br'));
       }
     });
-    robot.chatHistory.push(confirmDlg);
+    robot.adapter.unsafe_sendComponent(confirmDlg);
 
     // respond to input events
     robot.adapter.delegateMsgParse((msg) => {
@@ -112,7 +112,7 @@ export const addonDialogSelected = {
         return;
       }
     });
-    robot.chatHistory.push(confirmBtn);
+    robot.adapter.unsafe_sendComponent(confirmBtn);
   },
 };
 
