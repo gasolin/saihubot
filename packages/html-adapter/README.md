@@ -7,7 +7,8 @@ Includes
 * Adapter: saihubot-html-adapter.js
 * Brain: saihubot-html-brain-localforage.js
 * Addons: saihubot-html-addon-search.js (search), saihubot-html-addon-dialog.js (confirm dialog), saihubot-html-addon-card.js (card)
-* Skill: saihubot-html-skill-help.js (show **help**)
+* Skills: saihubot-html-skill-help.js (show **help**),
+saihubot-html-skill-qrcode.js (render **qrcode**)
 
 ## Features
 

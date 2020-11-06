@@ -2,8 +2,10 @@ import SaihuBot from './packages/core/src/saihubot.js';
 import basicAdapter from './packages/html-adapter/saihubot-html-adapter.js';
 import localforageBrain from './packages/html-adapter/saihubot-html-brain-localforage.js';
 import {addons as dialogAddons} from './packages/html-adapter/saihubot-html-addon-dialog.js';
+import {addons as cardAddons} from './packages/html-adapter/saihubot-html-addon-card.js';
 import {addons as searchAddons} from './packages/html-adapter/saihubot-html-addon-search.js';
 import {skills as helpSkills} from './packages/html-adapter/saihubot-html-skill-help.js';
+import {skills as qrSkills} from './packages/html-adapter/saihubot-html-skill-qrcode.js';
 import {skills as diagnosSkills} from './packages/skill-diagnostics/index.js';
 import {skills as searchSkills} from './packages/skill-search/index.js';
 
@@ -116,11 +118,12 @@ document.addEventListener('DOMContentLoaded', function() {
     userAlias: '😎',
     renderMessage,
     renderComponent: renderMessage,
-    addons: [...dialogAddons, ...searchAddons],
+    addons: [...dialogAddons, ...cardAddons, ...searchAddons],
     skills: [
       ...helpSkills,
       ...diagnosSkills,
       ...searchSkills,
+      ...qrSkills,
       skillHome,
       skillSample,
     ],

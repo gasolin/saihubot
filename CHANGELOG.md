@@ -1,4 +1,4 @@
-## 0.28 2020/11/6
+## 0.29 2020/11/6
 
 Break Change
 - [saihubot] turn `welcomeMessage` to a text message
@@ -7,7 +7,8 @@ Break Change
 Feature
 - More Polished Chat UI, credit https://tailwindcomponents.com/component/chat
 - [saihubot] add `renderMessage, renderComponent, userAlias, botAlias` in config
-- [saihubot-html-adapter] support render user/bot message with provided function (renderMessage, renderComponent)
+- [saihubot-html-adapter] support render user/# bot message with provided function (renderMessage, renderComponent)
+- [saihubot-html-adapter] [saihubot-html-adapter] add QRCode skill saihubot-html-skill-qrcode.js
 
 Refactor
 - [saihubot] rename internal param `myAlias` to `userAlias`.
