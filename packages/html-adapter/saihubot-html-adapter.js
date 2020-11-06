@@ -1,12 +1,12 @@
 'use strict';
 
-const defaultRenderMessage = (charactor, msg, role) => {
+const defaultRenderMessage = (msg, charactor, role) => {
   const sendMsg = document.createElement('p');
   sendMsg.textContent = charactor + ': ' + msg;
   return sendMsg;
 };
 
-const defaultRenderComponent = (charactor, element, role) => {
+const defaultRenderComponent = (element, charactor, role) => {
   const sendMsg = document.createElement('p');
   sendMsg.textContent = charactor + ': ';
   sendMsg.appendChild(element);
@@ -95,8 +95,8 @@ const htmlAdapter = {
     if (element instanceof HTMLElement) {
       const charactor = role === 'bot' ? botAlias : userAlias;
       const messageElement = typeof renderComponent === 'function' ?
-        renderComponent(charactor, element, role) :
-        defaultRenderComponent(charactor, element, role);
+        renderComponent(element, charactor, role) :
+        defaultRenderComponent(element, charactor, role);
       chatHistory.push(messageElement);
     } else {
       console.log('>> The msg you provide is not an HTMLElement');
