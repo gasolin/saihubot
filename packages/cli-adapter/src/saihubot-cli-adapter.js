@@ -4,7 +4,11 @@ import {render} from 'ink';
 import Markdown from 'ink-markdown';
 import dedent from 'dedent';
 
-const Msg = ({message}) => (<Markdown>{dedent(message)}</Markdown>);
+const defaultRenderMessage = (charactor, msg, role) => (
+  <Markdown>{dedent(msg)}</Markdown>
+);
+
+const defaultRenderComponent = (charactor, element, role) => element;
 
 // Commandline adapter based on https://github.com/vadimdemedes/ink
 const cliAdapter = (cli) => ({
@@ -27,9 +31,18 @@ const cliAdapter = (cli) => ({
 
   // send text message
   send: function(msg, role) {
+    const {
+      botAlias,
+      userAlias,
+      chatHistory,
+      renderMessage,
+    } = this.robot;
     this.DEBUG && console.log('send ', msg);
-    const charactor = role || this.robot.botAlias;
-    this.robot.chatHistory.push(<Msg message={`${charactor}: ${msg}`} />);
+    const charactor = role === 'bot' ? botAlias : userAlias;
+    const messageElement = typeof renderMessage === 'function' ?
+      renderMessage(msg, charactor, role) :
+      defaultRenderMessage(msg, charactor, role);
+    chatHistory.push(messageElement);
   },
 
   ask: function(msg) {
@@ -37,15 +50,28 @@ const cliAdapter = (cli) => ({
   },
 
   render: function() {
+    const {
+      chatHistory,
+    } = this.robot;
     this.DEBUG && console.log('render');
-    if (this.robot.chatHistory.length > 0) {
-      render(this.robot.chatHistory[this.robot.chatHistory.length - 1]);
+    if (chatHistory.length > 0) {
+      render(chatHistory[chatHistory.length - 1]);
     }
   },
 
   // supportive functions
-  unsafe_sendComponent: function(component) {
-    this.robot.chatHistory.push(component);
+  unsafe_sendComponent: function(element, role = 'bot') {
+    const {
+      botAlias,
+      userAlias,
+      chatHistory,
+      renderComponent,
+    } = this.robot;
+    const charactor = role === 'bot' ? botAlias : userAlias;
+    const messageElement = typeof renderComponent === 'function' ?
+      renderComponent(charactor, element, role) :
+      defaultRenderComponent(charactor, element, role);
+    chatHistory.push(messageElement);
   },
 });
 

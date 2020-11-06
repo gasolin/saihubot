@@ -1,4 +1,4 @@
-## 0.28 2020/11/5
+## 0.28 2020/11/6
 
 Break Change
 - [saihubot-html-adapter] rename `unsafe_sendHTML` to `unsafe_sendComponent`
@@ -11,6 +11,7 @@ Feature
 Refactor
 - [saihubot] rename internal param `myAlias` to `userAlias`.
 - [saihubot] decouple role and alias. Current support roles are 'bot' and 'user'
+- [saihubot-html-adapter][saihubot-cli-adapter] refactor `send` and `unsafe_sendComponent` with defaultRenderMessage and defaultRenderComponent
 
 ## 0.27 2020/11/2
 

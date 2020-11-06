@@ -1,5 +1,17 @@
 'use strict';
 
+const defaultRenderMessage = (charactor, msg, role) => {
+  const sendMsg = document.createElement('p');
+  sendMsg.textContent = charactor + ': ' + msg;
+  return sendMsg;
+};
+
+const defaultRenderComponent = (charactor, element, role) => {
+  const sendMsg = document.createElement('p');
+  sendMsg.textContent = charactor + ': ';
+  sendMsg.appendChild(element);
+};
+
 // eslint-disable-next-line no-unused-vars
 const htmlAdapter = {
   // essential functions
@@ -50,13 +62,10 @@ const htmlAdapter = {
       renderMessage,
     } = this.robot;
     const charactor = role === 'bot' ? botAlias : userAlias;
-    if (typeof renderMessage === 'function') {
-      chatHistory.push(renderMessage(msg, charactor, role));
-    } else { // basic render
-      const sendMsg = document.createElement('p');
-      sendMsg.textContent = charactor + ': ' + msg;
-      chatHistory.push(sendMsg);
-    }
+    const messageElement = typeof renderMessage === 'function' ?
+      renderMessage(msg, charactor, role) :
+      defaultRenderMessage(msg, charactor, role);
+    chatHistory.push(messageElement);
   },
 
   render: function() {
@@ -85,14 +94,10 @@ const htmlAdapter = {
     } = this.robot;
     if (element instanceof HTMLElement) {
       const charactor = role === 'bot' ? botAlias : userAlias;
-      if (typeof renderComponent === 'function') {
-        chatHistory.push(renderComponent(element, charactor, role));
-      } else { // basic render
-        const sendMsg = document.createElement('p');
-        sendMsg.textContent = charactor + ': ';
-        sendMsg.appendChild(element);
-        chatHistory.push(sendMsg);
-      }
+      const messageElement = typeof renderComponent === 'function' ?
+        renderComponent(charactor, element, role) :
+        defaultRenderComponent(charactor, element, role);
+      chatHistory.push(messageElement);
     } else {
       console.log('>> The msg you provide is not an HTMLElement');
     }
