@@ -35,5 +35,8 @@
     "ink-select-input": "^4.2.0",
     "meow": "^8.0.0",
     "node-fetch": "^2.6.1"
+  },
+  "peerDependencies": {
+    "react": "^16.14.0"
   }
 }
