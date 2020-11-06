@@ -12,6 +12,7 @@ Refactor
 - [saihubot] rename internal param `myAlias` to `userAlias`.
 - [saihubot] decouple role and alias. Current support roles are 'bot' and 'user'
 - [saihubot-html-adapter][saihubot-cli-adapter] refactor `send` and `unsafe_sendComponent` with defaultRenderMessage and defaultRenderComponent
+- [saihu] update packages
 
 ## 0.27 2020/11/2
 
