@@ -1,106 +1,115 @@
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="client side chatbot that can be embedded in any web site.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <title>Liho! Saihu (Hello! Master)...</title>
-  <link rel="stylesheet" href="samples/chat.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.5.5/localforage.min.js"></script>
+    <!-- https://tailwindcomponents.com/component/chat -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/tailwindcss@1.9.0/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/localforage/1.5.5/localforage.min.js"></script>
 </head>
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
+    <div class="flex-1 p:2 sm:p-6 justify-between flex flex-col h-screen">
+   <!-- <div class="flex sm:items-center justify-between py-3 border-b-2 border-gray-200">
+      <div class="flex items-center space-x-4">
+         <img src="https://images.unsplash.com/photo-1549078642-b2ba4bda0cdb?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=3&amp;w=144&amp;h=144" alt="" class="w-10 sm:w-16 h-10 sm:h-16 rounded-full">
+         <div class="flex flex-col leading-tight">
+            <div class="text-2xl mt-1 flex items-center">
+               <span class="text-gray-700 mr-3">Anderson Vanhron</span>
+               <span class="text-green-500">
+                  <svg width="10" height="10">
+                     <circle cx="5" cy="5" r="5" fill="currentColor"></circle>
+                  </svg>
+               </span>
+            </div>
+            <span class="text-lg text-gray-600">Junior Developer</span>
+         </div>
+      </div>
+      <div class="flex items-center space-x-2">
+         <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+         </button>
+         <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+            </svg>
+         </button>
+         <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
+            </svg>
+         </button>
+      </div>
+   </div> -->
+   <div id="history" class="flex flex-col space-y-4 p-3 overflow-y-auto scrollbar-thumb-blue scrollbar-thumb-rounded scrollbar-track-blue-lighter scrollbar-w-2 scrolling-touch"></div>
+   <div class="border-t-2 border-gray-200 px-4 pt-4 mb-2 sm:mb-0">
+      <div class="relative flex">
+         <span class="absolute inset-y-0 flex items-center">
+            <button type="button" class="inline-flex items-center justify-center rounded-full h-12 w-12 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+               <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path>
+               </svg> -->
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+               </svg>
+            </button>
+         </span>
+         <input id="message" type="text" placeholder="Write Something" class="w-full focus:outline-none focus:placeholder-gray-400 text-gray-600 placeholder-gray-600 pl-12 bg-gray-200 rounded-full py-3">
+         <div class="absolute right-0 items-center inset-y-0 hidden sm:flex">
+            <!-- <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13"></path>
+               </svg>
+            </button>
+            <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+               </svg>
+            </button>
+            <button type="button" class="inline-flex items-center justify-center rounded-full h-10 w-10 transition duration-500 ease-in-out text-gray-500 hover:bg-gray-300 focus:outline-none">
+               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6 text-gray-600">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+               </svg>
+            </button> -->
+            <button id="send" type="button" class="inline-flex items-center justify-center rounded-full h-12 w-12 transition duration-500 ease-in-out text-white bg-blue-500 hover:bg-blue-400 focus:outline-none">
+               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6 transform rotate-90">
+                  <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
+               </svg>
+            </button>
+         </div>
+      </div>
+   </div>
+</div>
 
-<body>
-  <div class="chat-frame">
-    <div class="chat-content">
-      <div id="history"></div>
-    </div>
-    <div class="chat-footer">
-      <input id="message" autocomplete="off"><button id="send">Send</button>
-    </div>
-  </div>
+<style>
+.scrollbar-w-2::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
 
-  <script type="module">
-    import SaihuBot from './packages/core/src/saihubot.js';
-    import basicAdapter from './packages/html-adapter/saihubot-html-adapter.js';
-    import localforageBrain from './packages/html-adapter/saihubot-html-brain-localforage.js';
-    import { addons as dialogAddons } from './packages/html-adapter/saihubot-html-addon-dialog.js';
-    import { addons as searchAddons } from './packages/html-adapter/saihubot-html-addon-search.js';
-    import { skills as helpSkills } from '../packages/html-adapter/saihubot-html-skill-help.js';
-    import { skills as diagnosSkills } from '../packages/skill-diagnostics/index.js';
-    import { skills as searchSkills } from '../packages/skill-search/index.js';
+.scrollbar-track-blue-lighter::-webkit-scrollbar-track {
+  --bg-opacity: 1;
+  background-color: #f7fafc;
+  background-color: rgba(247, 250, 252, var(--bg-opacity));
+}
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const skillHome = {
-        name: 'home',
-        help: 'home - search github for saihubot',
-        requirements: {},
-        rule: /HOME/i,
-        action: function(robot, msg) {
-          robot.ask('github saihubot');
-        },
-      };
-      const skillSample = {
-        name: 'sample',
-        help: 'sample - show saihu samples',
-        requirements: {},
-        rule: /SAMPLE/i,
-        action: function(robot, msg) {
-          robot.addons.confirm('Here are samples', [
-            {
-              title: 'hello',
-              id: 'hello',
-              rule: /hello/i,
-              action: function() {
-                robot.send('Open hello bot sample');
-                robot.render();
-                window.open('samples/index.html', '_blank');
-              },
-            },
-            {
-              title: 'skill',
-              id: 'skill',
-              rule: /SKILL/i,
-              action: function() {
-                robot.send('Open skill sample');
-                robot.render();
-                window.open('samples/skill.html', '_blank');
-              }
-            }
-          ]);
-        }
-      };
+.scrollbar-thumb-blue::-webkit-scrollbar-thumb {
+  --bg-opacity: 1;
+  background-color: #edf2f7;
+  background-color: rgba(237, 242, 247, var(--bg-opacity));
+}
 
-      var message = document.createElement('span');
-      var line1 = document.createTextNode('🤖 Hello! type `echo bot` see what\'s happened');
-      message.appendChild(line1);
-      // var line2 = document.createElement('a');
-      // line2.href = "https://github.com/gasolin/saihubot/";
-      // line2.textContent = "Download Saihubot";
-      // message.appendChild(line2);
+.scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  border-radius: 0.25rem;
+}
+</style>
 
-      new SaihuBot({
-        adapter: basicAdapter,
-        brain: localforageBrain,
-        welcomeMessage: message,
-        notFoundMessages: [
-          'type `ping`, `time`, or `echo [message]` to see what\'s happened',
-          'type `google [keyword]`, `wiki [keyword]` to search',
-          'type `help` for full sample commands list',
-          'Want more samples? type `samples`',
-          'Try refresh the page, messages are cached locally',
-          'type `github saihubot` to visit me and give a star!',
-          'you can ask anything ex: `siri who is current Us president?`',
-        ],
-        botAlias: "🤖",
-        userAlias: "😎",
-        addons: [...dialogAddons, ...searchAddons],
-        skills: [...helpSkills, ...diagnosSkills, ...searchSkills, skillHome, skillSample],
-        debug: false,
-      });
-    });
-  </script>
-  <script src="samples/ga.js"></script>
+<script type="module">
+  import './samplebot.js';
+</script>
+<script src="samples/ga.js"></script>
 </body>
-
 </html>

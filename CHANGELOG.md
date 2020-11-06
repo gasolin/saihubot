@@ -1,10 +1,11 @@
 ## 0.28 2020/11/6
 
 Break Change
-- [saihubot-html-adapter] rename `unsafe_sendHTML` to `unsafe_sendComponent`
 - [saihubot] turn `welcomeMessage` to a text message
+- [saihubot-html-adapter] rename `unsafe_sendHTML` to `unsafe_sendComponent`
 
 Feature
+- More Polished Chat UI, credit https://tailwindcomponents.com/component/chat
 - [saihubot] add `renderMessage, renderComponent, userAlias, botAlias` in config
 - [saihubot-html-adapter] support render user/bot message with provided function (renderMessage, renderComponent)
 
@@ -15,8 +16,8 @@ Refactor
 - [saihu] update packages
 
 Fix
-- [saihubot-html-addon-dialog] fix typo
-- [saihubot-html-addon-search] show correct message element
+- [saihubot-html-adapter] fix typo in addon-dialog
+- [saihubot-html-adapter] show correct message element in addon-search
 
 ## 0.27 2020/11/2
 
