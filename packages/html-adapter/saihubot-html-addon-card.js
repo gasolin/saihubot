@@ -59,7 +59,7 @@ export const addonCard = {
       const loadingId = renderLoading(rootElement);
       rootElement.loadingId = loadingId;
     }
-    robot.chatHistory.push(rootElement);
+    robot.adapter.unsafe_sendComponent(rootElement);
     robot.render();
 
     if (typeof asyncAction === 'function') {

@@ -19,6 +19,7 @@ Refactor
 Fix
 - [saihubot-html-adapter] fix typo in addon-dialog
 - [saihubot-html-adapter] show correct message element in addon-search
+- [saihubot-html-adapter] fix addon-card element make history position incorrect
 
 ## 0.27 2020/11/2
 
