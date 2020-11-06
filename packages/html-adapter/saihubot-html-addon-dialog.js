@@ -60,7 +60,6 @@ export const addonConfirm = {
       confirmBtn.textContent = item.title;
       if (item.action) {
         confirmBtn.addEventListener('click', handleEvent(item.action, idx));
-        // SaihuBot.prototype.responses.push(item[1]);
       }
       confirmDlg.appendChild(confirmBtn);
       if (idx !== items.length - 1) {
@@ -85,7 +84,7 @@ export const addonConfirm = {
         robot.adapter.resumeMsgParse();
       } else {
         // eslint-disable-next-line max-len
-        robot.send('Can not recognnize, would you click the option or try another term?');
+        robot.send('Can not recognize, would you click the option or try another term?');
       }
       robot.render();
     });
