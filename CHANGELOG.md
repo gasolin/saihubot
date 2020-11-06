@@ -14,6 +14,10 @@ Refactor
 - [saihubot-html-adapter][saihubot-cli-adapter] refactor `send` and `unsafe_sendComponent` with defaultRenderMessage and defaultRenderComponent
 - [saihu] update packages
 
+Fix
+- [saihubot-html-addon-dialog] fix typo
+- [saihubot-html-addon-search] show correct message element
+
 ## 0.27 2020/11/2
 
 Feature
