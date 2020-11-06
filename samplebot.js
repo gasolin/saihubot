@@ -3,9 +3,9 @@ import basicAdapter from './packages/html-adapter/saihubot-html-adapter.js';
 import localforageBrain from './packages/html-adapter/saihubot-html-brain-localforage.js';
 import {addons as dialogAddons} from './packages/html-adapter/saihubot-html-addon-dialog.js';
 import {addons as searchAddons} from './packages/html-adapter/saihubot-html-addon-search.js';
-import {skills as helpSkills} from '../packages/html-adapter/saihubot-html-skill-help.js';
-import {skills as diagnosSkills} from '../packages/skill-diagnostics/index.js';
-import {skills as searchSkills} from '../packages/skill-search/index.js';
+import {skills as helpSkills} from './packages/html-adapter/saihubot-html-skill-help.js';
+import {skills as diagnosSkills} from './packages/skill-diagnostics/index.js';
+import {skills as searchSkills} from './packages/skill-search/index.js';
 
 // <div class="chat-message">
 //     <div class="flex items-end">
