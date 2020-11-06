@@ -57,6 +57,7 @@ export const addonConfirm = {
     // respond to click events
     items.forEach((item, idx) => {
       const confirmBtn = document.createElement('button');
+      confirmBtn.className = 'dialog-option';
       confirmBtn.textContent = item.title;
       if (item.action) {
         confirmBtn.addEventListener('click', handleEvent(item.action, idx));
@@ -100,6 +101,7 @@ export const addonDialogSelected = {
     // remove SaihuBot.prototype.responses item;
     robot.chatHistory.pop();
     const confirmBtn = document.createElement('button');
+    confirmBtn.className = 'dialog-selected';
     confirmBtn.disabled = true;
     items.forEach((item, idx) => {
       if (typeof item === 'string') {
