@@ -9,6 +9,7 @@ Enhancement
 
 Fix
 - [saihubot-cli-adapter] fix the send/sendComponent
+- [saihubot-html] fix web UI send button of mobile layout
 
 ## 0.29 2020/11/6
 
