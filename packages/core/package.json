@@ -1,6 +1,6 @@
 {
   "name": "saihubot",
-  "version": "0.30.0",
+  "version": "0.30.2",
   "description": "Frontend framework to build message/chatbot ops, no server required.",
   "main": "dist/saihubot.js",
   "scripts": {
