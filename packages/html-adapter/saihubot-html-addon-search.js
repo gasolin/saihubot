@@ -23,7 +23,8 @@ export const addonFetch = {
   requirements: {
     adapters: ['html'],
   },
-  action: (robot) => window.fetch,
+  // https://stackoverflow.com/questions/44720448/fetch-typeerror-failed-to-execute-fetch-on-window-illegal-invocation
+  action: (robot) => window.fetch.bind(window),
 };
 
 /**

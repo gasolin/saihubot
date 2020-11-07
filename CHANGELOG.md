@@ -10,6 +10,7 @@ Enhancement
 Fix
 - [saihubot-cli-adapter] fix the send/sendComponent
 - [saihubot-html] fix web UI send button of mobile layout
+- [saihubot-html-adapter] fix addonFetch in saihubot-html-addon-search
 
 ## 0.29 2020/11/6
 
