@@ -232,6 +232,7 @@ SaihuBot.prototype = {
   hasRightDependency: function(requirements) {
     if (typeof requirements !== 'object') {
       console.error('missed the requirements definition');
+      return;
     }
     this.DEBUG && console.log('requirements', JSON.stringify(requirements));
     const {adapters = [], addons = [], skills = []} = requirements;
