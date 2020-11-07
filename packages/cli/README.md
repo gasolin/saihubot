@@ -1,12 +1,22 @@
 # Saihubot-cli
 
-:robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Command Line**, no server required.
+:robot: Sample :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Command Line**, no server required.
 
 The Saihubot-cli project is derived from https://github.com/gasolin/saihubot , and can share most of skills between them.
 
 # Try it
 
-Install via
+Run
+
+`npx saihu tr ecosystem`
+
+Will trigger the command to search the `ecosystem` from Google Translate (what shortcut `tr` did)
+
+There are plenty of build-in skills, try `npx saihu help` to see them all.
+
+## Install Globally
+
+install via
 
 `npm install -g saihu`
 
@@ -24,9 +34,9 @@ $ saihu tr [word] // shortcut of googletranslate
 
 # Customize
 
-You can download the project source from https://github.com/gasolin/saihubot/tree/gh-pages/src/packages/cli and modify to customize your cli bot.
+You can build your own bot by clone the project from https://github.com/gasolin/saihubot/tree/gh-pages/src/packages/cli and modify to customize your command line bot.
 
-More skills can be found in https://github.com/gasolin/saihubot/tree/gh-pages/src/skills
+More skills and packages can be found in https://github.com/gasolin/saihubot/tree/gh-pages/src/packages
 
 ## Install
 
@@ -50,6 +60,8 @@ $ saihu --help
     $ saihubot-cli --name=Jane
     Hello, Jane
 ```
+
+## Debugging
 
 ```
 npm start ping -- --debug
