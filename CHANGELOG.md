@@ -7,6 +7,9 @@ Break Change
 Enhancement
 - [saihubot] build-in the adapter/addon/skill dependency check
 
+Fix
+- [saihubot-cli-adapter] fix the send/sendComponent
+
 ## 0.29 2020/11/6
 
 Break Change

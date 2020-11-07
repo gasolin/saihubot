@@ -4,11 +4,11 @@ import {render} from 'ink';
 import Markdown from 'ink-markdown';
 import dedent from 'dedent';
 
-const defaultRenderMessage = (charactor, msg, role) => (
+const defaultRenderMessage = (msg, charactor, role) => (
   <Markdown>{dedent(msg)}</Markdown>
 );
 
-const defaultRenderComponent = (charactor, element, role) => element;
+const defaultRenderComponent = (element, charactor, role) => element;
 
 // Commandline adapter based on https://github.com/vadimdemedes/ink
 const cliAdapter = (cli) => ({
@@ -45,8 +45,18 @@ const cliAdapter = (cli) => ({
     chatHistory.push(messageElement);
   },
 
-  ask: function(msg) {
-    this.robot.processListeners(msg);
+  sendComponent: function(element, role = 'bot') {
+    const {
+      botAlias,
+      userAlias,
+      chatHistory,
+      renderComponent,
+    } = this.robot;
+    const charactor = role === 'bot' ? botAlias : userAlias;
+    const messageElement = typeof renderComponent === 'function' ?
+      renderComponent(element, charactor, role) :
+      defaultRenderComponent(element, charactor, role);
+    chatHistory.push(messageElement);
   },
 
   render: function() {
@@ -57,20 +67,6 @@ const cliAdapter = (cli) => ({
     if (chatHistory.length > 0) {
       render(chatHistory[chatHistory.length - 1]);
     }
-  },
-
-  sendComponent: function(element, role = 'bot') {
-    const {
-      botAlias,
-      userAlias,
-      chatHistory,
-      renderComponent,
-    } = this.robot;
-    const charactor = role === 'bot' ? botAlias : userAlias;
-    const messageElement = typeof renderComponent === 'function' ?
-      renderComponent(charactor, element, role) :
-      defaultRenderComponent(charactor, element, role);
-    chatHistory.push(messageElement);
   },
 });
 
