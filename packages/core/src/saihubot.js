@@ -1,7 +1,7 @@
 'use strict';
 
+// essential functions
 const defaultAdapter = {
-  // essential functions
   name: 'default',
   run: function(robot) {
     console.log('go pick an adapter instead!');
@@ -13,7 +13,7 @@ const defaultAdapter = {
   send: function(msg, role) {
     console.log('send text message', msg);
   },
-  unsafe_sendComponent: function(element, role) {
+  sendComponent: function(element, role) {
     console.log('send element');
   },
   render: function() {
@@ -204,6 +204,10 @@ SaihuBot.prototype = {
   // public APIs
   send: function(msg, role) {
     this.adapter.send(msg, role);
+  },
+
+  sendComponent: function(element, role) {
+    this.adapter.sendComponent(element, role);
   },
 
   ask: function(msg) {

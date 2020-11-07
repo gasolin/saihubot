@@ -68,24 +68,8 @@ const htmlAdapter = {
     chatHistory.push(messageElement);
   },
 
-  render: function() {
-    const {
-      DEBUG,
-      chatHistory,
-    } = this.robot;
-    DEBUG && console.log('render!');
-    this.cleanUp();
-    chatHistory.forEach((element) => {
-      this.history.appendChild(element);
-    });
-    if (chatHistory.length > 1) {
-      chatHistory[chatHistory.length - 1].scrollIntoView();
-    }
-  },
-
-  // supportive functions
   // send html element with bot
-  unsafe_sendComponent: function(element, role = 'bot') {
+  sendComponent: function(element, role = 'bot') {
     const {
       botAlias,
       userAlias,
@@ -103,6 +87,22 @@ const htmlAdapter = {
     }
   },
 
+  render: function() {
+    const {
+      DEBUG,
+      chatHistory,
+    } = this.robot;
+    DEBUG && console.log('render!');
+    this.cleanUp();
+    chatHistory.forEach((element) => {
+      this.history.appendChild(element);
+    });
+    if (chatHistory.length > 1) {
+      chatHistory[chatHistory.length - 1].scrollIntoView();
+    }
+  },
+
+  // supportive functions
   cleanUp: function() {
     while (this.history.firstChild) {
       this.history.removeChild(this.history.firstChild);

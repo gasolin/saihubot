@@ -67,7 +67,7 @@ export const addonConfirm = {
         confirmDlg.appendChild(document.createElement('br'));
       }
     });
-    robot.adapter.unsafe_sendComponent(confirmDlg);
+    robot.sendComponent(confirmDlg);
 
     // respond to input events
     robot.adapter.delegateMsgParse((msg) => {
@@ -113,7 +113,7 @@ export const addonDialogSelected = {
         return;
       }
     });
-    robot.adapter.unsafe_sendComponent(confirmBtn);
+    robot.sendComponent(confirmBtn);
   },
 };
 

@@ -59,8 +59,7 @@ const cliAdapter = (cli) => ({
     }
   },
 
-  // supportive functions
-  unsafe_sendComponent: function(element, role = 'bot') {
+  sendComponent: function(element, role = 'bot') {
     const {
       botAlias,
       userAlias,

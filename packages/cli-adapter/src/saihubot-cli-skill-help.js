@@ -16,7 +16,7 @@ export const skillHelp = {
       return skill.help ? `* ${skill.help}` : `* ${skill.name}`;
     });
 
-    robot.adapter.unsafe_sendComponent(
+    robot.sendComponent(
         <Text>
           {`I have ${availableSkills.length} skills:\n${availableSkills.join('\n')}`}
         </Text>
