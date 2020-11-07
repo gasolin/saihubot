@@ -32,7 +32,7 @@ const SelectBox = ({handleSelect, title, items}) => {
 export const addonConfirm = {
   name: 'confirm',
   requirements: {
-    platform: ['cli'],
+    adapters: ['cli'],
   },
   action: (robot) => (title, items) => {
     const handleSelect = (item) => {

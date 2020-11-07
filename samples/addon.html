@@ -34,7 +34,9 @@
       const skillBye = {
         name: 'bye',
         help: 'confirm before leave',
-        requirements: [],
+        requirements: {
+          addons: 'confirm',
+        },
         rule: /BYE$/i,
         action: function(robot, msg) {
           robot.addons.confirm('would you like to exit?', [
@@ -64,7 +66,9 @@
         name: 'go',
         rule: /home$/i,
         help: 'home - open saihubot website',
-        requirements: [],
+        requirements: {
+          addons: 'confirm',
+        },
         action: function(robot, msg) {
           robot.addons.confirm('visit Saihubot website', [
             {

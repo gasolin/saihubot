@@ -1,7 +1,7 @@
 export const skillToday = {
   name: 'today',
   help: 'today - Show today selections',
-  requirements: [],
+  requirements: {},
   rule: /^TODAY/i,
   action: function(robot, msg) {
     robot.addons.confirm('What\'s up Today?', [

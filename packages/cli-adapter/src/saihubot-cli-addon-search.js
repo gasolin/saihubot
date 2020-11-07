@@ -40,7 +40,7 @@ export const addonFetch = {
 export const addonSearch = {
   name: 'search',
   requirements: {
-    platform: ['cli'],
+    adapters: ['cli'],
   },
   action: (robot) => (action, term, url, engine) => {
     robot.send(`${action} [${term}](${url}) via ${engine}`);

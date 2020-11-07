@@ -34,7 +34,9 @@
       const skillCount = {
         name: 'count',
         help: 'count down any number',
-        requirements: [],
+        requirements: {
+          addons: 'card',
+        },
         rule: /count (.*)/i,
         action: function(robot, msg) {
           robot.addons.card({
