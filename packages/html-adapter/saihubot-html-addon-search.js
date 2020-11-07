@@ -10,7 +10,7 @@ function openTab(url) {
 export const addonOpenLink = {
   name: 'openLink',
   requirements: {
-    platform: ['html'],
+    adapters: ['html'],
   },
   action: (robot) => (url) => openTab(url),
 };
@@ -21,7 +21,7 @@ export const addonOpenLink = {
 export const addonFetch = {
   name: 'fetch',
   requirements: {
-    platform: ['cli'],
+    adapters: ['html'],
   },
   action: (robot) => window.fetch,
 };

@@ -14,7 +14,7 @@ function getRandomId() {
 export const addonGetRandomId = {
   name: 'getRandomId',
   requirements: {
-    adapters: ['all'],
+    adapters: ['html'],
   },
   action: (robot) => getRandomId,
 };

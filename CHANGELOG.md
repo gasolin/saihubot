@@ -4,6 +4,9 @@ Break Change
 - [saihubot] expose `sendComponent` method from adapter
 - [saihubot-html-adapter][saihubot-cli-adapter] rename `unsafe_sendComponent` to `sendComponent`
 
+Enhancement
+- [saihubot] build-in the adapter/addon/skill dependency check
+
 ## 0.29 2020/11/6
 
 Break Change

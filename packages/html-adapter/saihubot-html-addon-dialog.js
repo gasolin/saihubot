@@ -31,7 +31,7 @@ export const addonPrompt = {
 export const addonConfirm = {
   name: 'confirm',
   requirements: {
-    platform: ['html'],
+    adapters: ['html'],
   },
   action: (robot) => (title, items) => {
     const confirmDlg = document.createElement('p');
@@ -95,7 +95,7 @@ export const addonConfirm = {
 export const addonDialogSelected = {
   name: 'dialogSelected',
   requirements: {
-    platform: ['html'],
+    adapters: ['html'],
   },
   action: (robot) => (selected, items) => {
     // remove SaihuBot.prototype.responses item;

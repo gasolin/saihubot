@@ -189,16 +189,27 @@ SaihuBot.prototype = {
       console.log(`invalid skill ${skill.name}`);
       console.log(`please define name, rule and action`);
     }
-    this.responses.push(skill);
+    if (this.hasRightDependency(skill.requirements)) {
+      this.responses.push(skill);
+    } else {
+      console.error(`${skill.name} skill require
+        ${JSON.stringify(skill.requirements)}`);
+    }
   },
 
   loadAddon: function(addon) {
     this.DEBUG && console.log('load addon ', addon.name);
     if (!addon || !addon.name || !addon.action ||
       typeof addon.action !== 'function') {
-      console.log(`invalid addon ${addon.name}, please define name and action`);
+      console.error(`invalid addon ${addon.name},
+        please define name and action`);
     }
-    this.addons[addon.name] = addon.action(this);
+    if (this.hasRightDependency(addon.requirements)) {
+      this.addons[addon.name] = addon.action(this);
+    } else {
+      console.error(`${addon.name} addon requires
+        ${JSON.stringify(addon.requirements.adapters)}`);
+    }
   },
 
   // public APIs
@@ -216,6 +227,31 @@ SaihuBot.prototype = {
 
   render: function() {
     this.adapter.render();
+  },
+
+  hasRightDependency: function(requirements) {
+    if (typeof requirements !== 'object') {
+      console.error('missed the requirements definition');
+    }
+    this.DEBUG && console.log('requirements', JSON.stringify(requirements));
+    const {adapters = [], addons = [], skills = []} = requirements;
+    let validAdapters = true;
+    let validAddons = true;
+    let validSkills = true;
+    if (adapters.length !== 0) {
+      validAdapters = adapters.includes(this.adapter.name);
+    }
+    if (addons.length !== 0) {
+      validAddons = addons.every((name) =>
+        Object.keys(this.addons).includes(name));
+    }
+    if (skills.length !== 0) {
+      validSkills = skills.every((name) =>
+        this.responses.map((skill) => skill.name).includes(name));
+    }
+    const isValid = validAdapters && validAddons && validSkills;
+    this.DEBUG && console.log(isValid ? 'valid' : 'invalid');
+    return isValid;
   },
 };
 
