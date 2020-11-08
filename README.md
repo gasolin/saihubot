@@ -28,19 +28,19 @@ Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 | Module  | Version | Description | Doc |
 | --------|---------|-------------|-----|
-| [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/core#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://badge.fury.io/js/saihubot) | core module|[Doc](https://github.com/gasolin/saihubot/tree/gh-pages/docs/saihubot) |
-| [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://badge.fury.io/js/saihu) | Sample Command line bot |[Doc](https://github.com/gasolin/saihubot/tree/gh-pages/docs/saihu) |
-| [Web samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples) | [Online Demo](https://gasolin.github.io/saihubot/) | |
+| [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/core#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://badge.fury.io/js/saihubot) | core module|[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot/) |
+| [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://badge.fury.io/js/saihu) | Sample Command line bot |[Doc](http://gasolin.idv.tw/saihubot/docs/saihu) |
+| [Web samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples) | [Online Demos](https://gasolin.github.io/saihubot/) | |
 
-| Adapters | Version | Description |
-| --------|---------|-------------|
-|[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-html-adapter.svg)](https://badge.fury.io/js/saihubot-html-adapter) |HTML |[Doc](https://github.com/gasolin/saihubot/tree/gh-pages/docs/saihubot-html-adapter) |
-|[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-adapter.svg)](https://badge.fury.io/js/saihubot-cli-adapter) |Command Line |[Doc](https://github.com/gasolin/saihubot/tree/gh-pages/docs/saihubot-cli-adapter) |
+| Adapters | Version | Description | Doc |
+| --------|---------|-------------|-----|
+|[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-html-adapter.svg)](https://badge.fury.io/js/saihubot-html-adapter) |HTML |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-html-adapter) |
+|[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-adapter.svg)](https://badge.fury.io/js/saihubot-cli-adapter) |Command Line |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-adapter) |
 
-| Adapters | Version | Description |
-| --------|---------|-------------|
-|[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://badge.fury.io/js/saihubot-skill-search) | Search engines |[Doc](https://github.com/gasolin/saihubot/tree/gh-pages/docs/saihubot-skill-search) |
-|[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://badge.fury.io/js/saihubot-skill-diagnostics) | ping, echo, current time | [Doc](https://github.com/gasolin/saihubot/tree/gh-pages/docs/saihubot-skill-diagnostics) |
+| Adapters | Version | Description | Doc |
+| --------|---------|-------------|-----|
+|[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://badge.fury.io/js/saihubot-skill-search) | Search engines |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-search) |
+|[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://badge.fury.io/js/saihubot-skill-diagnostics) | ping, echo, current time | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-diagnostics) |
 
 ## How to use
 

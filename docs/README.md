@@ -4,6 +4,21 @@ permalink: /docs/index.html
 layout: docs
 ---
 
+Documentation
+
+- [saihubot](http://gasolin.idv.tw/saihubot/docs/saihubot/) Core
+- [Saihu](http://gasolin.idv.tw/saihubot/docs/saihu) the sample command line bot
+
+Adapters
+
+- [saihubot-html-adapter](http://gasolin.idv.tw/saihubot/docs/saihubot-html-adapter)
+- [saihubot-cli-adapter](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-adapter)
+
+Skill
+
+- [saihubot-skill-search](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-search)
+- [saihubot-skill-diagnostics](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-diagnostics)
+
 ## Getting Started With Saihubot
 
 ## Developer
