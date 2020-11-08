@@ -102,6 +102,32 @@ You can use online tools such as [regex101](https://regex101.com/) to debug js r
 
 Make sure you've selected ECMAScript(Javascript) in the `FLAVOR` menu.
 
+## Publish
+
+```sh
+git clone https://github.com/gasolin/saihubot.git
+cd saihubot
+npm install -g documentation
+npm install
+```
+
+Update doc
+
+```sh
+npx lerna run doc
+```
+
+Build runable version
+
+```
+npm run build
+```
+
+Publish new version
+```
+npm run publish
+```
+
 ## FAQ
 
 * How to customize skill's alias? For example, if I want change `google [term]` search to `ok [term]`.

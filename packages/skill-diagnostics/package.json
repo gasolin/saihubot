@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "babel --root-mode=upward index.js saihubot-skill-diagnostics.js --out-dir ./dist --copy-files",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && npm run doc",
+    "doc": "documentation build index.js -f html -o ../../docs/saihubot-skill-diagnostics"
   },
   "repository": {
     "type": "git",

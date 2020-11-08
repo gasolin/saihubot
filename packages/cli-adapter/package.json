@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "babel --root-mode=upward ./src --out-dir ./dist --copy-files",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build && npm run doc",
+    "doc": "documentation build src -f html -o ../../docs/saihubot-cli-adapter"
   },
   "repository": {
     "type": "git",

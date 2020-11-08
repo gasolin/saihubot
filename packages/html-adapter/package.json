@@ -2,6 +2,10 @@
   "name": "saihubot-html-adapter",
   "version": "0.30.4",
   "description": "Saihubot html adapter with some bundled addons.",
+  "scripts": {
+    "prepublish": "npm run doc",
+    "doc": "documentation build *.js -f html -o ../../docs/saihubot-html-adapter"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gasolin/saihubot.git"

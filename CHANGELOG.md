@@ -1,4 +1,4 @@
-## 0.30 2020/11/7
+## 0.30 2020/11/8
 
 Break Change
 - [saihubot] expose `sendComponent` method from adapter
