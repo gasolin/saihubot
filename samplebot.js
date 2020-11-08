@@ -1,4 +1,4 @@
-import SaihuBot from './packages/core/src/saihubot.js';
+import SaihuBot from './packages/saihubot/src/saihubot.js';
 import basicAdapter from './packages/html-adapter/saihubot-html-adapter.js';
 import localforageBrain from './packages/html-adapter/saihubot-html-brain-localforage.js';
 import {addons as dialogAddons} from './packages/html-adapter/saihubot-html-addon-dialog.js';

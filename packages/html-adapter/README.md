@@ -27,7 +27,7 @@ Then includes the `saihubot.js` in your HTML file with a div tag for message his
   <div id="history"></div>
   <input id="message"><button id="send">Send</button>
   <script type="module">
-    import SaihuBot from './node_modules/saihubot-core/src/saihubot.js';
+    import SaihuBot from './node_modules/saihubot/src/saihubot.js';
     import htmlAdapter from './node_modules/html-adapter/saihubot-html-adapter.js';
     import { skills } from './node_modules/saihubot-skill-diagnostics/index.js';
 
