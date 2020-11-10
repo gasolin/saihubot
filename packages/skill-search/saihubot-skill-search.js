@@ -1,5 +1,6 @@
 'use strict';
 
+/** Search with Duckduckgo */
 export const skillSearchDuckduckgo = {
   name: 'duckduckgo',
   help: 'duckduckgo [term] - search [term] with DuckDuckgo',
@@ -13,6 +14,7 @@ export const skillSearchDuckduckgo = {
   },
 };
 
+/** Search with Wikipedia */
 export const skillSearchWikipedia = {
   name: 'wikipedia',
   help: 'wikipedia|w|wiki [term] - search wikipedia with [term]',
@@ -26,6 +28,7 @@ export const skillSearchWikipedia = {
   },
 };
 
+/** Search with Github */
 export const skillSearchGithub = {
   name: 'github',
   help: 'github|gh [term] - search github with [term]',
@@ -39,6 +42,7 @@ export const skillSearchGithub = {
   },
 };
 
+/** Search with Google */
 export const skillSearchGoogle = {
   name: 'google',
   help: 'google|g [term] - google search with [term]',
@@ -52,6 +56,7 @@ export const skillSearchGoogle = {
   },
 };
 
+/** Search with Google Translate */
 export const skillSearchGoogletranslate = {
   name: 'googletranslate',
   help: 'translate|tr|trans|gt [term] - translate [term] with google translate',
@@ -65,6 +70,7 @@ export const skillSearchGoogletranslate = {
   },
 };
 
+/** Search with Google Images */
 export const skillSearchGoogleimages = {
   name: 'googleimages',
   help: 'images|image|gi [term] - search [term] with google images',
@@ -78,6 +84,7 @@ export const skillSearchGoogleimages = {
   },
 };
 
+/** Search with Google Maps */
 export const skillSearchGooglemaps = {
   name: 'googlemaps',
   help: 'maps|map|gm [term] - search [term] with google maps',
@@ -91,6 +98,7 @@ export const skillSearchGooglemaps = {
   },
 };
 
+/** Search with Youtube */
 export const skillSearchYoutube = {
   name: 'youtube',
   help: 'youtube|yt [term] - search [term] with Youtube',
@@ -104,6 +112,7 @@ export const skillSearchYoutube = {
   },
 };
 
+/** Search with MDN */
 export const skillSearchMdn = {
   name: 'mdn',
   help: 'mdn [term] - search [term] with Mozilla Developer Network',
@@ -117,6 +126,7 @@ export const skillSearchMdn = {
   },
 };
 
+/** Search with NPM */
 export const skillSearchNpm = {
   name: 'npm',
   help: 'npm [term] - search [term] with npm',
@@ -130,6 +140,7 @@ export const skillSearchNpm = {
   },
 };
 
+/** Search with Twitter */
 export const skillSearchTwitter = {
   name: 'twitter',
   help: 'twitter [term] - search [term] with twitter',
@@ -143,6 +154,7 @@ export const skillSearchTwitter = {
   },
 };
 
+/** Search with StackOverflow */
 export const skillSearchStackoverflow = {
   name: 'stackoverflow',
   help: 'stackoverflow|stack|so [term] - search [term] with StackOverflow',
@@ -156,6 +168,7 @@ export const skillSearchStackoverflow = {
   },
 };
 
+/** Search with Wolfram */
 export const skillSearchWolfram = {
   name: 'wolfram',
   help: 'wolfram|wolf|wo [term] - search [term] with Wolfram Alpha',
@@ -166,6 +179,20 @@ export const skillSearchWolfram = {
   action: function(robot, msg) {
     const url = 'https://www.wolframalpha.com/input/?i=' + encodeURIComponent(msg[2]);
     robot.addons.search('Search', msg[2], url, 'Wolfram Alpha');
+  },
+};
+
+/** Search with Cheat.sh */
+export const skillSearchCheatsh = {
+  name: 'cheatsh',
+  help: 'cheat|cheatsh [term] - search [term] with cheat.sh',
+  requirements: {
+    addons: ['search'],
+  },
+  rule: /(^cheat |^cheatsh |^cheat\.sh )(.*)/i,
+  action: function(robot, msg) {
+    const url = 'https://cheat.sh/' + encodeURIComponent(msg[2]);
+    robot.addons.search('Search', msg[2], url, 'Cheat.sh');
   },
 };
 
@@ -183,6 +210,7 @@ const skills = [
   skillSearchTwitter,
   skillSearchStackoverflow,
   skillSearchWolfram,
+  skillSearchCheatsh,
 ];
 
 export {skills};

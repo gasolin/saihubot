@@ -119,8 +119,14 @@ function SaihuBot(config) {
 }
 
 SaihuBot.prototype = {
+  /** Host all support skills */
   responses: [],
 
+  /**
+   * render not found messages.
+   *
+   * @param {string} msg origin message
+   */
   catchAll: function(msg) {
     const msgLen = this.notFoundMessages.length;
     this.adapter.send(
@@ -163,6 +169,11 @@ SaihuBot.prototype = {
     setTimeout(this.saveChanges.bind(this), 0);
   },
 
+  /**
+   * Check if input message matched with any skill.
+   *
+   * @param {string} msg message to process
+   */
   processListeners: function(msg) {
     let matched = false;
     this.responses.forEach((item) => {
@@ -213,22 +224,54 @@ SaihuBot.prototype = {
   },
 
   // public APIs
+  /**
+   * Send text based message to bot.
+   *
+   * @param {string} msg input message
+   * @param {string} role who send the message ('bot' or 'user')
+   */
   send: function(msg, role) {
     this.adapter.send(msg, role);
   },
 
+  /**
+   * Send object based message to bot.
+   * the object depends on adapter's implementation.
+   *
+   * @param {string} element input object
+   * @param {string} role who send the message ('bot' or 'user')
+   */
   sendComponent: function(element, role) {
     this.adapter.sendComponent(element, role);
   },
 
+  /**
+   * Send text based message to reuse other skill.
+   * Will not show in chat history.
+   *
+   * @param {string} msg input message
+   */
   ask: function(msg) {
     this.processListeners(msg);
   },
 
+  /** Render result to screen. */
   render: function() {
     this.adapter.render();
   },
 
+  /**
+   * To validate requirements.
+   *
+   * @param {Object} requirements
+   * @param {string[]} requirements.adapters - requirements definition
+   * from adapters
+   * @param {string[]} requirements.addons - requirements definition
+   * from addons
+   * @param {string[]} requirements.skills - requirements definition
+   * from skills
+   * @return {boolean} result - the requirements is valid or not
+   */
   hasRightDependency: function(requirements) {
     if (typeof requirements !== 'object') {
       console.error('missed the requirements definition');

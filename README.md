@@ -28,7 +28,7 @@ Check [Online Demo](https://gasolin.github.io/saihubot/)
 
 | Module  | Version | Description | Doc |
 | --------|---------|-------------|-----|
-| [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/core#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://badge.fury.io/js/saihubot) | core module|[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot/) |
+| [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/saihubot#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://badge.fury.io/js/saihubot) | core module|[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot/) |
 | [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://badge.fury.io/js/saihu) | Sample Command line bot |[Doc](http://gasolin.idv.tw/saihubot/docs/saihu) |
 | [Web samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples) | [Online Demos](https://gasolin.github.io/saihubot/) | |
 

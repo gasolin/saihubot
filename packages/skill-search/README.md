@@ -15,6 +15,7 @@ Saihubot-skill-search provide a range of search skills that works for HTML and C
 * Twitter (twitter [term])
 * Stackoverflow (stackoverflow|stack|so [term])
 * Wolfram (wolfram|wolf|wo [term])
+* Cheat.sh (cheat |cheatsh |cheat.sh [term])
 
 ## Install
 

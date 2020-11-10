@@ -5,6 +5,9 @@ Break Change
 - [saihubot-html-adapter][saihubot-cli-adapter] rename `unsafe_sendComponent` to `sendComponent`
 - renname package `core` to `saihubot`
 
+Feature
+- [saihubot-skill-serch] add Cheat.sh search
+
 Enhancement
 - [saihubot] build-in the adapter/addon/skill dependency check
 
