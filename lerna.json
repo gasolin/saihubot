@@ -1,6 +1,7 @@
 {
   "packages": [
-    "packages/*"
+    "packages/*",
+    "!packages/saihubot-react"
   ],
   "version": "0.30.7"
 }

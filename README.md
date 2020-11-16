@@ -12,6 +12,14 @@ Saihubot's API is inspired by [hubot](https://github.com/github/hubot/)'s API, s
 
 Check [Online Demo](https://gasolin.github.io/saihubot/)
 
+![Imgur](https://i.imgur.com/zoLMvTG.png)
+
+Or run the command bot without install
+
+```sh
+npx saihu npm saihu
+```
+
 ## Features
 
 * Chatbot works in multiple platforms, without server setup.
