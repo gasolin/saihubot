@@ -1,6 +1,6 @@
 {
   "name": "saihubot-skill-diagnostics",
-  "version": "0.30.6",
+  "version": "0.31.0",
   "description": "Saihubot diagnostics skills: echo, ping, time.",
   "main": "dist/index.js",
   "files": [

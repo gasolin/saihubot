@@ -1,6 +1,6 @@
 {
   "name": "saihubot-cli-skill-qrcode",
-  "version": "0.30.6",
+  "version": "0.31.0",
   "description": "Saihubot qrcode skill for command line",
   "main": "dist/index.js",
   "files": [
