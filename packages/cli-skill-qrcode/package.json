@@ -1,0 +1,35 @@
+{
+  "name": "saihubot-cli-skill-qrcode",
+  "version": "0.30.6",
+  "description": "Saihubot qrcode skill for command line",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**",
+    "index.js",
+    "saihubot-cli-skill-qrcode.js"
+  ],
+  "scripts": {
+    "build": "babel --root-mode=upward index.js saihubot-cli-skill-qrcode.js --out-dir ./dist --copy-files",
+    "prepublish": "npm run build && npm run doc",
+    "doc": "documentation build index.js -f html -o ../../docs/saihubot-cli-skill-qrcode"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/saihubot.git"
+  },
+  "keywords": [
+    "saihubot-skill"
+  ],
+  "author": "Fred Lin <gasolin+saihubot@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gasolin/saihubot/issues"
+  },
+  "homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme",
+  "dependencies": {
+    "qrcode": "^1.4.4"
+  },
+  "peerDependencies": {
+    "ink": "^3.0.8"
+  }
+}

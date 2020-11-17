@@ -8,6 +8,7 @@ import {
   addonConfirm,
   skillHelp,
 } from 'saihubot-cli-adapter';
+import {skillQRCode} from 'saihubot-cli-skill-qrcode';
 import {skills} from 'saihubot-skill-diagnostics';
 import {skills as searchSkills} from 'saihubot-skill-search';
 import {skillToday} from './saihubot-skill-today';
@@ -39,6 +40,7 @@ const bot = new SaihuBot({
   skills: [
     ...skills,
     ...searchSkills,
+    skillQRCode,
     skillToday,
     skillHelp,
   ],

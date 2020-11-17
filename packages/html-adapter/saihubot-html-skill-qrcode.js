@@ -8,6 +8,7 @@ export const skill_qrcode = {
   help: 'qrcode [text] - Generate QRCode with [text]',
   rule: /qrcode (.*)/i,
   requirements: {
+    adapters: ['html'],
     addons: ['card'],
   },
   action: function(robot, msg) {

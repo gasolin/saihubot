@@ -1,3 +1,9 @@
+## 0.31 2020/11/17
+
+Feature
+- [saihu] add qrcode skill
+- [saihubot-cli-skill-qrcode] add cli qrcode skill
+
 ## 0.30 2020/11/8
 
 Break Change

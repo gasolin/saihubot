@@ -10,7 +10,6 @@
  * Allowed configs:
  * - messageSize: limit saved chatLog size
  */
-// eslint-disable-next-line no-unused-vars
 const localforageBrain = {
   name: 'localforage',
   requirements: {
@@ -41,6 +40,7 @@ const localforageBrain = {
       }
     });
   },
+
   close: function() {
     console.log('close localforage brain');
     this.save();

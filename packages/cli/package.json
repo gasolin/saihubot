@@ -1,93 +1,94 @@
 {
-	"name": "saihu",
-	"version": "0.30.7",
-	"description": "Client side chatbot framework that can be run in the command line",
-	"author": "Fred Lin <gasolin+saihubot@gmail.com>",
-	"license": "MIT",
-	"bin": {
-		"saihu": "./dist/cli.js"
-	},
-	"files": [
-		"dist/**",
-		"src/**"
-	],
-	"engines": {
-		"node": ">=10"
-	},
-	"keywords": [
-		"saihubot",
-		"chatbot",
-		"devops",
-		"cli",
-		"ink",
-		"react"
-	],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/gasolin/saihubot.git"
-	},
-	"bugs": {
-		"url": "https://github.com/gasolin/saihubot/issues"
-	},
-	"homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme",
-	"scripts": {
-		"start": "babel-node --presets @babel/preset-env src/cli.js",
-		"build": "babel --root-mode=upward ./src --out-dir ./dist --copy-files",
-		"prepublish": "npm run build && npm run doc",
-		"doc": "documentation build src -f html -o ../../docs/saihu",
-		"test": "xo && ava"
-	},
-	"dependencies": {
-		"react": "^16.14.0",
-		"saihubot": "^0.30.7",
-		"saihubot-cli-adapter": "^0.30.6",
-		"saihubot-skill-diagnostics": "^0.30.6",
-		"saihubot-skill-search": "^0.30.7"
-	},
-	"devDependencies": {
-		"@ava/babel": "^1.0.1",
-		"@babel/cli": "^7.12.1",
-		"@babel/core": "^7.12.3",
-		"@babel/eslint-parser": "^7.12.1",
-		"@babel/node": "^7.12.6",
-		"@babel/preset-env": "^7.12.1",
-		"@babel/preset-react": "^7.12.5",
-		"@babel/register": "^7.12.1",
-		"ava": "^3.13.0",
-		"chalk": "^4.1.0",
-		"eslint": "^7.12.1",
-		"eslint-config-google": "^0.14.0",
-		"eslint-config-xo-react": "^0.23.0",
-		"eslint-plugin-react": "^7.21.5",
-		"eslint-plugin-react-hooks": "^4.2.0",
-		"ink-testing-library": "^2.1.0",
-		"xo": "^0.34.2"
-	},
-	"ava": {
-		"babel": true,
-		"require": [
-			"@babel/register"
-		]
-	},
-	"xo": {
-		"extends": "xo-react",
-		"rules": {
-			"react/prop-types": "off"
-		}
-	},
-	"eslintConfig": {
-		"extends": [
-			"eslint:recommended",
-			"google"
-		],
-		"env": {
-			"browser": true,
-			"es6": true
-		},
-		"parser": "@babel/eslint-parser",
-		"parserOptions": {
-			"sourceType": "module",
-			"allowImportExportEverywhere": true
-		}
-	}
+  "name": "saihu",
+  "version": "0.30.7",
+  "description": "Client side chatbot framework that can be run in the command line",
+  "author": "Fred Lin <gasolin+saihubot@gmail.com>",
+  "license": "MIT",
+  "bin": {
+    "saihu": "./dist/cli.js"
+  },
+  "files": [
+    "dist/**",
+    "src/**"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "keywords": [
+    "saihubot",
+    "chatbot",
+    "devops",
+    "cli",
+    "ink",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gasolin/saihubot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gasolin/saihubot/issues"
+  },
+  "homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme",
+  "scripts": {
+    "start": "babel-node --presets @babel/preset-env src/cli.js",
+    "build": "babel --root-mode=upward ./src --out-dir ./dist --copy-files",
+    "prepublish": "npm run build && npm run doc",
+    "doc": "documentation build src -f html -o ../../docs/saihu",
+    "test": "xo && ava"
+  },
+  "dependencies": {
+    "react": "^16.14.0",
+    "saihubot": "^0.30.7",
+    "saihubot-cli-adapter": "^0.30.6",
+    "saihubot-cli-skill-qrcode": "^0.30.7",
+    "saihubot-skill-diagnostics": "^0.30.6",
+    "saihubot-skill-search": "^0.30.7"
+  },
+  "devDependencies": {
+    "@ava/babel": "^1.0.1",
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.5",
+    "@babel/register": "^7.12.1",
+    "ava": "^3.13.0",
+    "chalk": "^4.1.0",
+    "eslint": "^7.12.1",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-xo-react": "^0.23.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "ink-testing-library": "^2.1.0",
+    "xo": "^0.34.2"
+  },
+  "ava": {
+    "babel": true,
+    "require": [
+      "@babel/register"
+    ]
+  },
+  "xo": {
+    "extends": "xo-react",
+    "rules": {
+      "react/prop-types": "off"
+    }
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "google"
+    ],
+    "env": {
+      "browser": true,
+      "es6": true
+    },
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "sourceType": "module",
+      "allowImportExportEverywhere": true
+    }
+  }
 }

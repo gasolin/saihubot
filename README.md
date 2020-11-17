@@ -45,10 +45,11 @@ npx saihu npm saihu
 |[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-html-adapter.svg)](https://badge.fury.io/js/saihubot-html-adapter) |HTML |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-html-adapter) |
 |[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-adapter.svg)](https://badge.fury.io/js/saihubot-cli-adapter) |Command Line |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-adapter) |
 
-| Adapters | Version | Description | Doc |
+| Skills | Version | Description | Doc |
 | --------|---------|-------------|-----|
 |[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://badge.fury.io/js/saihubot-skill-search) | Search engines |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-search) |
 |[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://badge.fury.io/js/saihubot-skill-diagnostics) | ping, echo, current time | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-diagnostics) |
+|[saihubot-cli-skill-qrcode](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-skill-qrcode#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-skill-qrcode.svg)](https://badge.fury.io/js/saihubot-cli-skill-qrcode) | ping, echo, current time | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-skill-qrcode) |
 
 ## How to use
 
