@@ -1,4 +1,4 @@
-## 0.31 2020/11/17
+## 0.33 2020/11/17
 
 Feature
 - [saihu] add qrcode skill
