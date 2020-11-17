@@ -49,7 +49,7 @@ npx saihu npm saihu
 | --------|---------|-------------|-----|
 |[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://badge.fury.io/js/saihubot-skill-search) | Search engines |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-search) |
 |[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://badge.fury.io/js/saihubot-skill-diagnostics) | ping, echo, current time | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-diagnostics) |
-|[saihubot-cli-skill-qrcode](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-skill-qrcode#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-skill-qrcode.svg)](https://badge.fury.io/js/saihubot-cli-skill-qrcode) | ping, echo, current time | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-skill-qrcode) |
+|[saihubot-cli-skill-qrcode](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-skill-qrcode#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-skill-qrcode.svg)](https://badge.fury.io/js/saihubot-cli-skill-qrcode) | generate qrcode | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-skill-qrcode) |
 
 ## How to use
 
