@@ -1,6 +1,7 @@
 'use strict';
 
 // plugin that provide ping, time, echo skills
+/** simply return pong */
 export const skillPing = {
   name: 'ping',
   help: 'ping - return pong',
@@ -11,6 +12,7 @@ export const skillPing = {
   },
 };
 
+/** simply return anything you input */
 export const skillEcho = {
   name: 'echo',
   help: 'echo [string] - return [string]',
@@ -21,6 +23,7 @@ export const skillEcho = {
   },
 };
 
+/** return local time */
 export const skillCurrentTime = {
   name: 'time',
   help: 'time - return current browser time',
