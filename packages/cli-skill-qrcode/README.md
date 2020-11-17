@@ -29,3 +29,7 @@ saihu qrcode https://github.com/gasolin/saihubot
 ```
 
 ![Imgur](https://i.imgur.com/x7A6mjo.png)
+
+## Credit
+
+The project use https://github.com/soldair/node-qrcode and https://github.com/vadimdemedes/ink to render QRCode

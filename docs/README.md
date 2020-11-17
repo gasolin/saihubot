@@ -18,6 +18,7 @@ Skill
 
 - [saihubot-skill-search](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-search)
 - [saihubot-skill-diagnostics](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-diagnostics)
+- [saihubot-cli-skill-qrcode](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-skill-qrcode)
 
 ## Getting Started With Saihubot
 

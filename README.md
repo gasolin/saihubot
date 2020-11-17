@@ -2,11 +2,9 @@
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/) [![](https://github.com/gasolin/saihubot/workflows/Lint%20Action/badge.svg)](https://github.com/gasolin/saihubot/actions?query=workflow%3A%22Lint+Action%22)
 
-:robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: **Browser**, no server required.
+:robot: Frontend Framework to build :speech_balloon: message/chat bots ops in the :globe_with_meridians: [Browser](https://gasolin.github.io/saihubot/) or [Command Line](https://www.npmjs.com/package/saihu), no server required.
 
 You can add new skills to bot via `skills` and extend its ability via `addons`. All with plain javascript. :clap:
-
-The saihubot skills currently work for :globe_with_meridians: Browser and [Command line](https://github.com/gasolin/saihubot-cli).
 
 Saihubot's API is inspired by [hubot](https://github.com/github/hubot/)'s API, so a developer who has learned `hubot-plugins` could learn `saihu-skills` very quickly. :zap:
 
@@ -36,20 +34,20 @@ npx saihu npm saihu
 
 | Module  | Version | Description | Doc |
 | --------|---------|-------------|-----|
-| [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/saihubot#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://badge.fury.io/js/saihubot) | core module|[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot/) |
-| [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://badge.fury.io/js/saihu) | Sample Command line bot |[Doc](http://gasolin.idv.tw/saihubot/docs/saihu) |
+| [saihubot](https://github.com/gasolin/saihubot/tree/gh-pages/packages/saihubot#readme) | [![npm version](https://badge.fury.io/js/saihubot.svg)](https://www.npmjs.com/package/saihubot) | core module|[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot/) |
+| [saihu](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli#readme) | [![npm version](https://badge.fury.io/js/saihu.svg)](https://www.npmjs.com/package/saihu) | Sample Command line bot |[Doc](http://gasolin.idv.tw/saihubot/docs/saihu) |
 | [Web samples](https://github.com/gasolin/saihubot/tree/gh-pages/samples) | [Online Demos](https://gasolin.github.io/saihubot/) | |
 
 | Adapters | Version | Description | Doc |
 | --------|---------|-------------|-----|
-|[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-html-adapter.svg)](https://badge.fury.io/js/saihubot-html-adapter) |HTML |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-html-adapter) |
-|[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-adapter.svg)](https://badge.fury.io/js/saihubot-cli-adapter) |Command Line |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-adapter) |
+|[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://www.npmjs.com/package/saihubot-html-adapter.svg)](https://badge.fury.io/js/saihubot-html-adapter) |HTML |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-html-adapter) |
+|[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://www.npmjs.com/package/saihubot-cli-adapter.svg)](https://badge.fury.io/js/saihubot-cli-adapter) |Command Line |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-adapter) |
 
 | Skills | Version | Description | Doc |
 | --------|---------|-------------|-----|
-|[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://badge.fury.io/js/saihubot-skill-search) | Search engines |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-search) |
-|[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://badge.fury.io/js/saihubot-skill-diagnostics) | ping, echo, current time | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-diagnostics) |
-|[saihubot-cli-skill-qrcode](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-skill-qrcode#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-skill-qrcode.svg)](https://badge.fury.io/js/saihubot-cli-skill-qrcode) | generate qrcode | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-skill-qrcode) |
+|[saihubot-skill-search](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-search#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-search.svg)](https://www.npmjs.com/package/saihubot-skill-search) | Search engines |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-search) |
+|[saihubot-skill-diagnostics](https://github.com/gasolin/saihubot/tree/gh-pages/packages/skill-diagnostics#readme) |[![npm version](https://badge.fury.io/js/saihubot-skill-diagnostics.svg)](https://www.npmjs.com/package/saihubot-skill-diagnostics) | ping, echo, current time | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-skill-diagnostics) |
+|[saihubot-cli-skill-qrcode](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-skill-qrcode#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-skill-qrcode.svg)](https://www.npmjs.com/package/saihubot-cli-skill-qrcode) | generate qrcode | [Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-skill-qrcode) |
 
 ## How to use
 
