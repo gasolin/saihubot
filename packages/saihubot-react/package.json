@@ -1,6 +1,6 @@
 {
   "name": "saihubot-react",
-  "version": "0.31.0",
+  "version": "0.32.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
