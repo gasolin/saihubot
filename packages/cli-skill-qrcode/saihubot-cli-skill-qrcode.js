@@ -26,7 +26,9 @@ const QR = ({text}) => {
   return err ? <Text>{err}</Text> : null;
 };
 
-// skills that use card addon
+/**
+ * Render QRCode.
+ */
 export const skillQRCode = {
   name: 'qrcode',
   help: 'qrcode [text] - Generate QRCode with [text]',

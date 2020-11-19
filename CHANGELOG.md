@@ -1,3 +1,9 @@
+## 0.34 2020/11/19
+
+Feature
+- [saihubot] optional i18n support
+- [saihubot-cli-adapter] add addonExec to run local command
+
 ## 0.33 2020/11/17
 
 Feature

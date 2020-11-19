@@ -1,15 +1,33 @@
 import execa from 'execa';
 import fetch from 'node-fetch';
+
+const exec = (command, args) => execa(command, args)
+  .stdout.pipe(process.stdout);
+
 /**
  * Open url in browser.
  *
  * @param {String} url
  */
 function openTab(url) {
-  // eslint-disable-next-line no-undef
-  execa('open', [`${url}`]).stdout.pipe(process.stdout);
+  exec('open', [`${url}`]);
 }
 
+/**
+ * Run local command via execa.
+ * https://www.npmjs.com/package/execa
+ */
+export const addonExec = {
+  name: 'exec',
+  requirements: {
+    platform: ['cli'],
+  },
+  action: (robot) => exec,
+}
+
+/**
+ * Open link in browser.
+ */
 export const addonOpenLink = {
   name: 'openLink',
   requirements: {
@@ -19,7 +37,7 @@ export const addonOpenLink = {
 };
 
 /**
- * expose web equivalent fetch API.
+ * Expose web equivalent fetch API.
  */
 export const addonFetch = {
   name: 'fetch',
@@ -48,6 +66,6 @@ export const addonSearch = {
   },
 };
 
-const addons = [addonSearch, addonOpenLink, addonFetch];
+const addons = [addonSearch, addonOpenLink, addonFetch, addonExec];
 
 export {addons};
