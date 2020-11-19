@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme",
   "dependencies": {
+    "chalk": "^4.1.0",
     "dedent": "^0.7.0",
     "execa": "^4.1.0",
     "ink": "^3.0.8",

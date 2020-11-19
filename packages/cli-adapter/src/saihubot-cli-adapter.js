@@ -2,10 +2,15 @@
 import React from 'react';
 import {render} from 'ink';
 import Markdown from 'ink-markdown';
+import chalk from 'chalk';
 import dedent from 'dedent';
 
 const defaultRenderMessage = (msg, charactor, role) => (
-  <Markdown>{dedent(msg)}</Markdown>
+  <Markdown
+    link={chalk.cyan}
+    href={chalk.cyan.underline}>
+    {dedent(msg)}
+  </Markdown>
 );
 
 const defaultRenderComponent = (element, charactor, role) => element;

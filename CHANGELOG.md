@@ -4,6 +4,9 @@ Feature
 - [saihubot] optional i18n support
 - [saihubot-cli-adapter] add addonExec to run local command
 
+Enhancement
+- [saihubot-cli-adapter] change search link text color to cyan
+
 ## 0.33 2020/11/17
 
 Feature
