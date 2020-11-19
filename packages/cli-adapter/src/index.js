@@ -4,6 +4,7 @@ import {
   addonSearch,
   addonOpenLink,
   addonFetch,
+  addonExec,
 } from './saihubot-cli-addon-search';
 import {skillHelp} from './saihubot-cli-skill-help';
 
@@ -12,6 +13,7 @@ const addons = [
   addonSearch,
   addonOpenLink,
   addonFetch,
+  addonExec,
 ];
 
 const skills = [skillHelp];
@@ -23,6 +25,7 @@ export {
   addonSearch,
   addonOpenLink,
   addonFetch,
+  addonExec,
   skills,
   skillHelp,
 };
