@@ -17,7 +17,7 @@ export const skillSearchDuckduckgo = {
 /** Search with Wikipedia */
 export const skillSearchWikipedia = {
   name: 'wikipedia',
-  help: 'wikipedia|w|wiki [term] - search wikipedia with [term]',
+  help: 'wikipedia|w|wiki [term] - search Wikipedia with [term]',
   requirements: {
     addons: ['search'],
   },
@@ -25,20 +25,6 @@ export const skillSearchWikipedia = {
   action: function(robot, msg) {
     const url = 'http://en.wikipedia.org/w/index.php?title=Special:Search&search=' + encodeURIComponent(msg[2]);
     robot.addons.search('Search', msg[2], url, 'Wikipedia');
-  },
-};
-
-/** Search with Github */
-export const skillSearchGithub = {
-  name: 'github',
-  help: 'github|gh [term] - search github with [term]',
-  requirements: {
-    addons: ['search'],
-  },
-  rule: /(^github |^gh )(.*)/i,
-  action: function(robot, msg) {
-    const url = 'https://github.com/search?utf8=%E2%9C%93&q=' + encodeURIComponent(msg[2]);
-    robot.addons.search('Search', msg[2], url, 'Github');
   },
 };
 
@@ -59,7 +45,7 @@ export const skillSearchGoogle = {
 /** Search with Google Translate */
 export const skillSearchGoogletranslate = {
   name: 'googletranslate',
-  help: 'translate|tr|trans|gt [term] - translate [term] with google translate',
+  help: 'translate|tr|trans|gt [term] - translate [term] with Google Translate',
   requirements: {
     addons: ['search'],
   },
@@ -73,7 +59,7 @@ export const skillSearchGoogletranslate = {
 /** Search with Google Images */
 export const skillSearchGoogleimages = {
   name: 'googleimages',
-  help: 'images|image|gi [term] - search [term] with google images',
+  help: 'images|image|gi [term] - search [term] with Google Images',
   requirements: {
     addons: ['search'],
   },
@@ -87,7 +73,7 @@ export const skillSearchGoogleimages = {
 /** Search with Google Maps */
 export const skillSearchGooglemaps = {
   name: 'googlemaps',
-  help: 'maps|map|gm [term] - search [term] with google maps',
+  help: 'maps|map|gm [term] - search [term] with Google Maps',
   requirements: {
     addons: ['search'],
   },
@@ -98,10 +84,13 @@ export const skillSearchGooglemaps = {
   },
 };
 
-/** Search with Google Trends */
+/**
+ * Search with Google Trends.
+ * Can send several terms with comma to compare.
+ */
 export const skillSearchGoogleTrends = {
   name: 'googletrends',
-  help: 'trends [term] - search [term] with google maps',
+  help: 'trends [term] - search [term] with Google Trends',
   requirements: {
     addons: ['search'],
   },
@@ -126,34 +115,6 @@ export const skillSearchYoutube = {
   },
 };
 
-/** Search with MDN */
-export const skillSearchMdn = {
-  name: 'mdn',
-  help: 'mdn [term] - search [term] with Mozilla Developer Network',
-  requirements: {
-    addons: ['search'],
-  },
-  rule: /(^mdn )(.*)/i,
-  action: function(robot, msg) {
-    const url = 'https://mdn.io/' + encodeURIComponent(msg[2]);
-    robot.addons.search('Search', msg[2], url, 'MDN');
-  },
-};
-
-/** Search with NPM */
-export const skillSearchNpm = {
-  name: 'npm',
-  help: 'npm [term] - search [term] with npm',
-  requirements: {
-    addons: ['search'],
-  },
-  rule: /(^npm )(.*)/i,
-  action: function(robot, msg) {
-    const url = 'https://www.npmjs.com/search?q=' + encodeURIComponent(msg[2]);
-    robot.addons.search('Search', msg[2], url, 'npm');
-  },
-};
-
 /** Search with Twitter */
 export const skillSearchTwitter = {
   name: 'twitter',
@@ -165,20 +126,6 @@ export const skillSearchTwitter = {
   action: function(robot, msg) {
     const url = 'https://twitter.com/search?q=' + encodeURIComponent(msg[2]);
     robot.addons.search('Search', msg[2], url, 'Twitter');
-  },
-};
-
-/** Search with StackOverflow */
-export const skillSearchStackoverflow = {
-  name: 'stackoverflow',
-  help: 'stackoverflow|stack|so [term] - search [term] with StackOverflow',
-  requirements: {
-    addons: ['search'],
-  },
-  rule: /(^stackoverflow |^stack |^so )(.*)/i,
-  action: function(robot, msg) {
-    const url = 'https://stackoverflow.com/search?q=' + encodeURIComponent(msg[2]);
-    robot.addons.search('Search', msg[2], url, 'StackOverflow');
   },
 };
 
@@ -196,36 +143,17 @@ export const skillSearchWolfram = {
   },
 };
 
-/** Search with Cheat.sh */
-export const skillSearchCheatsh = {
-  name: 'cheatsh',
-  help: 'cheat|cheatsh [term] - search [term] with cheat.sh',
-  requirements: {
-    addons: ['search'],
-  },
-  rule: /(^cheat |^cheatsh |^cheat\.sh )(.*)/i,
-  action: function(robot, msg) {
-    const url = 'https://cheat.sh/' + encodeURIComponent(msg[2]);
-    robot.addons.search('Search', msg[2], url, 'Cheat.sh');
-  },
-};
-
 const skills = [
   skillSearchDuckduckgo,
   skillSearchWikipedia,
-  skillSearchGithub,
   skillSearchGoogle,
   skillSearchGoogletranslate,
   skillSearchGoogleimages,
   skillSearchGooglemaps,
   skillSearchGoogleTrends,
   skillSearchYoutube,
-  skillSearchMdn,
-  skillSearchNpm,
   skillSearchTwitter,
-  skillSearchStackoverflow,
   skillSearchWolfram,
-  skillSearchCheatsh,
 ];
 
 export {skills};

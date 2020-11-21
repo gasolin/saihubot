@@ -1,35 +1,44 @@
 import {
   skillSearchDuckduckgo,
   skillSearchWikipedia,
-  skillSearchGithub,
   skillSearchGoogle,
   skillSearchGoogletranslate,
   skillSearchGoogleimages,
   skillSearchGooglemaps,
   skillSearchGoogleTrends,
   skillSearchYoutube,
+  skillSearchTwitter,
+  skillSearchWolfram,
+  skills as searchSkills,
+} from './saihubot-skill-search.js';
+
+import {
+  skillSearchGithub,
   skillSearchMdn,
   skillSearchNpm,
-  skillSearchTwitter,
   skillSearchStackoverflow,
-  skillSearchWolfram,
-  skills,
-} from './saihubot-skill-search.js';
+  skillSearchCheatsh,
+  skills as devSkills,
+} from './saihubot-skill-dev-search.js';
+
+const skills = [...searchSkills,  ...devSkills];
 
 export {
   skillSearchDuckduckgo,
   skillSearchWikipedia,
-  skillSearchGithub,
   skillSearchGoogle,
   skillSearchGoogletranslate,
   skillSearchGoogleimages,
   skillSearchGooglemaps,
   skillSearchGoogleTrends,
   skillSearchYoutube,
+  skillSearchTwitter,
+  skillSearchWolfram,
+  // dev
+  skillSearchGithub,
   skillSearchMdn,
   skillSearchNpm,
-  skillSearchTwitter,
   skillSearchStackoverflow,
-  skillSearchWolfram,
+  skillSearchCheatsh,
   skills,
 };
