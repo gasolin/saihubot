@@ -6,7 +6,8 @@
   "files": [
     "dist/**",
     "index.js",
-    "saihubot-skill-search.js"
+    "saihubot-skill-search.js",
+    "saihubot-skill-dev-search.js"
   ],
   "scripts": {
     "build": "babel --root-mode=upward index.js saihubot-skill-search.js saihubot-skill-dev-search.js --out-dir ./dist",

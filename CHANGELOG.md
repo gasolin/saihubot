@@ -9,6 +9,9 @@ Enhancement
 - [saihubot-cli-adapter] change search link text color to cyan
 - [saihubot-skill-search] separate search and dev search skills
 
+Fix
+- [saihubot-skill-search] fix saihubot-skill-dev-search availablity on package
+
 ## 0.33 2020/11/17
 
 Feature
