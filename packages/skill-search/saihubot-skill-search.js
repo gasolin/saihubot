@@ -218,6 +218,7 @@ const skills = [
   skillSearchGoogletranslate,
   skillSearchGoogleimages,
   skillSearchGooglemaps,
+  skillSearchGoogleTrends,
   skillSearchYoutube,
   skillSearchMdn,
   skillSearchNpm,
