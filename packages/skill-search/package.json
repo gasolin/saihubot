@@ -9,7 +9,7 @@
     "saihubot-skill-search.js"
   ],
   "scripts": {
-    "build": "babel --root-mode=upward index.js saihubot-skill-search.js --out-dir ./dist",
+    "build": "babel --root-mode=upward index.js saihubot-skill-search.js saihubot-skill-dev-search.js --out-dir ./dist",
     "prepublish": "npm run build && npm run doc",
     "doc": "documentation build index.js -f html -o ../../docs/saihubot-skill-search"
   },
