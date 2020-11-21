@@ -1,6 +1,6 @@
 {
   "name": "saihubot-skill-search",
-  "version": "0.34.3",
+  "version": "0.34.4",
   "description": "Saihubot search skills.",
   "main": "dist/index.js",
   "files": [
