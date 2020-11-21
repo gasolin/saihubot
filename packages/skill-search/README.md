@@ -9,6 +9,7 @@ Saihubot-skill-search provide a range of search skills that works for HTML and C
 * Google Translate (translate|tr|trans|gt [term])
 * Google Images (images|image|gi [term])
 * Google Maps (maps|map|gm [term])
+* Google Trends (trends [term])
 * Youtube (youtube|yt [term])
 * MDN (mdn [term])
 * NPM (npm [term])

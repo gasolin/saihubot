@@ -1,8 +1,9 @@
-## 0.34 2020/11/19
+## 0.34 2020/11/21
 
 Feature
 - [saihubot] optional i18n support
 - [saihubot-cli-adapter] add addonExec to run local command
+- [saihubot-skill-search] search with google trends
 
 Enhancement
 - [saihubot-cli-adapter] change search link text color to cyan

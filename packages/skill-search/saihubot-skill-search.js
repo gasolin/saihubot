@@ -98,6 +98,20 @@ export const skillSearchGooglemaps = {
   },
 };
 
+/** Search with Google Trends */
+export const skillSearchGoogleTrends = {
+  name: 'googletrends',
+  help: 'trends [term] - search [term] with google maps',
+  requirements: {
+    addons: ['search'],
+  },
+  rule: /(^trends )(.*)/i,
+  action: function(robot, msg) {
+    const url = 'https://trends.google.com.tw/trends/explore?q=' + encodeURIComponent(msg[2]);
+    robot.addons.search('Search', msg[2], url, 'Google Trends');
+  },
+};
+
 /** Search with Youtube */
 export const skillSearchYoutube = {
   name: 'youtube',
