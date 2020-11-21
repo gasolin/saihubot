@@ -40,5 +40,7 @@ export {
   skillSearchNpm,
   skillSearchStackoverflow,
   skillSearchCheatsh,
+  searchSkills,
+  devSkills,
   skills,
 };

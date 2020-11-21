@@ -2,18 +2,23 @@
 
 Saihubot-skill-search provide a range of search skills that works for HTML and Command Line.
 
+`import {searchSkills} from 'saihubot-skill-search';`
+
 * Duckduckgo (duckduckgo|duck [term])
 * Wikipedia (wikipedia|w|wiki [term])
-* Github (github|gh [term])
 * Google (google|g [term])
 * Google Translate (translate|tr|trans|gt [term])
 * Google Images (images|image|gi [term])
 * Google Maps (maps|map|gm [term])
 * Google Trends (trends [term])
 * Youtube (youtube|yt [term])
+* Twitter (twitter [term])
+
+`import {devSkills} from 'saihubot-skill-search';`
+
+* Github (github|gh [term])
 * MDN (mdn [term])
 * NPM (npm [term])
-* Twitter (twitter [term])
 * Stackoverflow (stackoverflow|stack|so [term])
 * Wolfram (wolfram|wolf|wo [term])
 * Cheat.sh (cheat |cheatsh |cheat.sh [term])

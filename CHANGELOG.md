@@ -7,6 +7,7 @@ Feature
 
 Enhancement
 - [saihubot-cli-adapter] change search link text color to cyan
+- [saihubot-skill-search] separate search and dev search skills
 
 ## 0.33 2020/11/17
 
