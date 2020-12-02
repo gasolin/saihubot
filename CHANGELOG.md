@@ -8,6 +8,7 @@ Enhancement
 
 Refactor
 - move embed css to index.css
+- (WIP)[saihubot-react] add default UI
 
 ## 0.34 2020/11/21
 
