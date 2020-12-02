@@ -10,6 +10,10 @@ const QR = ({text}) => {
   useEffect(()=>{
     QRCode.toString(text, {
       errorCorrectionLevel: 'H',
+      color: {
+        dark: '#fefefefe',
+        light: '#000000ff',
+      }
     })
     .then(url => {
       setData(url);

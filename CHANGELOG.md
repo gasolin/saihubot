@@ -1,3 +1,14 @@
+## 0.35 2020/11/30
+
+Break Change
+- Move i18n from `saihubot` core to `saihubot-cli-adapter`
+
+Enhancement
+- [saihubot-cli-skill-qrcode] revert the color
+
+Refactor
+- move embed css to index.css
+
 ## 0.34 2020/11/21
 
 Feature

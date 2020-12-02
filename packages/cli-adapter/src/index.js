@@ -7,6 +7,8 @@ import {
   addonExec,
 } from './saihubot-cli-addon-search';
 import {skillHelp} from './saihubot-cli-skill-help';
+import {getConfig} from './utils';
+import {t} from './i18n';
 
 const addons = [
   addonConfirm,
@@ -28,4 +30,6 @@ export {
   addonExec,
   skills,
   skillHelp,
+  getConfig,
+  t,
 };
