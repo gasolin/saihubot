@@ -7,6 +7,7 @@ Enhancement
 - [saihubot-cli-skill-qrcode] revert the color
 
 Refactor
+- update deps
 - move embed css to index.css
 - (WIP)[saihubot-react] add default UI
 

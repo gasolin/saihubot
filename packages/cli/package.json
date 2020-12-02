@@ -47,22 +47,22 @@
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
-    "@babel/cli": "^7.12.1",
-    "@babel/core": "^7.12.3",
+    "@babel/cli": "^7.12.8",
+    "@babel/core": "^7.12.9",
     "@babel/eslint-parser": "^7.12.1",
     "@babel/node": "^7.12.6",
-    "@babel/preset-env": "^7.12.1",
-    "@babel/preset-react": "^7.12.5",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
     "@babel/register": "^7.12.1",
     "ava": "^3.13.0",
     "chalk": "^4.1.0",
-    "eslint": "^7.12.1",
+    "eslint": "^7.14.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-xo-react": "^0.23.0",
     "eslint-plugin-react": "^7.21.5",
     "eslint-plugin-react-hooks": "^4.2.0",
     "ink-testing-library": "^2.1.0",
-    "xo": "^0.34.2"
+    "xo": "^0.35.0"
   },
   "ava": {
     "babel": true,
