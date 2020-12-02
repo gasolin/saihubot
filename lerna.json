@@ -3,5 +3,5 @@
     "packages/*",
     "!packages/saihubot-react"
   ],
-  "version": "0.34.7"
+  "version": "0.35.0"
 }

@@ -1,6 +1,6 @@
 {
   "name": "saihubot-html-adapter",
-  "version": "0.34.0",
+  "version": "0.35.0",
   "description": "Saihubot html adapter with some bundled addons.",
   "scripts": {
     "prepublish": "npm run doc",
