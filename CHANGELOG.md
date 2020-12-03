@@ -4,7 +4,7 @@ Break Change
 - Move i18n from `saihubot` core to `saihubot-cli-adapter`
 
 Enhancement
-- [saihubot-cli-skill-qrcode] revert the color
+- [saihubot-cli-skill-qrcode] revert the color, and double the qrcode size
 
 Refactor
 - update deps

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset='utf-8'>
-  <title>saihubot 0.34.0 | Documentation</title>
+  <title>saihubot 0.35.0 | Documentation</title>
   <meta name='description' content='Frontend framework to build message/chatbot ops, no server required.'>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' rel='stylesheet'>
@@ -15,7 +15,7 @@
       <div id='split-left' class='overflow-auto fs0 height-viewport-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>saihubot</h3>
-          <div class='mb1'><code>0.34.0</code></div>
+          <div class='mb1'><code>0.35.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -26,26 +26,6 @@
             type='text' />
           <div id='toc'>
             <ul class='list-reset h5 py1-ul'>
-              
-                
-                <li><a
-                  href='#geti18n'
-                  class="">
-                  getI18n
-                  
-                </a>
-                
-                </li>
-              
-                
-                <li><a
-                  href='#t'
-                  class="">
-                  t
-                  
-                </a>
-                
-                </li>
               
                 
                 <li><a
@@ -125,182 +105,6 @@
         </div>
       </div>
       <div id='split-right' class='relative overflow-auto height-viewport-100'>
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='geti18n'>
-      getI18n
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>get related i18n dictionary.</p>
-
-    <div class='pre p1 fill-light mt0'>getI18n</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>i18n</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>)</code>
-	    object
-
-          </div>
-          
-          <table class='mt1 mb2 fixed-table h5 col-12'>
-            <colgroup>
-              <col width='30%' />
-              <col width='70%' />
-            </colgroup>
-            <thead>
-              <tr class='bold fill-light'>
-                <th>Name</th>
-                <th>Description</th>
-              </tr>
-            </thead>
-            <tbody class='mt1'>
-              
-                <tr>
-  <td class='break-word'><span class='code bold'>i18n.props</span> <code class='quiet'><a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>></code>
-  </td>
-  <td class='break-word'><span>variables used in string
-</span></td>
-</tr>
-
-
-              
-            </tbody>
-          </table>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
-        
-          
-          <section class='p2 mb2 clearfix bg-white minishadow'>
-
-  
-  <div class='clearfix'>
-    
-    <h3 class='fl m0' id='t'>
-      t
-    </h3>
-    
-    
-  </div>
-  
-
-  <p>Light weight i18n support.</p>
-<p>define strings in an object
-const i18n = {
-'en': {
-hello: 'Hello {{name}}',
-},
-'zh_TW': {
-hello: '你好，{{name}}',
-},
-props: ['name'],
-}</p>
-<p>t('hello', { i18n, hello: 'world' })
-// Hello World</p>
-<p>export SAIHUBOT=zh_TW
-t('hello', { i18n, hello: 'world' })</p>
-<p>// 你好，world</p>
-
-    <div class='pre p1 fill-light mt0'>t</div>
-  
-  
-
-  
-  
-  
-  
-  
-  
-
-  
-    <div class='py1 quiet mt1 prose-big'>Parameters</div>
-    <div class='prose'>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>str</span> <code class='quiet'>(<a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
-	    the string id
-
-          </div>
-          
-        </div>
-      
-        <div class='space-bottom0'>
-          <div>
-            <span class='code bold'>args</span> <code class='quiet'>(any)</code>
-	    
-          </div>
-          
-        </div>
-      
-    </div>
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-</section>
-
-          
         
           
           <section class='p2 mb2 clearfix bg-white minishadow'>

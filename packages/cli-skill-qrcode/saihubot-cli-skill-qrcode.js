@@ -10,6 +10,8 @@ const QR = ({text}) => {
   useEffect(()=>{
     QRCode.toString(text, {
       errorCorrectionLevel: 'H',
+      margin: 2,
+      scale: 8,
       color: {
         dark: '#fefefefe',
         light: '#000000ff',
