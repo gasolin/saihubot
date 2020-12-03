@@ -1,6 +1,6 @@
 {
   "name": "saihu",
-  "version": "0.35.0",
+  "version": "0.35.1",
   "description": "Client side chatbot framework that can be run in the command line",
   "author": "Fred Lin <gasolin+saihubot@gmail.com>",
   "license": "MIT",
@@ -41,7 +41,7 @@
     "react": "^16.14.0",
     "saihubot": "^0.35.0",
     "saihubot-cli-adapter": "^0.35.0",
-    "saihubot-cli-skill-qrcode": "^0.35.0",
+    "saihubot-cli-skill-qrcode": "^0.35.1",
     "saihubot-skill-diagnostics": "^0.35.0",
     "saihubot-skill-search": "^0.35.0"
   },
