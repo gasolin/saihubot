@@ -1,3 +1,8 @@
+## 0.36 2020/12/11
+
+Fix
+- support open browser on Windows
+
 ## 0.35 2020/11/30
 
 Break Change
