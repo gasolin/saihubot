@@ -10,7 +10,8 @@ const exec = (command, args) => execa(command, args)
  * @param {String} url
  */
 function openTab(url) {
-  exec('open', [`${url}`]);
+  const openBrowserCmd = process.platform === "win32" ? 'explorer' : 'open'
+  exec(openBrowserCmd, [`${url}`]);
 }
 
 /**
