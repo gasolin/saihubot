@@ -30,7 +30,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "dedent": "^0.7.0",
-    "execa": "^4.1.0",
+    "execa": "^5.0.0",
     "ink": "^3.0.8",
     "ink-box": "^1.0.0",
     "ink-markdown": "^1.0.1",

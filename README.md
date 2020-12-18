@@ -67,6 +67,7 @@ Then run
 
 
 ```sh
+npm build
 npm start
 ```
 
