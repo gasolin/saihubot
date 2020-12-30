@@ -1,3 +1,16 @@
+## 0.37
+
+Feature
+- add react-redux-adapter module
+- add workable saihubot-react demo project
+
+Fix
+- README adapters npm version icon
+
+Refactor
+- update packages deps
+- [saihubot-react] upgrade to tailwind 2
+
 ## 0.36 2020/12/11
 
 Fix

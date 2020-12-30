@@ -40,8 +40,9 @@ npx saihu npm saihu
 
 | Adapters | Version | Description | Doc |
 | --------|---------|-------------|-----|
-|[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://www.npmjs.com/package/saihubot-html-adapter.svg)](https://badge.fury.io/js/saihubot-html-adapter) |HTML |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-html-adapter) |
-|[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://www.npmjs.com/package/saihubot-cli-adapter.svg)](https://badge.fury.io/js/saihubot-cli-adapter) |Command Line |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-adapter) |
+|[saihubot-html-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/html-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-html-adapter.svg)](https://www.npmjs.com/package/saihubot-html-adapter) |HTML |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-html-adapter) |
+|[saihubot-react-redux-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/react-redux-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-react-redux-adapter.svg)](https://www.npmjs.com/package/saihubot-react-redux-adapter) |React + Redux |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-react-redux-adapter) |
+|[saihubot-cli-adapter](https://github.com/gasolin/saihubot/tree/gh-pages/packages/cli-adapter#readme) |[![npm version](https://badge.fury.io/js/saihubot-cli-adapter.svg)](https://www.npmjs.com/package/saihubot-cli-adapter.svg) |Command Line |[Doc](http://gasolin.idv.tw/saihubot/docs/saihubot-cli-adapter) |
 
 | Skills | Version | Description | Doc |
 | --------|---------|-------------|-----|
