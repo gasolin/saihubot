@@ -2,8 +2,7 @@ import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import SaihuBot from 'saihubot/dist/saihubot';
 import {skills} from 'saihubot-skill-diagnostics';
-import reduxAdapter from 'react-redux-adapter/saihubot-react-redux-adapter';
-import {selectMessages} from 'react-redux-adapter/dist/features/saihubot/saihubotSlice';
+import {reduxAdapter, selectMessages} from 'saihubot-react-redux-adapter/dist';
 
 import './App.css';
 
