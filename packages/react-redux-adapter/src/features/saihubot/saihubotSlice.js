@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice} from '@reduxjs/toolkit';
 
 export const saihubotSlice = createSlice({
   name: 'saihubot',
@@ -11,13 +11,13 @@ export const saihubotSlice = createSlice({
       state.loading = true;
       state.messages.push(action.payload);
     },
-    render: state => state.loading = false,
-  }
+    render: (state) => state.loading = false,
+  },
 });
 
-export const { send, render } = saihubotSlice.actions;
+export const {send, render} = saihubotSlice.actions;
 
-export const selectMessages = state => state.saihubot.messages;
-export const selectLoading = state => state.saihubot.loading;
+export const selectMessages = (state) => state.saihubot.messages;
+export const selectLoading = (state) => state.saihubot.loading;
 
 export default saihubotSlice.reducer;

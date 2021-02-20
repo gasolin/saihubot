@@ -1,4 +1,4 @@
-import { send } from './features/saihubot/saihubotSlice';
+import {send} from './features/saihubot/saihubotSlice';
 
 const defaultRenderMessage = (msg, charactor, role = 'bot') => ({
   charactor,
@@ -12,7 +12,7 @@ const defaultRenderComponent = (element, charactor, role = 'bot') => {
     charactor,
     msg: element,
     role,
-  }
+  };
 };
 
 // eslint-disable-next-line no-unused-vars
@@ -37,11 +37,7 @@ const reduxAdapter = (dispatch) => ({
     this.message.addEventListener('keydown', this.onKeydownBound);
   },
 
-  shutdownHook: function(shutdown) {
-    // if (window) {
-    //   window.addEventListener('beforeunload', shutdown);
-    // }
-  },
+  shutdownHook: function(shutdown) {},
 
   close: function() {
     this.robot.DEBUG && console.log('close basic adapter');

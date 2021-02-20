@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import saihubotReducer from 'react-redux-adapter/dist/features/saihubot/saihubotSlice';
+import saihubotReducer from 'saihubot-react-redux-adapter/dist';
 
 export default configureStore({
   reducer: {
