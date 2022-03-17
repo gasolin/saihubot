@@ -1,15 +1,15 @@
 {
   "name": "saihubot-react",
-  "version": "0.37.1",
+  "version": "0.38.0",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-redux": "^7.2.2",
-    "saihubot": "^0.37.0",
-    "saihubot-react-redux-adapter": "^0.37.1",
-    "saihubot-skill-diagnostics": "^0.37.0",
+    "saihubot": "^0.38.0",
+    "saihubot-react-redux-adapter": "^0.38.0",
+    "saihubot-skill-diagnostics": "^0.38.0",
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
