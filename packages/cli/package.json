@@ -58,7 +58,7 @@
     "chalk": "^5.0.1",
     "eslint": "^7.32.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-xo-react": "^0.26.0",
+    "eslint-config-xo-react": "^0.25.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "ink-testing-library": "^2.1.0",
