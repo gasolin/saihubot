@@ -63,6 +63,8 @@ const DEFAULT_FALLBACK_MESSAGES = [
   'Please make your order clear',
 ];
 
+const DEFAULT_WELCOME_MESSAGES = 'type something to chat with me';
+      
 /**
  * SaihuBot main instance.
  *
@@ -95,8 +97,7 @@ function SaihuBot(config) {
   this.ui = config.ui || {};
   this.DEBUG = config.debug || false;
 
-  this.welcomeMessage = config.welcomeMessage ||
-    'type something to chat with me';
+  this.welcomeMessage = config.welcomeMessage || DEFAULT_WELCOME_MESSAGES;
   this.notFoundMessages = config.notFoundMessages || DEFAULT_FALLBACK_MESSAGES;
   this.saveChatLog = config.saveChatLog || true;
   // provide run, close, send, render function by adapter
